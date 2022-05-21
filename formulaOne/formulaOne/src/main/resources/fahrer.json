@@ -1,0 +1,16 @@
+[
+  {
+    "fahrerUUID": "44",
+    "name": "Hamilton",
+    "vorname": "Lewis",
+    "geburtstag": "true",
+    "siege": "103"
+  },
+  {
+    "fahrerUUID": "5",
+    "name": "Vettel",
+    "vorname": "Sebastian",
+    "geburtstag": "false",
+    "siege": "53"
+  }
+]
