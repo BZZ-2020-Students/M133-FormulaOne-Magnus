@@ -1,13 +1,15 @@
 package ch.formula.one.model;
 
-import java.time.LocalDate;
-
 public class Fahrer {
     private String fahrerUUID;
     private String name;
     private String vorname;
-    private Boolean geburtstag;
+    private Boolean erstFahrer;
     private Integer siege;
+    
+    public void setSiege(Integer siege) {
+        this.siege = siege;
+    }
 
     public void readFahrer(){
 
@@ -41,12 +43,12 @@ public class Fahrer {
         this.vorname = vorname;
     }
 
-    public Boolean getGeburtstag() {
-        return geburtstag;
+    public Boolean getErstFahrer() {
+        return erstFahrer;
     }
 
-    public void setGeburtstag(Boolean geburtstag) {
-        this.geburtstag = geburtstag;
+    public void setErstFahrer(Boolean erstFahrer) {
+        this.erstFahrer = erstFahrer;
     }
 
     public int getSiege() {

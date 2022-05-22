@@ -25,10 +25,12 @@ public class DataHandler {
      * private constructor defeats instantiation
      */
     private DataHandler() {
-//        setPublisherList(new ArrayList<>());
-//        readPublisherJSON();
+        setTeamList(new ArrayList<>());
+        readTeamJSON();
         setFahrerList(new ArrayList<>());
         readFahrerJSON();
+        setSaisonList(new ArrayList<>());
+        readSaisonJSON();
     }
 
     /**
@@ -65,29 +67,53 @@ public class DataHandler {
         return fahrer;
     }
 
-//    /**
-//     * reads all Publishers
-//     * @return list of publishers
-//     */
-//    public List<Publisher> readAllPublishers() {
-//
-//        return getPublisherList();
-//    }
-//
-//    /**
-//     * reads a publisher by its uuid
-//     * @param publisherUUID
-//     * @return the Publisher (null=not found)
-//     */
-//    public Publisher readPublisherByUUID(String publisherUUID) {
-//        Publisher publisher = null;
-//        for (Publisher entry : getPublisherList()) {
-//            if (entry.getPublisherUUID().equals(publisherUUID)) {
-//                publisher = entry;
-//            }
-//        }
-//        return publisher;
-//    }
+    /**
+     * reads all Teams
+     * @return list of teams
+     */
+    public List<Team> readAllTeams() {
+
+        return getTeamList();
+    }
+
+    /**
+     * reads a team by its uuid
+     * @param teamUUID
+     * @return the Team (null=not found)
+     */
+    public Team readTeamByUUID(String teamUUID) {
+        Team team = null;
+        for (Team entry : getTeamList()) {
+            if (entry.getTeamUUID().equals(teamUUID)) {
+                team = entry;
+            }
+        }
+        return team;
+    }
+
+    /**
+     * reads all saisons
+     * @return list of saisons
+     */
+    public List<Saison> readAllSaisons() {
+        return getSaisonList();
+    }
+
+    /**
+     * reads a saison by its uuid
+     * @param saisonUUID
+     * @return the Saison (null=not found)
+     */
+    public Saison readSaisonByUUID(String saisonUUID) {
+        Saison saison = null;
+        for (Saison entry : getSaisonList()) {
+            if (entry.getSaisonUUID().equals(saisonUUID)) {
+                saison = entry;
+            }
+        }
+        return saison;
+    }
+
 
     /**
      * reads the fahrers from the JSON-file
@@ -108,26 +134,48 @@ public class DataHandler {
             ex.printStackTrace();
         }
     }
-//
-//    /**
-//     * reads the publishers from the JSON-file
-//     */
-//    private void readPublisherJSON() {
-//        try {
-//            byte[] jsonData = Files.readAllBytes(
-//                    Paths.get(
-//                            Config.getProperty("publisherJSON")
-//                    )
-//            );
-//            ObjectMapper objectMapper = new ObjectMapper();
-//            Publisher[] publishers = objectMapper.readValue(jsonData, Publisher[].class);
-//            for (Publisher publisher : publishers) {
-//                getPublisherList().add(publisher);
-//            }
-//        } catch (IOException ex) {
-//            ex.printStackTrace();
-//        }
-//    }
+
+    /**
+     * reads the teams from the JSON-file
+     */
+    private void readTeamJSON() {
+        try {
+            byte[] jsonData = Files.readAllBytes(
+                    Paths.get(
+                            Config.getProperty("teamJSON")
+                    )
+            );
+            ObjectMapper objectMapper = new ObjectMapper();
+            Team[] teams = objectMapper.readValue(jsonData, Team[].class);
+            for (Team team : teams) {
+                getTeamList().add(team);
+            }
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    /**
+     * reads the saisons from the JSON-file
+     */
+    private void readSaisonJSON() {
+        try {
+            String path = Config.getProperty("saisonJSON");
+
+            byte[] jsonData = Files.readAllBytes(
+                    Paths.get(path)
+            );
+            ObjectMapper objectMapper = new ObjectMapper();
+            Saison[] saisons = objectMapper.readValue(jsonData, Saison[].class);
+            for (Saison saison : saisons) {
+                getSaisonList().add(saison);
+            }
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
+
+
     /**
      * gets fahrerList
      *
@@ -146,21 +194,39 @@ public class DataHandler {
         this.fahrerList = fahrerList;
     }
 
-//    /**
-//     * gets publisherList
-//     *
-//     * @return value of publisherList
-//     */
-//    private List<Publisher> getPublisherList() {
-//        return publisherList;
-//    }
-//
-//    /**
-//     * sets publisherList
-//     *
-//     * @param publisherList the value to set
-//     */
-//    private void setPublisherList(List<Publisher> publisherList) {
-//        this.publisherList = publisherList;
-//    }
+    /**
+     * gets teamList
+     *
+     * @return value of teamList
+     */
+    private List<Team> getTeamList() {
+        return teamList;
+    }
+
+    /**
+     * sets teamList
+     *
+     * @param teamList the value to set
+     */
+    private void setTeamList(List<Team> teamList) {
+        this.teamList = teamList;
+    }
+
+    /**
+     * gets saisonList
+     *
+     * @return value of saisonList
+     */
+    private List<Saison> getSaisonList() {
+        return saisonList;
+    }
+
+    /**
+     * sets saisonList
+     *
+     * @param saisonList the value to set
+     */
+    private void setSaisonList(List<Saison> saisonList) {
+        this.saisonList = saisonList;
+    }
 }

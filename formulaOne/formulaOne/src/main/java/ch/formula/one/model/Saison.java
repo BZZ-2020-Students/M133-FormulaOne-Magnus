@@ -4,7 +4,7 @@ import java.time.LocalDate;
 
 public class Saison {
     private String saisonUUID;
-    private LocalDate jahr;
+    private String jahr;
     private String gewinner;
 
     public void readSaison(){
@@ -15,11 +15,11 @@ public class Saison {
 
     }
 
-    public LocalDate getJahr() {
+    public String getJahr() {
         return jahr;
     }
 
-    public void setJahr(LocalDate jahr) {
+    public void setJahr(String jahr) {
         this.jahr = jahr;
     }
 
