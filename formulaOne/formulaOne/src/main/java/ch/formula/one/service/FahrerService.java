@@ -11,8 +11,15 @@ import jakarta.ws.rs.core.Response;
 
 import java.util.List;
 
+/**
+ * services to list and read Fahrers
+ */
 @Path("fahrer")
 public class FahrerService {
+    /**
+     * reads a list of fahrer
+     * @return fahrer
+     */
     @Path("list")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
@@ -25,6 +32,11 @@ public class FahrerService {
         return response;
     }
 
+    /**
+     * reads a fahrer identified by the uuid
+     * @param fahrerUUID
+     * @return fahrer
+     */
     @GET
     @Path("read")
     @Produces(MediaType.APPLICATION_JSON)

@@ -13,7 +13,10 @@ import java.util.List;
 
 @Path("team")
 public class TeamService {
-
+    /**
+     * reads a list of team
+     * @return fahrer
+     */
     @GET
     @Path("list")
     @Produces(MediaType.APPLICATION_JSON)

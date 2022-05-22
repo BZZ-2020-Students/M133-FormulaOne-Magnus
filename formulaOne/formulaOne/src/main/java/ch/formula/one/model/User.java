@@ -7,11 +7,9 @@ public class User {
     private String userRole;
 
     public void logon(){
-
     }
 
     public void logoff(){
-
     }
 
     public String getUserUUID() {

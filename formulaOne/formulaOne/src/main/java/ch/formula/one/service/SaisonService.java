@@ -10,8 +10,15 @@ import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 import java.util.List;
 
+/**
+ * services to list and read Saisons
+ */
 @Path("saison")
 public class SaisonService {
+    /**
+     * reads a list of saison
+     * @return saisons as JSON
+     */
     @Path("list")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
@@ -23,7 +30,11 @@ public class SaisonService {
                 .build();
         return response;
     }
-
+    /**
+     * reads a saison identified by the uuid
+     * @param saisonUUID
+     * @return saison
+     */
     @GET
     @Path("read")
     @Produces(MediaType.APPLICATION_JSON)
