@@ -5,9 +5,9 @@ import ch.formula.one.model.Saison;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.Produces;
+import jakarta.ws.rs.QueryParam;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
-
 import java.util.List;
 
 @Path("saison")
@@ -24,20 +24,20 @@ public class SaisonService {
         return response;
     }
 
-//    @GET
-//    @Path("read")
-//    @Produces(MediaType.APPLICATION_JSON)
-//    public Response readBook(
-//            @QueryParam("uuid") String bookUUID
-//    ) {
-//        int httpStatus = 200;
-//        Book book = DataHandler.getInstance().readBookByUUID(bookUUID);
-//        if (book == null) {
-//            httpStatus = 410;
-//        }
-//        return Response
-//                .status(httpStatus)
-//                .entity(book)
-//                .build();
-//    }
+    @GET
+    @Path("read")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response readSaison(
+            @QueryParam("uuid") String saisonUUID
+    ) {
+        int httpStatus = 200;
+        Saison saison = DataHandler.getInstance().readSaisonByUUID(saisonUUID);
+        if (saison == null) {
+            httpStatus = 410;
+        }
+        return Response
+                .status(httpStatus)
+                .entity(saison)
+                .build();
+    }
 }

@@ -25,20 +25,20 @@ public class FahrerService {
         return response;
     }
 
-//    @GET
-//    @Path("read")
-//    @Produces(MediaType.APPLICATION_JSON)
-//    public Response readBook(
-//            @QueryParam("uuid") String bookUUID
-//    ) {
-//        int httpStatus = 200;
-//        Book book = DataHandler.getInstance().readBookByUUID(bookUUID);
-//        if (book == null) {
-//            httpStatus = 410;
-//        }
-//        return Response
-//                .status(httpStatus)
-//                .entity(book)
-//                .build();
-//    }
+    @GET
+    @Path("read")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response readFahrer(
+            @QueryParam("uuid") String fahrerUUID
+    ) {
+        int httpStatus = 200;
+        Fahrer fahrer = DataHandler.getInstance().readFahrerByUUID(fahrerUUID);
+        if (fahrer == null) {
+            httpStatus = 410;
+        }
+        return Response
+                .status(httpStatus)
+                .entity(fahrer)
+                .build();
+    }
 }
