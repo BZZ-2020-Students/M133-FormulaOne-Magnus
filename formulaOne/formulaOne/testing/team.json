@@ -1,0 +1,20 @@
+[
+  {
+    "teamUUID": "f2095f89-4a09-40b7-80b7-31915f629d93",
+    "bezeichnung": "Mercedes-AMG Petronas F1 Team",
+    "teamchef": "Toto Wolf",
+    "motor": "Mercedes-AMG F1 W13 E Performance",
+    "chassis": "Mercedes-AMG M13",
+    "saisonUUID": "86b51fbf-7723-4a97-996b-a61efbf7e997",
+    "fahrerUUID": ["4bf6862d-5ef4-4564-82e6-3ee7ed61fc94","18cac1b8-c463-41d6-ae9a-a2153e51befc"]
+  },
+  {
+    "teamUUID": "14055c19-56ba-4190-8d2d-d40584682bdc",
+    "bezeichnung": "Aston Martin Aramco Cognizant F1 Team",
+    "teamchef": "Mike Krack",
+    "motor": "Mercedes-Benz 1.6 V6 Turbo",
+    "chassis": "Aston Martin AMR22",
+    "saisonUUID": "86b51fbf-7723-4a97-996b-a61efbf7e997",
+    "fahrerUUID": ["9d5078ed-0ab1-4a0c-90cd-c29b706c89ea","7b3136b9-e998-4213-8e0c-771012b421c8"]
+  }
+]
