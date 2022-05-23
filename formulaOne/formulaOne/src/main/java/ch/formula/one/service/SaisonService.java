@@ -8,15 +8,21 @@ import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.QueryParam;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
+
 import java.util.List;
 
 /**
  * services to list and read Saisons
+ *
+ * @author Magnus Götz
+ * @version 1.0
+ * @since 2022-05-23
  */
 @Path("saison")
 public class SaisonService {
     /**
      * reads a list of saison
+     *
      * @return saisons as JSON
      */
     @Path("list")
@@ -30,8 +36,10 @@ public class SaisonService {
                 .build();
         return response;
     }
+
     /**
      * reads a saison identified by the uuid
+     *
      * @param saisonUUID
      * @return saison
      */

@@ -9,6 +9,13 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Properties;
 
+/**
+ * Configuration
+ *
+ * @author Magnus Götz
+ * @version 1.0
+ * @since 2022-05-23
+ */
 @ApplicationPath("/formula")
 public class Config extends Application {
     private static final String PROPERTIES_PATH = "C:\\Github\\M133-FormulaOne-Magnus\\formulaOne\\formulaOne\\src\\main\\resources\\formulaOne.properties";

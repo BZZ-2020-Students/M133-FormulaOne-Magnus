@@ -11,10 +11,18 @@ import jakarta.ws.rs.core.Response;
 
 import java.util.List;
 
+/**
+ * services to list and read Teams
+ *
+ * @author Magnus Götz
+ * @version 1.0
+ * @since 2022-05-23
+ */
 @Path("team")
 public class TeamService {
     /**
      * reads a list of team
+     *
      * @return fahrer
      */
     @GET
@@ -30,6 +38,7 @@ public class TeamService {
 
     /**
      * reads a team identified by the uuid
+     *
      * @param teamUUID
      * @return team
      */

@@ -6,8 +6,6 @@ import ch.formula.one.model.Team;
 import ch.formula.one.model.User;
 import ch.formula.one.service.Config;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.SerializationConfig;
-
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -23,6 +21,10 @@ public class DataHandler {
 
     /**
      * private constructor defeats instantiation
+     *
+     * @author Magnus Götz
+     * @version 1.0
+     * @since 2022-05-23
      */
     private DataHandler() {
         setTeamList(new ArrayList<>());
@@ -35,6 +37,7 @@ public class DataHandler {
 
     /**
      * gets the only instance of this class
+     *
      * @return
      */
     public static DataHandler getInstance() {
@@ -46,6 +49,7 @@ public class DataHandler {
 
     /**
      * reads all fahrers
+     *
      * @return list of fahrers
      */
     public List<Fahrer> readAllFahrers() {
@@ -54,6 +58,7 @@ public class DataHandler {
 
     /**
      * reads a fahrer by its uuid
+     *
      * @param fahrerUUID
      * @return the Fahrer (null=not found)
      */
@@ -69,6 +74,7 @@ public class DataHandler {
 
     /**
      * reads all Teams
+     *
      * @return list of teams
      */
     public List<Team> readAllTeams() {
@@ -78,6 +84,7 @@ public class DataHandler {
 
     /**
      * reads a team by its uuid
+     *
      * @param teamUUID
      * @return the Team (null=not found)
      */
@@ -93,6 +100,7 @@ public class DataHandler {
 
     /**
      * reads all saisons
+     *
      * @return list of saisons
      */
     public List<Saison> readAllSaisons() {
@@ -101,6 +109,7 @@ public class DataHandler {
 
     /**
      * reads a saison by its uuid
+     *
      * @param saisonUUID
      * @return the Saison (null=not found)
      */

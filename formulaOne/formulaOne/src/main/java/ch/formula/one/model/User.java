@@ -1,5 +1,12 @@
 package ch.formula.one.model;
 
+/**
+ * User Data for Login
+ *
+ * @author Magnus Götz
+ * @version 1.0
+ * @since 2022-05-23
+ */
 public class User {
     private String userUUID;
     private String userName;
@@ -8,6 +15,7 @@ public class User {
 
     /**
      * gets userUUID
+     *
      * @return value of userUUID
      */
     public String getUserUUID() {
@@ -16,6 +24,7 @@ public class User {
 
     /**
      * sets userUUID
+     *
      * @param userUUID the value to set
      */
     public void setUserUUID(String userUUID) {
@@ -24,6 +33,7 @@ public class User {
 
     /**
      * gets userName
+     *
      * @return value of userName
      */
     public String getUserName() {
@@ -32,6 +42,7 @@ public class User {
 
     /**
      * sets userName
+     *
      * @param userName the value to set
      */
     public void setUserName(String userName) {
@@ -40,6 +51,7 @@ public class User {
 
     /**
      * gets password
+     *
      * @return value of password
      */
     public String getPassword() {
@@ -48,6 +60,7 @@ public class User {
 
     /**
      * sets password
+     *
      * @param password the value to set
      */
     public void setPassword(String password) {
@@ -56,6 +69,7 @@ public class User {
 
     /**
      * gets userRole
+     *
      * @return value of userRole
      */
     public String getUserRole() {
@@ -64,6 +78,7 @@ public class User {
 
     /**
      * sets userRole
+     *
      * @param userRole the value to set
      */
     public void setUserRole(String userRole) {

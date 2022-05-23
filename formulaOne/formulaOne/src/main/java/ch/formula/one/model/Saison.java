@@ -1,7 +1,12 @@
 package ch.formula.one.model;
 
-import java.time.LocalDate;
-
+/**
+ * the Saison is one year in Formel 1
+ *
+ * @author  Magnus Götz
+ * @version 1.0
+ * @since   2022-05-23
+ */
 public class Saison {
     private String saisonUUID;
     private String jahr;
@@ -9,6 +14,7 @@ public class Saison {
 
     /**
      * gets jahr
+     *
      * @return value of jahr
      */
     public String getJahr() {
@@ -17,6 +23,7 @@ public class Saison {
 
     /**
      * sets jahr
+     *
      * @param jahr the value to set
      */
     public void setJahr(String jahr) {
@@ -25,6 +32,7 @@ public class Saison {
 
     /**
      * gets gewinner
+     *
      * @return value of gewinner
      */
     public String getGewinner() {
@@ -33,6 +41,7 @@ public class Saison {
 
     /**
      * sets gewinner
+     *
      * @param gewinner the value to set
      */
     public void setGewinner(String gewinner) {
@@ -41,6 +50,7 @@ public class Saison {
 
     /**
      * gets saisonUUID
+     *
      * @return value of saisonUUID
      */
     public String getSaisonUUID() {
@@ -49,6 +59,7 @@ public class Saison {
 
     /**
      * sets saisonUUID
+     *
      * @param saisonUUID the value to set
      */
     public void setSaisonUUID(String saisonUUID) {

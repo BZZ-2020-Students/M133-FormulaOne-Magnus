@@ -13,11 +13,16 @@ import java.util.List;
 
 /**
  * services to list and read Fahrers
+ *
+ * @author Magnus Götz
+ * @version 1.0
+ * @since 2022-05-23
  */
 @Path("fahrer")
 public class FahrerService {
     /**
      * reads a list of fahrer
+     *
      * @return fahrer
      */
     @Path("list")
@@ -34,6 +39,7 @@ public class FahrerService {
 
     /**
      * reads a fahrer identified by the uuid
+     *
      * @param fahrerUUID
      * @return fahrer
      */

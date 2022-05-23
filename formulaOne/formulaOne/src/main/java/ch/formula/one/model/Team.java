@@ -6,6 +6,13 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * the Team has Drivers for a Saison
+ *
+ * @author Magnus Götz
+ * @version 1.0
+ * @since 2022-05-23
+ */
 public class Team {
     private String teamUUID;
     private String bezeichnung;
@@ -19,6 +26,7 @@ public class Team {
 
     /**
      * gets personUUID
+     *
      * @return personUUID
      */
     public String getSaisonUUID() {
@@ -27,6 +35,7 @@ public class Team {
 
     /**
      * creates a Saison by saisonUUID
+     *
      * @param saisonUUID
      */
     public void setSaisonUUID(String saisonUUID) {
@@ -43,7 +52,7 @@ public class Team {
      */
     public List<String> getFahrerUUID() {
         List<String> uuids = new ArrayList<>();
-        if(fahrerList != null){
+        if (fahrerList != null) {
             for (Fahrer fahrer : fahrerList) {
                 uuids.add(fahrer.getFahrerUUID());
             }
@@ -53,11 +62,12 @@ public class Team {
 
     /**
      * creates a List of Fahrers by fahrerUUIDs
+     *
      * @param fahrerUUIDs
      */
     public void setFahrerUUID(List<String> fahrerUUIDs) {
         fahrerList = new ArrayList<>();
-        if(fahrerUUIDs != null) {
+        if (fahrerUUIDs != null) {
             for (String fahrerUUID : fahrerUUIDs) {
                 Fahrer fahrer = DataHandler.getInstance().readFahrerByUUID(fahrerUUID);
                 fahrerList.add(fahrer);
@@ -67,6 +77,7 @@ public class Team {
 
     /**
      * gets teamUUID
+     *
      * @return value of teamUUID
      */
     public String getTeamUUID() {
@@ -75,6 +86,7 @@ public class Team {
 
     /**
      * sets teamUUID
+     *
      * @param teamUUID the value to set
      */
     public void setTeamUUID(String teamUUID) {
@@ -83,6 +95,7 @@ public class Team {
 
     /**
      * gets bezeichnung
+     *
      * @return value of bezeichnung
      */
     public String getBezeichnung() {
@@ -91,6 +104,7 @@ public class Team {
 
     /**
      * sets bezeichnung
+     *
      * @param bezeichnung the value to set
      */
     public void setBezeichnung(String bezeichnung) {
@@ -99,6 +113,7 @@ public class Team {
 
     /**
      * gets teamchef
+     *
      * @return value of teamchef
      */
     public String getTeamchef() {
@@ -107,6 +122,7 @@ public class Team {
 
     /**
      * sets teamchef
+     *
      * @param teamchef the value to set
      */
     public void setTeamchef(String teamchef) {
@@ -115,6 +131,7 @@ public class Team {
 
     /**
      * gets motor
+     *
      * @return value of motor
      */
     public String getMotor() {
@@ -123,6 +140,7 @@ public class Team {
 
     /**
      * sets motor
+     *
      * @param motor the value to set
      */
     public void setMotor(String motor) {
@@ -131,6 +149,7 @@ public class Team {
 
     /**
      * gets chassis
+     *
      * @return value of chassis
      */
     public String getChassis() {
@@ -139,6 +158,7 @@ public class Team {
 
     /**
      * sets chassis
+     *
      * @param chassis the value to set
      */
     public void setChassis(String chassis) {
@@ -147,6 +167,7 @@ public class Team {
 
     /**
      * gets fahrerList
+     *
      * @return value of fahrerList
      */
     public List<Fahrer> getFahrerList() {
@@ -155,6 +176,7 @@ public class Team {
 
     /**
      * sets fahrerList
+     *
      * @param fahrerList the value to set
      */
     public void setFahrerList(List<Fahrer> fahrerList) {
@@ -163,6 +185,7 @@ public class Team {
 
     /**
      * gets saison
+     *
      * @return value of saison
      */
     public Saison getSaison() {
@@ -171,6 +194,7 @@ public class Team {
 
     /**
      * sets saison
+     *
      * @param saison the value to set
      */
     public void setSaison(Saison saison) {

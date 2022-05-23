@@ -26,5 +26,12 @@
     "vorname": "Stroll",
     "erstFahrer": "false",
     "siege": "0"
+  },
+  {
+    "fahrerUUID": "e934db79-5171-4b92-a210-4b6fd70e051b",
+    "name": "Bottas",
+    "vorname": "Valtteri",
+    "erstFahrer": "false",
+    "siege": "10"
   }
 ]

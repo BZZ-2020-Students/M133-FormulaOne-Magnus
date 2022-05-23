@@ -2,6 +2,10 @@ package ch.formula.one.model;
 
 /**
  * A Formel 1 Driver
+ *
+ * @author Magnus Götz
+ * @version 1.0
+ * @since 2022-05-23
  */
 public class Fahrer {
     private String fahrerUUID;
@@ -12,6 +16,7 @@ public class Fahrer {
 
     /**
      * gets fahrerUUID
+     *
      * @return value of fahrerUUID
      */
     public String getFahrerUUID() {
@@ -20,6 +25,7 @@ public class Fahrer {
 
     /**
      * sets fahrerUUID
+     *
      * @param fahrerUUID the value to set
      */
     public void setFahrerUUID(String fahrerUUID) {
@@ -28,6 +34,7 @@ public class Fahrer {
 
     /**
      * gets name
+     *
      * @return value of name
      */
     public String getName() {
@@ -36,6 +43,7 @@ public class Fahrer {
 
     /**
      * sets name
+     *
      * @param name the value to set
      */
     public void setName(String name) {
@@ -44,6 +52,7 @@ public class Fahrer {
 
     /**
      * gets vorname
+     *
      * @return value of vorname
      */
     public String getVorname() {
@@ -52,6 +61,7 @@ public class Fahrer {
 
     /**
      * sets vorname
+     *
      * @param vorname the value to set
      */
     public void setVorname(String vorname) {
@@ -60,6 +70,7 @@ public class Fahrer {
 
     /**
      * gets erstFahrer
+     *
      * @return value of erstFahrer
      */
     public Boolean getErstFahrer() {
@@ -68,6 +79,7 @@ public class Fahrer {
 
     /**
      * sets erstFahrer
+     *
      * @param erstFahrer the value to set
      */
     public void setErstFahrer(Boolean erstFahrer) {
@@ -76,6 +88,7 @@ public class Fahrer {
 
     /**
      * gets siege
+     *
      * @return value of siege
      */
     public int getSiege() {
@@ -84,6 +97,7 @@ public class Fahrer {
 
     /**
      * sets siege
+     *
      * @param siege the value to set
      */
     public void setSiege(Integer siege) {
