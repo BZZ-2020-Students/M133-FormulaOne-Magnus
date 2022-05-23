@@ -1,0 +1,328 @@
+{
+	"id": "9aef4a79-b63a-44c3-bcac-1685afb9d6e0",
+	"name": "FormulaOne",
+	"timestamp": "2022-05-23T16:14:55.293Z",
+	"collection_id": "20900061-2dc93426-d7fd-4b6f-a0ab-8271e4b75e9b",
+	"folder_id": 0,
+	"environment_id": "0",
+	"totalPass": 10,
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "db25850d-735e-4ed6-bdbc-35aa0dd100ab",
+			"name": "Test",
+			"url": "http://localhost:8080/formulaOne-1.0-SNAPSHOT/formula/fahrer/read?uuid=4bf6862d-5ef4-4564-82e6-3ee7ed61fc94",
+			"time": 12,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status test": true
+			},
+			"testPassFailCounts": {
+				"Status test": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				12
+			],
+			"allTests": [
+				{
+					"Status test": true
+				}
+			]
+		},
+		{
+			"id": "0b4b77a7-6d5d-4680-80a5-0eeff5ef2278",
+			"name": "Fahrer List",
+			"url": "http://localhost:8080/formulaOne-1.0-SNAPSHOT/formula/fahrer/list",
+			"time": 5,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status test": true
+			},
+			"testPassFailCounts": {
+				"Status test": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				5
+			],
+			"allTests": [
+				{
+					"Status test": true
+				}
+			]
+		},
+		{
+			"id": "47b8a1d9-c1c4-4fa8-9b86-cbb500c64083",
+			"name": "Team List",
+			"url": "http://localhost:8080/formulaOne-1.0-SNAPSHOT/formula/team/list",
+			"time": 8,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status test": true
+			},
+			"testPassFailCounts": {
+				"Status test": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				8
+			],
+			"allTests": [
+				{
+					"Status test": true
+				}
+			]
+		},
+		{
+			"id": "b2eb241f-ad4b-459a-8894-9067745f9ac4",
+			"name": "Saison List",
+			"url": "http://localhost:8080/formulaOne-1.0-SNAPSHOT/formula/saison/list",
+			"time": 7,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status test": true
+			},
+			"testPassFailCounts": {
+				"Status test": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				7
+			],
+			"allTests": [
+				{
+					"Status test": true
+				}
+			]
+		},
+		{
+			"id": "f768c24f-1351-4a69-a6c7-ce9850421175",
+			"name": "Fahrer Read 200",
+			"url": "http://localhost:8080/formulaOne-1.0-SNAPSHOT/formula/fahrer/read?uuid=18cac1b8-c463-41d6-ae9a-a2153e51befc",
+			"time": 5,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status test": true
+			},
+			"testPassFailCounts": {
+				"Status test": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				5
+			],
+			"allTests": [
+				{
+					"Status test": true
+				}
+			]
+		},
+		{
+			"id": "fce8d434-ddd3-46ea-8329-944ef79219f9",
+			"name": "Fahrer Read 410",
+			"url": "http://localhost:8080/formulaOne-1.0-SNAPSHOT/formula/fahrer/read?uuid=18cac1b8-c463-41d6-ae9a-a2153e51befd",
+			"time": 4,
+			"responseCode": {
+				"code": 410,
+				"name": "Gone"
+			},
+			"tests": {
+				"Status test": true
+			},
+			"testPassFailCounts": {
+				"Status test": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				4
+			],
+			"allTests": [
+				{
+					"Status test": true
+				}
+			]
+		},
+		{
+			"id": "072a910e-6e97-4e64-83f4-1059a4209dcb",
+			"name": "Saison Read 200",
+			"url": "http://localhost:8080/formulaOne-1.0-SNAPSHOT/formula/saison/read?uuid=86b51fbf-7723-4a97-996b-a61efbf7e997",
+			"time": 4,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status test": true
+			},
+			"testPassFailCounts": {
+				"Status test": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				4
+			],
+			"allTests": [
+				{
+					"Status test": true
+				}
+			]
+		},
+		{
+			"id": "a137c718-2721-4753-bde7-f2ab431bafde",
+			"name": "Saison Read 410",
+			"url": "http://localhost:8080/formulaOne-1.0-SNAPSHOT/formula/saison/read?uuid=86b51fbf-7723-4a97-996b-a61efbf7e998",
+			"time": 3,
+			"responseCode": {
+				"code": 410,
+				"name": "Gone"
+			},
+			"tests": {
+				"Status test": true
+			},
+			"testPassFailCounts": {
+				"Status test": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				3
+			],
+			"allTests": [
+				{
+					"Status test": true
+				}
+			]
+		},
+		{
+			"id": "87dd6128-b8ca-415a-ad62-cc5fa245895f",
+			"name": "Team Read 200",
+			"url": "http://localhost:8080/formulaOne-1.0-SNAPSHOT/formula/team/read?uuid=f2095f89-4a09-40b7-80b7-31915f629d93",
+			"time": 4,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status test": true
+			},
+			"testPassFailCounts": {
+				"Status test": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				4
+			],
+			"allTests": [
+				{
+					"Status test": true
+				}
+			]
+		},
+		{
+			"id": "5893e701-e8e0-4347-b9c5-565ee77144dd",
+			"name": "Team Read 410",
+			"url": "http://localhost:8080/formulaOne-1.0-SNAPSHOT/formula/team/read?uuid=f2095f89-4a09-40b7-80b7-31915f629d94",
+			"time": 4,
+			"responseCode": {
+				"code": 410,
+				"name": "Gone"
+			},
+			"tests": {
+				"Status test": true
+			},
+			"testPassFailCounts": {
+				"Status test": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				4
+			],
+			"allTests": [
+				{
+					"Status test": true
+				}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 56,
+	"collection": {
+		"requests": [
+			{
+				"id": "db25850d-735e-4ed6-bdbc-35aa0dd100ab",
+				"method": "GET"
+			},
+			{
+				"id": "0b4b77a7-6d5d-4680-80a5-0eeff5ef2278",
+				"method": "GET"
+			},
+			{
+				"id": "47b8a1d9-c1c4-4fa8-9b86-cbb500c64083",
+				"method": "GET"
+			},
+			{
+				"id": "b2eb241f-ad4b-459a-8894-9067745f9ac4",
+				"method": "GET"
+			},
+			{
+				"id": "f768c24f-1351-4a69-a6c7-ce9850421175",
+				"method": "GET"
+			},
+			{
+				"id": "fce8d434-ddd3-46ea-8329-944ef79219f9",
+				"method": "GET"
+			},
+			{
+				"id": "072a910e-6e97-4e64-83f4-1059a4209dcb",
+				"method": "GET"
+			},
+			{
+				"id": "a137c718-2721-4753-bde7-f2ab431bafde",
+				"method": "GET"
+			},
+			{
+				"id": "87dd6128-b8ca-415a-ad62-cc5fa245895f",
+				"method": "GET"
+			},
+			{
+				"id": "5893e701-e8e0-4347-b9c5-565ee77144dd",
+				"method": "GET"
+			}
+		]
+	}
+}
