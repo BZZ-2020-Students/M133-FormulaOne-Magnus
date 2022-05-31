@@ -1,5 +1,12 @@
 package ch.formula.one.model;
 
+import ch.formula.one.data.DataHandler;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import java.util.List;
+
 /**
  * A Formel 1 Driver
  *
@@ -13,6 +20,45 @@ public class Fahrer {
     private String vorname;
     private Boolean erstFahrer;         //Team Order who is preferred to win
     private Integer siege;
+    
+    @JsonIgnore
+    private Team team;
+
+    /**
+     * gets personUUID
+     *
+     * @return personUUID
+     */
+    public String getTeamUUID() {
+        return getTeam().getTeamUUID();
+    }
+
+    /**
+     * creates a Team by teamUUID
+     *
+     * @param teamUUID
+     */
+    public void setTeamUUID(String teamUUID) {
+        setTeam(new Team());
+        Team team = DataHandler.readTeamByUUID(teamUUID);
+        getTeam().setTeamUUID(teamUUID);
+        getTeam().setTeamUUID(team.getTeamUUID());
+        getTeam().setBezeichnung(team.getBezeichnung());
+        getTeam().setChassis(team.getChassis());
+        getTeam().setMotor(team.getMotor());
+        getTeam().setTeamchef(team.getTeamchef());
+    }
+
+    public Team getTeam() {
+        return team;
+    }
+
+    public void setTeam(Team team) {
+        this.team = team;
+    }
+
+    public Fahrer(){
+    }
 
     /**
      * gets fahrerUUID
