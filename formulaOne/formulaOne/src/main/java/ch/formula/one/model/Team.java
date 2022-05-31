@@ -1,7 +1,9 @@
 package ch.formula.one.model;
 
 import ch.formula.one.data.DataHandler;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,15 +21,15 @@ public class Team {
     private String teamchef;
     private String motor;
     private String chassis;
-    @JsonIgnore
-    private List<Fahrer> fahrerList;
+//    @JsonIgnore
+//    private List<Fahrer> fahrerList;
     @JsonIgnore
     private Saison saison;
 
     /**
-     * gets personUUID
+     * gets saisonUUID
      *
-     * @return personUUID
+     * @return saisonUUID
      */
     public String getSaisonUUID() {
         return getSaison().getSaisonUUID();
@@ -43,37 +45,39 @@ public class Team {
         Saison saison = DataHandler.getInstance().readSaisonByUUID(saisonUUID);
         getSaison().setSaisonUUID(saisonUUID);
         getSaison().setSaisonUUID(saison.getSaisonUUID());
+        getSaison().setJahr(saison.getJahr());
+        getSaison().setGewinner(saison.getGewinner());
 
     }
 
-    /***
-     * gets List of fahrerUUIDs
-     * @return List of fahrerUUIDs
-     */
-    public List<String> getFahrerUUID() {
-        List<String> uuids = new ArrayList<>();
-        if (fahrerList != null) {
-            for (Fahrer fahrer : fahrerList) {
-                uuids.add(fahrer.getFahrerUUID());
-            }
-        }
-        return uuids;
-    }
-
-    /**
-     * creates a List of Fahrers by fahrerUUIDs
-     *
-     * @param fahrerUUIDs
-     */
-    public void setFahrerUUID(List<String> fahrerUUIDs) {
-        fahrerList = new ArrayList<>();
-        if (fahrerUUIDs != null) {
-            for (String fahrerUUID : fahrerUUIDs) {
-                Fahrer fahrer = DataHandler.getInstance().readFahrerByUUID(fahrerUUID);
-                fahrerList.add(fahrer);
-            }
-        }
-    }
+//    /***
+//     * gets List of fahrerUUIDs
+//     * @return List of fahrerUUIDs
+//     */
+//    public List<String> getFahrerUUID() {
+//        List<String> uuids = new ArrayList<>();
+//        if (fahrerList != null) {
+//            for (Fahrer fahrer : fahrerList) {
+//                uuids.add(fahrer.getFahrerUUID());
+//            }
+//        }
+//        return uuids;
+//    }
+//
+//    /**
+//     * creates a List of Fahrers by fahrerUUIDs
+//     *
+//     * @param fahrerUUIDs
+//     */
+//    public void setFahrerUUID(List<String> fahrerUUIDs) {
+//        fahrerList = new ArrayList<>();
+//        if (fahrerUUIDs != null) {
+//            for (String fahrerUUID : fahrerUUIDs) {
+//                Fahrer fahrer = DataHandler.getInstance().readFahrerByUUID(fahrerUUID);
+//                fahrerList.add(fahrer);
+//            }
+//        }
+//    }
 
     /**
      * gets teamUUID
@@ -165,23 +169,23 @@ public class Team {
         this.chassis = chassis;
     }
 
-    /**
-     * gets fahrerList
-     *
-     * @return value of fahrerList
-     */
-    public List<Fahrer> getFahrerList() {
-        return fahrerList;
-    }
-
-    /**
-     * sets fahrerList
-     *
-     * @param fahrerList the value to set
-     */
-    public void setFahrerList(List<Fahrer> fahrerList) {
-        this.fahrerList = fahrerList;
-    }
+//    /**
+//     * gets fahrerList
+//     *
+//     * @return value of fahrerList
+//     */
+//    public List<Fahrer> getFahrerList() {
+//        return fahrerList;
+//    }
+//
+//    /**
+//     * sets fahrerList
+//     *
+//     * @param fahrerList the value to set
+//     */
+//    public void setFahrerList(List<Fahrer> fahrerList) {
+//        this.fahrerList = fahrerList;
+//    }
 
     /**
      * gets saison

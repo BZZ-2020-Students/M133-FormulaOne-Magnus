@@ -27,12 +27,12 @@ public class DataHandler {
      * @since 2022-05-23
      */
     private DataHandler() {
+        setSaisonList(new ArrayList<>());
+        readSaisonJSON();
         setTeamList(new ArrayList<>());
         readTeamJSON();
         setFahrerList(new ArrayList<>());
         readFahrerJSON();
-        setSaisonList(new ArrayList<>());
-        readSaisonJSON();
     }
 
     /**

@@ -1,5 +1,8 @@
 package ch.formula.one.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 /**
  * the Saison is one year in Formel 1
  *
@@ -11,6 +14,9 @@ public class Saison {
     private String saisonUUID;
     private String jahr;
     private String gewinner;
+
+    public Saison(){
+    }
 
     /**
      * gets jahr
