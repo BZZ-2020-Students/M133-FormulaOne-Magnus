@@ -1,11 +1,7 @@
 package ch.formula.one.model;
 
 import ch.formula.one.data.DataHandler;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonProperty;
-
-import java.util.List;
 
 /**
  * A Formel 1 Driver
@@ -14,11 +10,11 @@ import java.util.List;
  * @version 1.0
  * @since 2022-05-23
  */
-public class Fahrer {
-    private String fahrerUUID;
+public class Driver {
+    private String driverUUID;
     private String name;
     private String vorname;
-    private Boolean erstFahrer;         //Team Order who is preferred to win
+    private Boolean erstDriver;         //Team Order who is preferred to win
     private Integer siege;
     
     @JsonIgnore
@@ -40,7 +36,7 @@ public class Fahrer {
      */
     public void setTeamUUID(String teamUUID) {
         setTeam(new Team());
-        Team team = DataHandler.readTeamByUUID(teamUUID);
+        Team team = DataHandler.getInstance().readTeamByUUID(teamUUID);
         getTeam().setTeamUUID(teamUUID);
         getTeam().setTeamUUID(team.getTeamUUID());
         getTeam().setBezeichnung(team.getBezeichnung());
@@ -57,25 +53,25 @@ public class Fahrer {
         this.team = team;
     }
 
-    public Fahrer(){
+    public Driver(){
     }
 
     /**
-     * gets fahrerUUID
+     * gets driverUUID
      *
-     * @return value of fahrerUUID
+     * @return value of driverUUID
      */
-    public String getFahrerUUID() {
-        return fahrerUUID;
+    public String getDriverUUID() {
+        return driverUUID;
     }
 
     /**
-     * sets fahrerUUID
+     * sets driverUUID
      *
-     * @param fahrerUUID the value to set
+     * @param driverUUID the value to set
      */
-    public void setFahrerUUID(String fahrerUUID) {
-        this.fahrerUUID = fahrerUUID;
+    public void setDriverUUID(String driverUUID) {
+        this.driverUUID = driverUUID;
     }
 
     /**
@@ -115,21 +111,21 @@ public class Fahrer {
     }
 
     /**
-     * gets erstFahrer
+     * gets erstDriver
      *
-     * @return value of erstFahrer
+     * @return value of erstDriver
      */
-    public Boolean getErstFahrer() {
-        return erstFahrer;
+    public Boolean getErstDriver() {
+        return erstDriver;
     }
 
     /**
-     * sets erstFahrer
+     * sets erstDriver
      *
-     * @param erstFahrer the value to set
+     * @param erstDriver the value to set
      */
-    public void setErstFahrer(Boolean erstFahrer) {
-        this.erstFahrer = erstFahrer;
+    public void setErstDriver(Boolean erstDriver) {
+        this.erstDriver = erstDriver;
     }
 
     /**

@@ -1,7 +1,7 @@
 package ch.formula.one.service;
 
 import ch.formula.one.data.DataHandler;
-import ch.formula.one.model.Fahrer;
+import ch.formula.one.model.Season;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.Produces;
@@ -12,51 +12,51 @@ import jakarta.ws.rs.core.Response;
 import java.util.List;
 
 /**
- * services to list and read Fahrers
+ * services to list and read Seasons
  *
  * @author Magnus Götz
  * @version 1.0
  * @since 2022-05-23
  */
-@Path("fahrer")
-public class FahrerService {
+@Path("season")
+public class SeasonService {
     /**
-     * reads a list of fahrer
+     * reads a list of season
      *
-     * @return fahrer
+     * @return seasons as JSON
      */
     @Path("list")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public Response listFahrers() {
-        List<Fahrer> fahrerList = DataHandler.getInstance().readAllFahrers();
+    public Response listSeasons() {
+        List<Season> seasonList = DataHandler.getInstance().readAllSeasons();
         Response response = Response
                 .status(200)
-                .entity(fahrerList)
+                .entity(seasonList)
                 .build();
         return response;
     }
 
     /**
-     * reads a fahrer identified by the uuid
+     * reads a season identified by the uuid
      *
-     * @param fahrerUUID
-     * @return fahrer
+     * @param seasonUUID
+     * @return season
      */
     @GET
     @Path("read")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response readFahrer(
-            @QueryParam("uuid") String fahrerUUID
+    public Response readSeason(
+            @QueryParam("uuid") String seasonUUID
     ) {
         int httpStatus = 200;
-        Fahrer fahrer = DataHandler.getInstance().readFahrerByUUID(fahrerUUID);
-        if (fahrer == null) {
+        Season season = DataHandler.getInstance().readSeasonByUUID(seasonUUID);
+        if (season == null) {
             httpStatus = 410;
         }
         return Response
                 .status(httpStatus)
-                .entity(fahrer)
+                .entity(season)
                 .build();
     }
 }

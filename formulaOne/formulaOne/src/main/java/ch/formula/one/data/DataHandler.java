@@ -1,7 +1,7 @@
 package ch.formula.one.data;
 
-import ch.formula.one.model.Fahrer;
-import ch.formula.one.model.Saison;
+import ch.formula.one.model.Driver;
+import ch.formula.one.model.Season;
 import ch.formula.one.model.Team;
 import ch.formula.one.model.User;
 import ch.formula.one.service.Config;
@@ -14,8 +14,8 @@ import java.util.List;
 
 public class DataHandler {
     private static DataHandler instance = null;
-    private List<Fahrer> fahrerList;
-    private List<Saison> saisonList;
+    private List<Driver> driverList;
+    private List<Season> seasonList;
     private List<Team> teamList;
     private List<User> userList;
 
@@ -27,12 +27,12 @@ public class DataHandler {
      * @since 2022-05-23
      */
     private DataHandler() {
-        setSaisonList(new ArrayList<>());
-        readSaisonJSON();
+        setSeasonList(new ArrayList<>());
+        readSeasonJSON();
         setTeamList(new ArrayList<>());
         readTeamJSON();
-        setFahrerList(new ArrayList<>());
-        readFahrerJSON();
+        setDriverList(new ArrayList<>());
+        readDriverJSON();
     }
 
     /**
@@ -48,28 +48,28 @@ public class DataHandler {
 
 
     /**
-     * reads all fahrers
+     * reads all Drivers
      *
-     * @return list of fahrers
+     * @return list of Drivers
      */
-    public List<Fahrer> readAllFahrers() {
-        return getFahrerList();
+    public List<Driver> readAllDrivers() {
+        return getDriverList();
     }
 
     /**
-     * reads a fahrer by its uuid
+     * reads a Driver by its uuid
      *
-     * @param fahrerUUID
-     * @return the Fahrer (null=not found)
+     * @param driverUUID
+     * @return the Driver (null=not found)
      */
-    public Fahrer readFahrerByUUID(String fahrerUUID) {
-        Fahrer fahrer = null;
-        for (Fahrer entry : getFahrerList()) {
-            if (entry.getFahrerUUID().equals(fahrerUUID)) {
-                fahrer = entry;
+    public Driver readDriverByUUID(String driverUUID) {
+        Driver driver = null;
+        for (Driver entry : getDriverList()) {
+            if (entry.getDriverUUID().equals(driverUUID)) {
+                driver = entry;
             }
         }
-        return fahrer;
+        return driver;
     }
 
     /**
@@ -99,45 +99,45 @@ public class DataHandler {
     }
 
     /**
-     * reads all saisons
+     * reads all seasons
      *
-     * @return list of saisons
+     * @return list of seasons
      */
-    public List<Saison> readAllSaisons() {
-        return getSaisonList();
+    public List<Season> readAllSeasons() {
+        return getSeasonList();
     }
 
     /**
-     * reads a saison by its uuid
+     * reads a season by its uuid
      *
-     * @param saisonUUID
-     * @return the Saison (null=not found)
+     * @param seasonUUID
+     * @return the Season (null=not found)
      */
-    public Saison readSaisonByUUID(String saisonUUID) {
-        Saison saison = null;
-        for (Saison entry : getSaisonList()) {
-            if (entry.getSaisonUUID().equals(saisonUUID)) {
-                saison = entry;
+    public Season readSeasonByUUID(String seasonUUID) {
+        Season season = null;
+        for (Season entry : getSeasonList()) {
+            if (entry.getSeasonUUID().equals(seasonUUID)) {
+                season = entry;
             }
         }
-        return saison;
+        return season;
     }
 
 
     /**
-     * reads the fahrers from the JSON-file
+     * reads the drivers from the JSON-file
      */
-    private void readFahrerJSON() {
+    private void readDriverJSON() {
         try {
-            String path = Config.getProperty("fahrerJSON");
+            String path = Config.getProperty("driverJSON");
 
             byte[] jsonData = Files.readAllBytes(
                     Paths.get(path)
             );
             ObjectMapper objectMapper = new ObjectMapper();
-            Fahrer[] fahrers = objectMapper.readValue(jsonData, Fahrer[].class);
-            for (Fahrer fahrer : fahrers) {
-                getFahrerList().add(fahrer);
+            Driver[] drivers = objectMapper.readValue(jsonData, Driver[].class);
+            for (Driver driver : drivers) {
+                getDriverList().add(driver);
             }
         } catch (IOException ex) {
             ex.printStackTrace();
@@ -165,19 +165,19 @@ public class DataHandler {
     }
 
     /**
-     * reads the saisons from the JSON-file
+     * reads the seasons from the JSON-file
      */
-    private void readSaisonJSON() {
+    private void readSeasonJSON() {
         try {
-            String path = Config.getProperty("saisonJSON");
+            String path = Config.getProperty("seasonJSON");
 
             byte[] jsonData = Files.readAllBytes(
                     Paths.get(path)
             );
             ObjectMapper objectMapper = new ObjectMapper();
-            Saison[] saisons = objectMapper.readValue(jsonData, Saison[].class);
-            for (Saison saison : saisons) {
-                getSaisonList().add(saison);
+            Season[] seasons = objectMapper.readValue(jsonData, Season[].class);
+            for (Season season : seasons) {
+                getSeasonList().add(season);
             }
         } catch (IOException ex) {
             ex.printStackTrace();
@@ -186,21 +186,21 @@ public class DataHandler {
 
 
     /**
-     * gets fahrerList
+     * gets driverList
      *
-     * @return value of fahrerList
+     * @return value of driverList
      */
-    private List<Fahrer> getFahrerList() {
-        return fahrerList;
+    private List<Driver> getDriverList() {
+        return driverList;
     }
 
     /**
-     * sets fahrerList
+     * sets driverList
      *
-     * @param fahrerList the value to set
+     * @param driverList the value to set
      */
-    private void setFahrerList(List<Fahrer> fahrerList) {
-        this.fahrerList = fahrerList;
+    private void setDriverList(List<Driver> driverList) {
+        this.driverList = driverList;
     }
 
     /**
@@ -222,20 +222,20 @@ public class DataHandler {
     }
 
     /**
-     * gets saisonList
+     * gets seasonList
      *
-     * @return value of saisonList
+     * @return value of seasonList
      */
-    private List<Saison> getSaisonList() {
-        return saisonList;
+    private List<Season> getSeasonList() {
+        return seasonList;
     }
 
     /**
-     * sets saisonList
+     * sets seasonList
      *
-     * @param saisonList the value to set
+     * @param seasonList the value to set
      */
-    private void setSaisonList(List<Saison> saisonList) {
-        this.saisonList = saisonList;
+    private void setSeasonList(List<Season> seasonList) {
+        this.seasonList = seasonList;
     }
 }

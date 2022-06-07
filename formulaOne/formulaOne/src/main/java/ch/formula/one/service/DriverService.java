@@ -1,7 +1,7 @@
 package ch.formula.one.service;
 
 import ch.formula.one.data.DataHandler;
-import ch.formula.one.model.Saison;
+import ch.formula.one.model.Driver;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.Produces;
@@ -12,51 +12,51 @@ import jakarta.ws.rs.core.Response;
 import java.util.List;
 
 /**
- * services to list and read Saisons
+ * services to list and read Drivers
  *
  * @author Magnus Götz
  * @version 1.0
  * @since 2022-05-23
  */
-@Path("saison")
-public class SaisonService {
+@Path("driver")
+public class DriverService {
     /**
-     * reads a list of saison
+     * reads a list of driver
      *
-     * @return saisons as JSON
+     * @return driver
      */
     @Path("list")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public Response listSaisons() {
-        List<Saison> saisonList = DataHandler.getInstance().readAllSaisons();
+    public Response listDrivers() {
+        List<Driver> driverList = DataHandler.getInstance().readAllDrivers();
         Response response = Response
                 .status(200)
-                .entity(saisonList)
+                .entity(driverList)
                 .build();
         return response;
     }
 
     /**
-     * reads a saison identified by the uuid
+     * reads a driver identified by the uuid
      *
-     * @param saisonUUID
-     * @return saison
+     * @param driverUUID
+     * @return driver
      */
     @GET
     @Path("read")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response readSaison(
-            @QueryParam("uuid") String saisonUUID
+    public Response readDriver(
+            @QueryParam("uuid") String driverUUID
     ) {
         int httpStatus = 200;
-        Saison saison = DataHandler.getInstance().readSaisonByUUID(saisonUUID);
-        if (saison == null) {
+        Driver driver = DataHandler.getInstance().readDriverByUUID(driverUUID);
+        if (driver == null) {
             httpStatus = 410;
         }
         return Response
                 .status(httpStatus)
-                .entity(saison)
+                .entity(driver)
                 .build();
     }
 }

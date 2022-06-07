@@ -1,21 +1,18 @@
 package ch.formula.one.model;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonProperty;
-
 /**
- * the Saison is one year in Formel 1
+ * the Season is one year in Formel 1
  *
  * @author  Magnus Götz
  * @version 1.0
  * @since   2022-05-23
  */
-public class Saison {
-    private String saisonUUID;
+public class Season {
+    private String seasonUUID;
     private String jahr;
     private String gewinner;
 
-    public Saison(){
+    public Season(){
     }
 
     /**
@@ -55,20 +52,20 @@ public class Saison {
     }
 
     /**
-     * gets saisonUUID
+     * gets seasonUUID
      *
-     * @return value of saisonUUID
+     * @return value of seasonUUID
      */
-    public String getSaisonUUID() {
-        return saisonUUID;
+    public String getSeasonUUID() {
+        return seasonUUID;
     }
 
     /**
-     * sets saisonUUID
+     * sets seasonUUID
      *
-     * @param saisonUUID the value to set
+     * @param seasonUUID the value to set
      */
-    public void setSaisonUUID(String saisonUUID) {
-        this.saisonUUID = saisonUUID;
+    public void setSeasonUUID(String seasonUUID) {
+        this.seasonUUID = seasonUUID;
     }
 }
