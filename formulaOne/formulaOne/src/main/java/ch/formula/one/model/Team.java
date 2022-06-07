@@ -2,6 +2,8 @@ package ch.formula.one.model;
 
 import ch.formula.one.data.DataHandler;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.validation.constraints.Pattern;
+import jakarta.ws.rs.FormParam;
 
 /**
  * the Team has Drivers for a Season
@@ -11,13 +13,14 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
  * @since 2022-05-23
  */
 public class Team {
+    @FormParam("teamUUID")
+    @Pattern(regexp = "|[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}")
     private String teamUUID;
-    private String bezeichnung;
-    private String teamchef;
-    private String motor;
+
+    private String name;
+    private String teamPrincipal;
+    private String engine;
     private String chassis;
-//    @JsonIgnore
-//    private List<Fahrer> fahrerList;
     @JsonIgnore
     private Season season;
 
@@ -40,39 +43,10 @@ public class Team {
         Season season = DataHandler.getInstance().readSeasonByUUID(seasonUUID);
         getSeason().setSeasonUUID(seasonUUID);
         getSeason().setSeasonUUID(season.getSeasonUUID());
-        getSeason().setJahr(season.getJahr());
-        getSeason().setGewinner(season.getGewinner());
+        getSeason().setYear(season.getYear());
+        getSeason().setWinner(season.getWinner());
 
     }
-
-//    /***
-//     * gets List of fahrerUUIDs
-//     * @return List of fahrerUUIDs
-//     */
-//    public List<String> getFahrerUUID() {
-//        List<String> uuids = new ArrayList<>();
-//        if (fahrerList != null) {
-//            for (Fahrer fahrer : fahrerList) {
-//                uuids.add(fahrer.getFahrerUUID());
-//            }
-//        }
-//        return uuids;
-//    }
-//
-//    /**
-//     * creates a List of Fahrers by fahrerUUIDs
-//     *
-//     * @param fahrerUUIDs
-//     */
-//    public void setFahrerUUID(List<String> fahrerUUIDs) {
-//        fahrerList = new ArrayList<>();
-//        if (fahrerUUIDs != null) {
-//            for (String fahrerUUID : fahrerUUIDs) {
-//                Fahrer fahrer = DataHandler.getInstance().readFahrerByUUID(fahrerUUID);
-//                fahrerList.add(fahrer);
-//            }
-//        }
-//    }
 
     /**
      * gets teamUUID
@@ -93,57 +67,57 @@ public class Team {
     }
 
     /**
-     * gets bezeichnung
+     * gets name
      *
-     * @return value of bezeichnung
+     * @return value of name
      */
-    public String getBezeichnung() {
-        return bezeichnung;
+    public String getName() {
+        return name;
     }
 
     /**
-     * sets bezeichnung
+     * sets name
      *
-     * @param bezeichnung the value to set
+     * @param name the value to set
      */
-    public void setBezeichnung(String bezeichnung) {
-        this.bezeichnung = bezeichnung;
+    public void setName(String name) {
+        this.name = name;
     }
 
     /**
-     * gets teamchef
+     * gets teamPrincipal
      *
-     * @return value of teamchef
+     * @return value of teamPrincipal
      */
-    public String getTeamchef() {
-        return teamchef;
+    public String getTeamPrincipal() {
+        return teamPrincipal;
     }
 
     /**
-     * sets teamchef
+     * sets teamPrincipal
      *
-     * @param teamchef the value to set
+     * @param teamPrincipal the value to set
      */
-    public void setTeamchef(String teamchef) {
-        this.teamchef = teamchef;
+    public void setTeamPrincipal(String teamPrincipal) {
+        this.teamPrincipal = teamPrincipal;
     }
 
     /**
-     * gets motor
+     * gets engine
      *
-     * @return value of motor
+     * @return value of engine
      */
-    public String getMotor() {
-        return motor;
+    public String getEngine() {
+        return engine;
     }
 
     /**
-     * sets motor
+     * sets engine
      *
-     * @param motor the value to set
+     * @param engine the value to set
      */
-    public void setMotor(String motor) {
-        this.motor = motor;
+    public void setEngine(String engine) {
+        this.engine = engine;
     }
 
     /**
@@ -163,24 +137,6 @@ public class Team {
     public void setChassis(String chassis) {
         this.chassis = chassis;
     }
-
-//    /**
-//     * gets fahrerList
-//     *
-//     * @return value of fahrerList
-//     */
-//    public List<Fahrer> getFahrerList() {
-//        return fahrerList;
-//    }
-//
-//    /**
-//     * sets fahrerList
-//     *
-//     * @param fahrerList the value to set
-//     */
-//    public void setFahrerList(List<Fahrer> fahrerList) {
-//        this.fahrerList = fahrerList;
-//    }
 
     /**
      * gets season

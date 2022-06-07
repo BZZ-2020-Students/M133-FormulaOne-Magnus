@@ -2,6 +2,8 @@ package ch.formula.one.model;
 
 import ch.formula.one.data.DataHandler;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.validation.constraints.*;
+import jakarta.ws.rs.FormParam;
 
 /**
  * A Formel 1 Driver
@@ -11,11 +13,23 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
  * @since 2022-05-23
  */
 public class Driver {
+    @FormParam("driverUUID")
+    @Pattern(regexp = "|[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}")
     private String driverUUID;
+    @FormParam("name")
+    @NotEmpty
+    @Size(min=5, max=40)
     private String name;
-    private String vorname;
-    private Boolean erstDriver;         //Team Order who is preferred to win
-    private Integer siege;
+    @FormParam("firstname")
+    @NotEmpty
+    @Size(min=5, max=40)
+    private String firstname;
+    @NotEmpty
+    private Boolean firstDriver;         //Team Order who is preferred to win
+    @FormParam("wins")
+    @Max(999)
+    @Min(0)
+    private Integer wins;
     
     @JsonIgnore
     private Team team;
@@ -39,10 +53,10 @@ public class Driver {
         Team team = DataHandler.getInstance().readTeamByUUID(teamUUID);
         getTeam().setTeamUUID(teamUUID);
         getTeam().setTeamUUID(team.getTeamUUID());
-        getTeam().setBezeichnung(team.getBezeichnung());
+        getTeam().setName(team.getName());
         getTeam().setChassis(team.getChassis());
-        getTeam().setMotor(team.getMotor());
-        getTeam().setTeamchef(team.getTeamchef());
+        getTeam().setEngine(team.getEngine());
+        getTeam().setTeamPrincipal(team.getTeamPrincipal());
     }
 
     public Team getTeam() {
@@ -93,56 +107,56 @@ public class Driver {
     }
 
     /**
-     * gets vorname
+     * gets firstname
      *
-     * @return value of vorname
+     * @return value of firstname
      */
-    public String getVorname() {
-        return vorname;
+    public String getFirstname() {
+        return firstname;
     }
 
     /**
-     * sets vorname
+     * sets firstname
      *
-     * @param vorname the value to set
+     * @param firstname the value to set
      */
-    public void setVorname(String vorname) {
-        this.vorname = vorname;
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
     }
 
     /**
-     * gets erstDriver
+     * gets firstDriver
      *
-     * @return value of erstDriver
+     * @return value of firstDriver
      */
-    public Boolean getErstDriver() {
-        return erstDriver;
+    public Boolean getFirstDriver() {
+        return firstDriver;
     }
 
     /**
-     * sets erstDriver
+     * sets firstDriver
      *
-     * @param erstDriver the value to set
+     * @param firstDriver the value to set
      */
-    public void setErstDriver(Boolean erstDriver) {
-        this.erstDriver = erstDriver;
+    public void setFirstDriver(Boolean firstDriver) {
+        this.firstDriver = firstDriver;
     }
 
     /**
-     * gets siege
+     * gets wins
      *
-     * @return value of siege
+     * @return value of wins
      */
-    public int getSiege() {
-        return siege;
+    public int getWins() {
+        return wins;
     }
 
     /**
-     * sets siege
+     * sets wins
      *
-     * @param siege the value to set
+     * @param wins the value to set
      */
-    public void setSiege(Integer siege) {
-        this.siege = siege;
+    public void setWins(Integer wins) {
+        this.wins = wins;
     }
 }

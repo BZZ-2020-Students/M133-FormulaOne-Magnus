@@ -1,5 +1,10 @@
 package ch.formula.one.model;
 
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.Size;
+import jakarta.ws.rs.FormParam;
+
 /**
  * the Season is one year in Formel 1
  *
@@ -8,47 +13,55 @@ package ch.formula.one.model;
  * @since   2022-05-23
  */
 public class Season {
+    @FormParam("seasonUUID")
+    @Pattern(regexp = "|[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}")
     private String seasonUUID;
-    private String jahr;
-    private String gewinner;
+    @FormParam("year")
+    @NotEmpty
+    @Size(min=4, max=4)
+    private String year;
+    @FormParam("winner")
+    @NotEmpty
+    @Size(min=1, max=40)
+    private String winner;
 
     public Season(){
     }
 
     /**
-     * gets jahr
+     * gets year
      *
-     * @return value of jahr
+     * @return value of year
      */
-    public String getJahr() {
-        return jahr;
+    public String getYear() {
+        return year;
     }
 
     /**
-     * sets jahr
+     * sets year
      *
-     * @param jahr the value to set
+     * @param year the value to set
      */
-    public void setJahr(String jahr) {
-        this.jahr = jahr;
+    public void setYear(String year) {
+        this.year = year;
     }
 
     /**
-     * gets gewinner
+     * gets winner
      *
-     * @return value of gewinner
+     * @return value of winner
      */
-    public String getGewinner() {
-        return gewinner;
+    public String getWinner() {
+        return winner;
     }
 
     /**
-     * sets gewinner
+     * sets winner
      *
-     * @param gewinner the value to set
+     * @param winner the value to set
      */
-    public void setGewinner(String gewinner) {
-        this.gewinner = gewinner;
+    public void setWinner(String winner) {
+        this.winner = winner;
     }
 
     /**
