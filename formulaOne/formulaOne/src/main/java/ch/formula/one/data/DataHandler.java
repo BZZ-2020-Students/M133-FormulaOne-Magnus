@@ -33,8 +33,8 @@ public class DataHandler {
     private DataHandler() {
         setSeasonList(new ArrayList<>());
         readSeasonJSON();
-        setTeamList(new ArrayList<>());
-        readTeamJSON();
+            setTeamList(new ArrayList<>());
+            readTeamJSON();
         setDriverList(new ArrayList<>());
         readDriverJSON();
     }
