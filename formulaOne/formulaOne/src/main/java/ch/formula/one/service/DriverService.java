@@ -2,13 +2,11 @@ package ch.formula.one.service;
 
 import ch.formula.one.data.DataHandler;
 import ch.formula.one.model.Driver;
-import ch.formula.one.model.Driver;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.*;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
-
 import java.util.List;
 import java.util.UUID;
 

@@ -8,7 +8,6 @@ import ch.formula.one.service.Config;
 import com.fasterxml.jackson.core.util.DefaultPrettyPrinter;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
-
 import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
@@ -51,6 +50,8 @@ public class DataHandler {
     }
 
 
+    /*********************************************Driver*********************************************/
+
     /**
      * reads all Drivers
      *
@@ -75,6 +76,42 @@ public class DataHandler {
         }
         return driver;
     }
+
+    /**
+     * reads the drivers from the JSON-file
+     */
+    private void readDriverJSON() {
+        try {
+            String path = Config.getProperty("driverJSON");
+
+            byte[] jsonData = Files.readAllBytes(
+                    Paths.get(path)
+            );
+            ObjectMapper objectMapper = new ObjectMapper();
+            Driver[] drivers = objectMapper.readValue(jsonData, Driver[].class);
+            for (Driver driver : drivers) {
+                getDriverList().add(driver);
+            }
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    public void insertDriver(Driver driver) {
+        getDriverList().add(driver);
+        writeDriverJSON();
+    }
+
+    public void deleteDriver(String driverUUID){
+        getSeasonList().remove(readDriverByUUID(driverUUID));
+        writeDriverJSON();
+    }
+
+    public void updateDriver(){
+        writeDriverJSON();
+    }
+
+    /*********************************************TEAM*********************************************/
 
     /**
      * reads all Teams
@@ -102,6 +139,41 @@ public class DataHandler {
         return team;
     }
 
+    /**
+     * reads the teams from the JSON-file
+     */
+    private void readTeamJSON() {
+        try {
+            byte[] jsonData = Files.readAllBytes(
+                    Paths.get(
+                            Config.getProperty("teamJSON")
+                    )
+            );
+            ObjectMapper objectMapper = new ObjectMapper();
+            Team[] teams = objectMapper.readValue(jsonData, Team[].class);
+            for (Team team : teams) {
+                getTeamList().add(team);
+            }
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    public void insertTeam(Team team) {
+        getTeamList().add(team);
+        writeTeamJSON();
+    }
+
+    public void deleteTeam(String driverUUID){
+        getSeasonList().remove(readTeamByUUID(driverUUID));
+        writeTeamJSON();
+    }
+
+    public void updateTeam(){
+        writeDriverJSON();
+    }
+
+    /*********************************************Season*********************************************/
     /**
      * reads all seasons
      *
@@ -144,74 +216,6 @@ public class DataHandler {
 
     public void updateSeason(){
         writeSeasonJSON();
-    }
-
-    /**
-     * reads the drivers from the JSON-file
-     */
-    private void readDriverJSON() {
-        try {
-            String path = Config.getProperty("driverJSON");
-
-            byte[] jsonData = Files.readAllBytes(
-                    Paths.get(path)
-            );
-            ObjectMapper objectMapper = new ObjectMapper();
-            Driver[] drivers = objectMapper.readValue(jsonData, Driver[].class);
-            for (Driver driver : drivers) {
-                getDriverList().add(driver);
-            }
-        } catch (IOException ex) {
-            ex.printStackTrace();
-        }
-    }
-
-    public void insertDriver(Driver driver) {
-        getDriverList().add(driver);
-        writeDriverJSON();
-    }
-
-    public void deleteDriver(String driverUUID){
-        getSeasonList().remove(readSeasonByUUID(driverUUID));
-        writeDriverJSON();
-    }
-
-    public void updateDriver(){
-        writeDriverJSON();
-    }
-
-    /**
-     * reads the teams from the JSON-file
-     */
-    private void readTeamJSON() {
-        try {
-            byte[] jsonData = Files.readAllBytes(
-                    Paths.get(
-                            Config.getProperty("teamJSON")
-                    )
-            );
-            ObjectMapper objectMapper = new ObjectMapper();
-            Team[] teams = objectMapper.readValue(jsonData, Team[].class);
-            for (Team team : teams) {
-                getTeamList().add(team);
-            }
-        } catch (IOException ex) {
-            ex.printStackTrace();
-        }
-    }
-
-    public void insertTeam(Team team) {
-        getTeamList().add(team);
-        writeDriverJSON();
-    }
-
-    public void deleteTeam(String driverUUID){
-        getSeasonList().remove(readSeasonByUUID(driverUUID));
-        writeDriverJSON();
-    }
-
-    public void updateTeam(){
-        writeDriverJSON();
     }
 
     /**
@@ -316,6 +320,22 @@ public class DataHandler {
             fileOutputStream = new FileOutputStream(driverPath);
             fileWriter = new BufferedWriter(new OutputStreamWriter(fileOutputStream, StandardCharsets.UTF_8));
             objectWriter.writeValue(fileWriter, getDriverList());
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    private void writeTeamJSON() {
+        ObjectMapper objectMapper = new ObjectMapper();
+        ObjectWriter objectWriter = objectMapper.writer(new DefaultPrettyPrinter());
+        FileOutputStream fileOutputStream = null;
+        Writer fileWriter;
+
+        String teamPath = Config.getProperty("teamJSON");
+        try {
+            fileOutputStream = new FileOutputStream(teamPath);
+            fileWriter = new BufferedWriter(new OutputStreamWriter(fileOutputStream, StandardCharsets.UTF_8));
+            objectWriter.writeValue(fileWriter, getTeamList());
         } catch (IOException ex) {
             ex.printStackTrace();
         }
