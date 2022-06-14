@@ -2,14 +2,17 @@ package ch.formula.one.service;
 
 import ch.formula.one.data.DataHandler;
 import ch.formula.one.model.Season;
-import jakarta.ws.rs.GET;
-import jakarta.ws.rs.Path;
-import jakarta.ws.rs.Produces;
-import jakarta.ws.rs.QueryParam;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.Size;
+import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 
+import java.math.BigDecimal;
 import java.util.List;
+import java.util.UUID;
 
 /**
  * services to list and read Seasons
@@ -47,6 +50,7 @@ public class SeasonService {
     @Path("read")
     @Produces(MediaType.APPLICATION_JSON)
     public Response readSeason(
+            @Pattern(regexp = "|[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}")
             @QueryParam("uuid") String seasonUUID
     ) {
         int httpStatus = 200;
@@ -57,6 +61,67 @@ public class SeasonService {
         return Response
                 .status(httpStatus)
                 .entity(season)
+                .build();
+    }
+
+    @Path("create")
+    @POST
+    @Produces(MediaType.TEXT_PLAIN)
+    public Response insertSeason(
+            @NotEmpty
+            @Size(min=4, max=4)
+            @FormParam("year") String year,
+            @NotEmpty
+            @Size(min=1, max=40)
+            @FormParam("winner") String winner
+    ) {
+        Season season = new Season();
+        season.setSeasonUUID(UUID.randomUUID().toString());
+        season.setYear(year);
+        season.setWinner(winner);
+
+        DataHandler.getInstance().insertSeason(season);
+
+        int httpStatus = 200;
+        return Response
+                .status(httpStatus)
+                .entity("Season erfolgreich angelegt")
+                .build();
+    }
+
+    @Path("delete")
+    @GET
+    @Produces(MediaType.TEXT_PLAIN)
+    public Response insertSeason(
+            @Pattern(regexp = "|[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}")
+            @QueryParam("uuid") String seasonUUID
+    ) {
+        DataHandler.getInstance().deleteSeason(seasonUUID);
+
+        int httpStatus = 200;
+        return Response
+                .status(httpStatus)
+                .entity("Season erfolgreich gelöscht")
+                .build();
+    }
+
+    @Path("update")
+    @PUT
+    @Produces(MediaType.TEXT_PLAIN)
+    public Response updateSeason(
+            @Valid @BeanParam Season s
+    ) {
+        Season season = DataHandler.getInstance().readSeasonByUUID(s.getSeasonUUID());
+        season.setSeasonUUID(s.getSeasonUUID());
+        season.setYear(season.getYear());
+        season.setWinner(season.getWinner());
+
+        DataHandler.getInstance().updateSeason();
+
+        int httpStatus = 200;
+        return Response
+                .status(httpStatus)
+                .entity("Season erfolgreich angelegt")
                 .build();
     }
 }

@@ -5,8 +5,12 @@ import ch.formula.one.model.Season;
 import ch.formula.one.model.Team;
 import ch.formula.one.model.User;
 import ch.formula.one.service.Config;
+import com.fasterxml.jackson.core.util.DefaultPrettyPrinter;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import java.io.IOException;
+import com.fasterxml.jackson.databind.ObjectWriter;
+
+import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
@@ -123,6 +127,24 @@ public class DataHandler {
         return season;
     }
 
+    /**
+     * insert a season
+     *
+     * @param season
+     */
+    public void insertSeason(Season season) {
+        getSeasonList().add(season);
+        writeSeasonJSON();
+    }
+
+    public void deleteSeason(String seasonUUID){
+        getSeasonList().remove(readSeasonByUUID(seasonUUID));
+        writeSeasonJSON();
+    }
+
+    public void updateSeason(){
+        writeSeasonJSON();
+    }
 
     /**
      * reads the drivers from the JSON-file
@@ -144,6 +166,20 @@ public class DataHandler {
         }
     }
 
+    public void insertDriver(Driver driver) {
+        getDriverList().add(driver);
+        writeDriverJSON();
+    }
+
+    public void deleteDriver(String driverUUID){
+        getSeasonList().remove(readSeasonByUUID(driverUUID));
+        writeDriverJSON();
+    }
+
+    public void updateDriver(){
+        writeDriverJSON();
+    }
+
     /**
      * reads the teams from the JSON-file
      */
@@ -162,6 +198,20 @@ public class DataHandler {
         } catch (IOException ex) {
             ex.printStackTrace();
         }
+    }
+
+    public void insertTeam(Team team) {
+        getTeamList().add(team);
+        writeDriverJSON();
+    }
+
+    public void deleteTeam(String driverUUID){
+        getSeasonList().remove(readSeasonByUUID(driverUUID));
+        writeDriverJSON();
+    }
+
+    public void updateTeam(){
+        writeDriverJSON();
     }
 
     /**
@@ -237,5 +287,37 @@ public class DataHandler {
      */
     private void setSeasonList(List<Season> seasonList) {
         this.seasonList = seasonList;
+    }
+
+    private void writeSeasonJSON() {
+        ObjectMapper objectMapper = new ObjectMapper();
+        ObjectWriter objectWriter = objectMapper.writer(new DefaultPrettyPrinter());
+        FileOutputStream fileOutputStream = null;
+        Writer fileWriter;
+
+        String seasonPath = Config.getProperty("seasonJSON");
+        try {
+            fileOutputStream = new FileOutputStream(seasonPath);
+            fileWriter = new BufferedWriter(new OutputStreamWriter(fileOutputStream, StandardCharsets.UTF_8));
+            objectWriter.writeValue(fileWriter, getSeasonList());
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    private void writeDriverJSON() {
+        ObjectMapper objectMapper = new ObjectMapper();
+        ObjectWriter objectWriter = objectMapper.writer(new DefaultPrettyPrinter());
+        FileOutputStream fileOutputStream = null;
+        Writer fileWriter;
+
+        String driverPath = Config.getProperty("driverJSON");
+        try {
+            fileOutputStream = new FileOutputStream(driverPath);
+            fileWriter = new BufferedWriter(new OutputStreamWriter(fileOutputStream, StandardCharsets.UTF_8));
+            objectWriter.writeValue(fileWriter, getDriverList());
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
     }
 }

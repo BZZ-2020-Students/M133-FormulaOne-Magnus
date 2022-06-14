@@ -2,14 +2,15 @@ package ch.formula.one.service;
 
 import ch.formula.one.data.DataHandler;
 import ch.formula.one.model.Driver;
-import jakarta.ws.rs.GET;
-import jakarta.ws.rs.Path;
-import jakarta.ws.rs.Produces;
-import jakarta.ws.rs.QueryParam;
+import ch.formula.one.model.Driver;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 
 import java.util.List;
+import java.util.UUID;
 
 /**
  * services to list and read Drivers
@@ -57,6 +58,81 @@ public class DriverService {
         return Response
                 .status(httpStatus)
                 .entity(driver)
+                .build();
+    }
+
+    @Path("create")
+    @POST
+    @Produces(MediaType.TEXT_PLAIN)
+    public Response insertDriver(
+            @NotEmpty
+            @Size(min=5, max=40)
+            @FormParam("name") String name,
+            @NotEmpty
+            @Size(min=5, max=40)
+            @FormParam("firstname") String firstname,
+            @NotEmpty
+            @FormParam("firstDriver") Boolean firstDriver,
+            @Max(999)
+            @Min(0)
+            @FormParam("wins") Integer wins,
+            @Pattern(regexp = "|[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}")
+            @FormParam("teamUUID") String teamUUID
+
+    ) {
+        Driver driver = new Driver();
+        driver.setDriverUUID(UUID.randomUUID().toString());
+        driver.setName(name);
+        driver.setFirstname(firstname);
+        driver.setFirstDriver(firstDriver);
+        driver.setWins(wins);
+        driver.setTeamUUID(teamUUID);
+
+        DataHandler.getInstance().insertDriver(driver);
+
+        int httpStatus = 200;
+        return Response
+                .status(httpStatus)
+                .entity("Driver erfolgreich angelegt")
+                .build();
+    }
+
+    @Path("delete")
+    @GET
+    @Produces(MediaType.TEXT_PLAIN)
+    public Response insertDriver(
+            @Pattern(regexp = "|[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}")
+            @QueryParam("uuid") String driverUUID
+    ) {
+        DataHandler.getInstance().deleteDriver(driverUUID);
+
+        int httpStatus = 200;
+        return Response
+                .status(httpStatus)
+                .entity("Driver erfolgreich gelöscht")
+                .build();
+    }
+
+    @Path("update")
+    @PUT
+    @Produces(MediaType.TEXT_PLAIN)
+    public Response updateDriver(
+            @Valid @BeanParam Driver d
+    ) {
+        Driver driver = DataHandler.getInstance().readDriverByUUID(d.getDriverUUID());
+        driver.setDriverUUID(d.getDriverUUID());
+        driver.setName(d.getName());
+        driver.setFirstname(d.getFirstname());
+        driver.setFirstDriver(d.getFirstDriver());
+        driver.setWins(d.getWins());
+        driver.setTeamUUID(d.getTeamUUID());
+
+        DataHandler.getInstance().updateDriver();
+
+        int httpStatus = 200;
+        return Response
+                .status(httpStatus)
+                .entity("Driver erfolgreich angelegt")
                 .build();
     }
 }

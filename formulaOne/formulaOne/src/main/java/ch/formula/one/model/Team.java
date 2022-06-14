@@ -2,7 +2,9 @@ package ch.formula.one.model;
 
 import ch.formula.one.data.DataHandler;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.Size;
 import jakarta.ws.rs.FormParam;
 
 /**
@@ -16,10 +18,21 @@ public class Team {
     @FormParam("teamUUID")
     @Pattern(regexp = "|[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}")
     private String teamUUID;
-
+    @FormParam("name")
+    @NotEmpty
+    @Size(min=5, max=40)
     private String name;
+    @FormParam("teamPrincipal")
+    @NotEmpty
+    @Size(min=5, max=40)
     private String teamPrincipal;
+    @FormParam("engine")
+    @NotEmpty
+    @Size(min=5, max=40)
     private String engine;
+    @FormParam("chassis")
+    @NotEmpty
+    @Size(min=5, max=40)
     private String chassis;
     @JsonIgnore
     private Season season;
