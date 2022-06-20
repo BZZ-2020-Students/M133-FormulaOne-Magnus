@@ -103,7 +103,7 @@ public class SeasonService {
     @Path("delete")
     @GET
     @Produces(MediaType.TEXT_PLAIN)
-    public Response insertSeason(
+    public Response deleteSeason(
             @Pattern(regexp = "|[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}")
             @NotEmpty
             @QueryParam("uuid") String seasonUUID

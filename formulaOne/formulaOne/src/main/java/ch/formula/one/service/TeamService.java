@@ -73,18 +73,18 @@ public class TeamService {
     @Path("create")
     @POST
     @Produces(MediaType.TEXT_PLAIN)
-    public Response insertDriver(
+    public Response insertTeam(
             @NotEmpty
-            @Size(min=1, max=40)
+            @Size(min = 1, max = 40)
             @FormParam("name") String name,
             @NotEmpty
-            @Size(min=1, max=40)
+            @Size(min = 1, max = 40)
             @FormParam("teamPrincipal") String teamPrincipal,
             @NotEmpty
-            @Size(min=1, max=40)
+            @Size(min = 1, max = 40)
             @FormParam("engine") String engine,
             @NotEmpty
-            @Size(min=1, max=40)
+            @Size(min = 1, max = 40)
             @FormParam("chassis") String chassis,
 
             @Pattern(regexp = "|[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}")
@@ -95,7 +95,7 @@ public class TeamService {
         int httpStatus = 400;
         String entity = "faield";
 
-        if (DataHandler.readSeasonByUUID(seasonUUID) != null){
+        if (DataHandler.readSeasonByUUID(seasonUUID) != null) {
             Team team = new Team();
             team.setTeamUUID(UUID.randomUUID().toString());
             team.setName(name);
@@ -125,7 +125,7 @@ public class TeamService {
     @Path("delete")
     @GET
     @Produces(MediaType.TEXT_PLAIN)
-    public Response insertDriver(
+    public Response deleteTeam(
             @Pattern(regexp = "|[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}")
             @NotEmpty
             @QueryParam("uuid") String teamUUID
@@ -133,7 +133,7 @@ public class TeamService {
         int httpStatus = 400;
         String entity = "faild";
 
-        if(DataHandler.readTeamByUUID(teamUUID) != null){
+        if (DataHandler.readTeamByUUID(teamUUID) != null) {
             DataHandler.deleteTeam(teamUUID);
             httpStatus = 200;
             entity = "Team erfolgreich gelöscht";
@@ -153,13 +153,16 @@ public class TeamService {
     @Path("update")
     @PUT
     @Produces(MediaType.TEXT_PLAIN)
-    public Response updateDriver(
-            @Valid @BeanParam Team t
+    public Response updateTeam(
+            @Valid @BeanParam Team t,
+            @NotEmpty
+            @Pattern(regexp = "|[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}")
+            @FormParam("seasonUUID") String seasonUUID
     ) {
         int httpStatus = 400;
         String entity = "faild";
 
-        if (DataHandler.readSeasonByUUID(t.getSeasonUUID()) != null) {
+        if (DataHandler.readSeasonByUUID(seasonUUID) != null) {
             Team team = DataHandler.readTeamByUUID(t.getTeamUUID());
             if (team != null) {
                 team.setTeamUUID(t.getTeamUUID());
@@ -167,14 +170,14 @@ public class TeamService {
                 team.setTeamPrincipal(t.getTeamPrincipal());
                 team.setEngine(t.getEngine());
                 team.setChassis(t.getChassis());
-                team.setSeasonUUID(t.getSeasonUUID());
+                team.setSeasonUUID(seasonUUID);
 
                 DataHandler.updateTeam();
                 httpStatus = 200;
                 entity = "Team erfolgreich angelegt";
             }
         }
-        
+
         return Response
                 .status(httpStatus)
                 .entity(entity)

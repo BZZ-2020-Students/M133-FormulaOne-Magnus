@@ -151,7 +151,7 @@ public class DataHandler {
     }
 
     public static void updateTeam(){
-        writeDriverJSON();
+        writeTeamJSON();
     }
 
     /*********************************************Season*********************************************/

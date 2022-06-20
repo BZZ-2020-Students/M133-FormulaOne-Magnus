@@ -122,7 +122,7 @@ public class DriverService {
     @Path("delete")
     @GET
     @Produces(MediaType.TEXT_PLAIN)
-    public Response insertDriver(
+    public Response deleteDriver(
             @Pattern(regexp = "|[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}")
             @NotEmpty
             @QueryParam("uuid") String driverUUID
@@ -152,25 +152,30 @@ public class DriverService {
     @PUT
     @Produces(MediaType.TEXT_PLAIN)
     public Response updateDriver(
-            @Valid @BeanParam Driver d
+            @Valid @BeanParam Driver d,
+            @NotEmpty
+            @Pattern(regexp = "|[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}")
+            @FormParam("teamUUID") String teamUUID
     ) {
         int httpStatus = 400;
         String entity = "faild";
 
-        if (DataHandler.readTeamByUUID(d.getTeamUUID()) != null){
-            Driver driver = DataHandler.readDriverByUUID(d.getDriverUUID());
-            if (driver != null) {
-                driver.setDriverUUID(d.getDriverUUID());
-                driver.setName(d.getName());
-                driver.setFirstname(d.getFirstname());
-                driver.setFirstDriver(d.getFirstDriver());
-                driver.setWins(d.getWins());
-                driver.setTeamUUID(d.getTeamUUID());
+        if (DataHandler.readTeamByUUID(teamUUID) != null){
+            if (DataHandler.readTeamByUUID(d.getTeamUUID()) != null){
+                Driver driver = DataHandler.readDriverByUUID(d.getDriverUUID());
+                if (driver != null) {
+                    driver.setDriverUUID(d.getDriverUUID());
+                    driver.setName(d.getName());
+                    driver.setFirstname(d.getFirstname());
+                    driver.setFirstDriver(d.getFirstDriver());
+                    driver.setWins(d.getWins());
+                    driver.setTeamUUID(teamUUID);
 
-                DataHandler.updateDriver();
+                    DataHandler.updateDriver();
 
-                httpStatus = 200;
-                entity = "Driver successfully updated";
+                    httpStatus = 200;
+                    entity = "Driver successfully updated";
+                }
             }
         }
 
