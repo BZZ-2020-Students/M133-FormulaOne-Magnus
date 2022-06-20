@@ -64,6 +64,12 @@ public class SeasonService {
                 .build();
     }
 
+    /**
+     * creates a season
+     *
+     * @param year
+     * @param winner
+     */
     @Path("create")
     @POST
     @Produces(MediaType.TEXT_PLAIN)
@@ -89,6 +95,11 @@ public class SeasonService {
                 .build();
     }
 
+    /**
+     * deletes a season identified by the uuid
+     *
+     * @param seasonUUID
+     */
     @Path("delete")
     @GET
     @Produces(MediaType.TEXT_PLAIN)
@@ -105,6 +116,11 @@ public class SeasonService {
                 .build();
     }
 
+    /**
+     * updates a season identified by the uuid
+     *
+     * @param s
+     */
     @Path("update")
     @PUT
     @Produces(MediaType.TEXT_PLAIN)

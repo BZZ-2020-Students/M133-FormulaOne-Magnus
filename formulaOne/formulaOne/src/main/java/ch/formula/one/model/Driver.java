@@ -36,9 +36,9 @@ public class Driver {
     private Team team;
 
     /**
-     * gets personUUID
+     * gets teamUUID
      *
-     * @return personUUID
+     * @return teamUUID
      */
     public String getTeamUUID() {
         return getTeam().getTeamUUID();
@@ -52,7 +52,6 @@ public class Driver {
     public void setTeamUUID(String teamUUID) {
         setTeam(new Team());
         Team team = DataHandler.getInstance().readTeamByUUID(teamUUID);
-        getTeam().setTeamUUID(teamUUID);
         getTeam().setTeamUUID(team.getTeamUUID());
         getTeam().setName(team.getName());
         getTeam().setChassis(team.getChassis());

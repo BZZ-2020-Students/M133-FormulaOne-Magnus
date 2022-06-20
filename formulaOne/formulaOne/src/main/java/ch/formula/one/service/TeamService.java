@@ -60,6 +60,15 @@ public class TeamService {
                 .build();
     }
 
+    /**
+     * creates a team
+     *
+     * @param name
+     * @param teamPrincipal
+     * @param engine
+     * @param chassis
+     * @param seasonUUID
+     */
     @Path("create")
     @POST
     @Produces(MediaType.TEXT_PLAIN)
@@ -98,6 +107,11 @@ public class TeamService {
                 .build();
     }
 
+    /**
+     * deletes a team
+     *
+     * @param teamUUID
+     */
     @Path("delete")
     @GET
     @Produces(MediaType.TEXT_PLAIN)
@@ -114,6 +128,11 @@ public class TeamService {
                 .build();
     }
 
+    /**
+     * updates a team
+     *
+     * @param t
+     */
     @Path("update")
     @PUT
     @Produces(MediaType.TEXT_PLAIN)

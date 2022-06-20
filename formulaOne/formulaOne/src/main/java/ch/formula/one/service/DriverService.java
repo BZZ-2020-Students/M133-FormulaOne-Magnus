@@ -59,6 +59,15 @@ public class DriverService {
                 .build();
     }
 
+    /**
+     * creates a driver
+     *
+     * @param name
+     * @param firstname
+     * @param firstDriver
+     * @param wins
+     * @param teamUUID
+     */
     @Path("create")
     @POST
     @Produces(MediaType.TEXT_PLAIN)
@@ -95,6 +104,11 @@ public class DriverService {
                 .build();
     }
 
+    /**
+     * deletes a driver identified by the uuid
+     *
+     * @param driverUUID
+     */
     @Path("delete")
     @GET
     @Produces(MediaType.TEXT_PLAIN)
@@ -111,6 +125,11 @@ public class DriverService {
                 .build();
     }
 
+    /**
+     * updates a driver
+     *
+     * @param d
+     */
     @Path("update")
     @PUT
     @Produces(MediaType.TEXT_PLAIN)
