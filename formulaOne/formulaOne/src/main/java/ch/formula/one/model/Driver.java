@@ -58,6 +58,9 @@ public class Driver {
         getTeam().setChassis(team.getChassis());
         getTeam().setEngine(team.getEngine());
         getTeam().setTeamPrincipal(team.getTeamPrincipal());
+
+        getTeam().setSeasonUUID(team.getSeasonUUID());
+
     }
 
     public Team getTeam() {
