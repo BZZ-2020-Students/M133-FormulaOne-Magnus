@@ -1,67 +1,22 @@
-[
-  {
-    "driverUUID": "4bf6862d-5ef4-4564-82e6-3ee7ed61fc94",
-    "name": "Hamilton",
-    "firstname": "Lewis",
-    "firstDriver": "true",
-    "wins": "103",
-    "teamUUID": "f2095f89-4a09-40b7-80b7-31915f629d93"
-  },
-  {
-    "driverUUID": "18cac1b8-c463-41d6-ae9a-a2153e51befc",
-    "name": "Russell",
-    "firstname": "George",
-    "firstDriver": "false",
-    "wins": "0",
-    "teamUUID": "f2095f89-4a09-40b7-80b7-31915f629d93"
-  },
-  {
-    "driverUUID": "9d5078ed-0ab1-4a0c-90cd-c29b706c89ea",
-    "name": "Vettel",
-    "firstname": "Sebastian",
-    "firstDriver": "true",
-    "wins": "53",
-    "teamUUID": "14055c19-56ba-4190-8d2d-d40584682bdc"
-  },
-  {
-    "driverUUID": "7b3136b9-e998-4213-8e0c-771012b421c8",
-    "name": "Lance",
-    "firstname": "Stroll",
-    "firstDriver": "false",
-    "wins": "0",
-    "teamUUID": "14055c19-56ba-4190-8d2d-d40584682bdc"
-  },
-
-  {
-    "driverUUID": "4bf6862d-5ef4-4564-82e6-3ee7ed61fc94",
-    "name": "Sainz",
-    "firstname": "Carlos",
-    "firstDriver": "false",
-    "wins": "0",
-    "teamUUID": "bd0a3893-64bb-47b9-b37c-ca2f9f05dff8"
-  },
-  {
-    "driverUUID": "18cac1b8-c463-41d6-ae9a-a2153e51befc",
-    "name": "Leclerc",
-    "firstname": "Charles",
-    "firstDriver": "true",
-    "wins": "4",
-    "teamUUID": "bd0a3893-64bb-47b9-b37c-ca2f9f05dff8"
-  },
-  {
-    "driverUUID": "9d5078ed-0ab1-4a0c-90cd-c29b706c89ea",
-    "name": "Verstappen",
-    "firstname": "Max",
-    "firstDriver": "true",
-    "wins": "24",
-    "teamUUID": "5b07ad4a-b809-43dd-8ae1-b4f6a8e31fe0"
-  },
-  {
-    "driverUUID": "7b3136b9-e998-4213-8e0c-771012b421c8",
-    "name": "Perez",
-    "firstname": "Sergio",
-    "firstDriver": "false",
-    "wins": "3",
-    "teamUUID": "5b07ad4a-b809-43dd-8ae1-b4f6a8e31fe0"
-  }
-]
+[ {
+  "driverUUID" : "4bf6862d-5ef4-4564-82e6-3ee7ed61fc94",
+  "name" : "Verstappen",
+  "firstname" : "Max",
+  "firstDriver" : true,
+  "wins" : 32,
+  "teamUUID" : "f2095f89-4a09-40b7-80b7-31915f629d93"
+}, {
+  "driverUUID" : "18cac1b8-c463-41d6-ae9a-a2153e51befc",
+  "name" : "Russell",
+  "firstname" : "George",
+  "firstDriver" : false,
+  "wins" : 0,
+  "teamUUID" : "f2095f89-4a09-40b7-80b7-31915f629d93"
+}, {
+  "driverUUID" : "91fb26d3-72dc-402c-a1e8-bee7106b42cb",
+  "name" : "Verstappen",
+  "firstname" : "Max",
+  "firstDriver" : true,
+  "wins" : 32,
+  "teamUUID" : "f2095f89-4a09-40b7-80b7-31915f629d93"
+} ]

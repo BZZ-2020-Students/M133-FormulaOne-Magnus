@@ -883,7 +883,7 @@
 							"script": {
 								"exec": [
 									"pm.test(\"Status test\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
+									"    pm.response.to.have.status(400);\r",
 									"});"
 								],
 								"type": "text/javascript"
@@ -1373,7 +1373,7 @@
 								},
 								{
 									"key": "teamUUID",
-									"value": "f2095f89-4a09-40b7-80b7-31915f629d99",
+									"value": "f2095f89-4a09-40b7-80b7-31915f629d93",
 									"type": "text"
 								}
 							]
@@ -2613,7 +2613,7 @@
 							"script": {
 								"exec": [
 									"pm.test(\"Status test\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
+									"    pm.response.to.have.status(400);\r",
 									"});"
 								],
 								"type": "text/javascript"
@@ -3278,7 +3278,7 @@
 								},
 								{
 									"key": "teamUUID",
-									"value": "f2095f89-4a09-40b7-80b7-31915f629d99",
+									"value": "f2095f89-4a09-40b7-80b7-31915f629d93",
 									"type": "text"
 								},
 								{
@@ -4176,7 +4176,7 @@
 							"urlencoded": []
 						},
 						"url": {
-							"raw": "http://localhost:8080/formulaOne-1.0-SNAPSHOT/formula/season/delete?uuid=088557ad-294d-4389-b529-b2cdf0532fcf",
+							"raw": "http://localhost:8080/formulaOne-1.0-SNAPSHOT/formula/season/delete?uuid=86b51fbf-7723-4a97-996b-a61efbf7e997",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -4191,7 +4191,7 @@
 							"query": [
 								{
 									"key": "uuid",
-									"value": "088557ad-294d-4389-b529-b2cdf0532fcf"
+									"value": "86b51fbf-7723-4a97-996b-a61efbf7e997"
 								}
 							]
 						}
