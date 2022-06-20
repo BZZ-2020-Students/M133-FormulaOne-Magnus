@@ -2,6 +2,7 @@ package ch.formula.one.service;
 
 import ch.formula.one.data.DataHandler;
 import ch.formula.one.model.Driver;
+import ch.formula.one.model.Season;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.*;
 import jakarta.ws.rs.*;
@@ -88,20 +89,28 @@ public class DriverService {
             @FormParam("teamUUID") String teamUUID
 
     ) {
-        Driver driver = new Driver();
-        driver.setDriverUUID(UUID.randomUUID().toString());
-        driver.setName(name);
-        driver.setFirstname(firstname);
-        driver.setFirstDriver(firstDriver);
-        driver.setWins(wins);
-        driver.setTeamUUID(teamUUID);
 
-        DataHandler.insertDriver(driver);
+        int httpStatus = 400;
+        String entity = "faield";
 
-        int httpStatus = 200;
+        if (DataHandler.readTeamByUUID(teamUUID) != null) {
+            Driver driver = new Driver();
+            driver.setDriverUUID(UUID.randomUUID().toString());
+            driver.setName(name);
+            driver.setFirstname(firstname);
+            driver.setFirstDriver(firstDriver);
+            driver.setWins(wins);
+            driver.setTeamUUID(teamUUID);
+
+            DataHandler.insertDriver(driver);
+
+            httpStatus = 200;
+            entity = "Driver successfully inserted";
+        }
+
         return Response
                 .status(httpStatus)
-                .entity("Driver successfully inserted")
+                .entity(entity)
                 .build();
     }
 
@@ -120,10 +129,17 @@ public class DriverService {
     ) {
         DataHandler.deleteDriver(driverUUID);
 
-        int httpStatus = 200;
+        int httpStatus = 400;
+        String entity = "faild";
+        if(DataHandler.readDriverByUUID(driverUUID) != null){
+            DataHandler.deleteDriver(driverUUID);
+            httpStatus = 200;
+            entity = "Driver successfully deleted";
+        }
+
         return Response
                 .status(httpStatus)
-                .entity("Driver successfully deleted")
+                .entity(entity)
                 .build();
     }
 
@@ -138,20 +154,27 @@ public class DriverService {
     public Response updateDriver(
             @Valid @BeanParam Driver d
     ) {
+        int httpStatus = 400;
+        String entity = "faild";
+
         Driver driver = DataHandler.readDriverByUUID(d.getDriverUUID());
-        driver.setDriverUUID(d.getDriverUUID());
-        driver.setName(d.getName());
-        driver.setFirstname(d.getFirstname());
-        driver.setFirstDriver(d.getFirstDriver());
-        driver.setWins(d.getWins());
-        driver.setTeamUUID(d.getTeamUUID());
+        if (driver != null) {
+            driver.setDriverUUID(d.getDriverUUID());
+            driver.setName(d.getName());
+            driver.setFirstname(d.getFirstname());
+            driver.setFirstDriver(d.getFirstDriver());
+            driver.setWins(d.getWins());
+            driver.setTeamUUID(d.getTeamUUID());
 
-        DataHandler.updateDriver();
+            DataHandler.updateDriver();
 
-        int httpStatus = 200;
+            httpStatus = 200;
+            entity = "Driver successfully updated";
+        }
+
         return Response
                 .status(httpStatus)
-                .entity("Driver successfully updated")
+                .entity(entity)
                 .build();
     }
 }

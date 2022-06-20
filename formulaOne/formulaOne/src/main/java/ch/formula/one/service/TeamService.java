@@ -91,20 +91,28 @@ public class TeamService {
             @FormParam("seasonUUID") String seasonUUID
 
     ) {
-        Team team = new Team();
-        team.setTeamUUID(UUID.randomUUID().toString());
-        team.setName(name);
-        team.setTeamPrincipal(teamPrincipal);
-        team.setEngine(engine);
-        team.setChassis(chassis);
-        team.setSeasonUUID(seasonUUID);
+        int httpStatus = 400;
+        String entity = "faield";
 
-        DataHandler.insertTeam(team);
+        if (DataHandler.readSeasonByUUID(seasonUUID) != null){
+            Team team = new Team();
+            team.setTeamUUID(UUID.randomUUID().toString());
+            team.setName(name);
+            team.setTeamPrincipal(teamPrincipal);
+            team.setEngine(engine);
+            team.setChassis(chassis);
+            team.setSeasonUUID(seasonUUID);
 
-        int httpStatus = 200;
+            DataHandler.insertTeam(team);
+
+            httpStatus = 200;
+            entity = "Driver successfully inserted";
+        }
+
+
         return Response
                 .status(httpStatus)
-                .entity("Team erfolgreich angelegt")
+                .entity(entity)
                 .build();
     }
 
@@ -121,12 +129,18 @@ public class TeamService {
             @NotEmpty
             @QueryParam("uuid") String teamUUID
     ) {
-        DataHandler.deleteTeam(teamUUID);
+        int httpStatus = 400;
+        String entity = "faild";
 
-        int httpStatus = 200;
+        if(DataHandler.readTeamByUUID(teamUUID) != null){
+            DataHandler.deleteTeam(teamUUID);
+            httpStatus = 200;
+            entity = "Team erfolgreich gelöscht";
+        }
+
         return Response
                 .status(httpStatus)
-                .entity("Team erfolgreich gelöscht")
+                .entity(entity)
                 .build();
     }
 
@@ -141,20 +155,26 @@ public class TeamService {
     public Response updateDriver(
             @Valid @BeanParam Team t
     ) {
+        int httpStatus = 400;
+        String entity = "faild";
+
         Team team = DataHandler.readTeamByUUID(t.getTeamUUID());
-        team.setTeamUUID(t.getTeamUUID());
-        team.setName(t.getName());
-        team.setTeamPrincipal(t.getTeamPrincipal());
-        team.setEngine(t.getEngine());
-        team.setChassis(t.getChassis());
-        team.setSeasonUUID(t.getSeasonUUID());
+        if (team != null) {
+            team.setTeamUUID(t.getTeamUUID());
+            team.setName(t.getName());
+            team.setTeamPrincipal(t.getTeamPrincipal());
+            team.setEngine(t.getEngine());
+            team.setChassis(t.getChassis());
+            team.setSeasonUUID(t.getSeasonUUID());
 
-        DataHandler.updateTeam();
-
-        int httpStatus = 200;
+            DataHandler.updateTeam();
+            httpStatus = 200;
+            entity = "Team erfolgreich angelegt";
+        }
+        
         return Response
                 .status(httpStatus)
-                .entity("Team erfolgreich angelegt")
+                .entity(entity)
                 .build();
     }
 }
