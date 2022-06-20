@@ -1,12 +1,5 @@
-[
-  {
-    "seasonUUID": "86b51fbf-7723-4a97-996b-a61efbf7e997",
-    "year": "2022",
-    "winner": "-"
-  },
-  {
-    "seasonUUID": "be89824f-1168-49ce-b431-04052e481007",
-    "year": "2021",
-    "winner": "Max Verstappen"
-  }
-]
+[ {
+  "seasonUUID" : "86b51fbf-7723-4a97-996b-a61efbf7e997",
+  "year" : "2022",
+  "winner" : "-"
+} ]

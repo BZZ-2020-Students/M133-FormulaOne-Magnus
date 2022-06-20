@@ -2,33 +2,9 @@
   {
     "teamUUID": "f2095f89-4a09-40b7-80b7-31915f629d93",
     "name": "Mercedes-AMG Petronas F1 Team",
-    "teamPrincipal": "Toto Wolf",
     "engine": "Mercedes-AMG F1 W13 E Performance",
     "chassis": "Mercedes-AMG M13",
+    "teamPrincipal": "Toto Wolf",
     "seasonUUID": "86b51fbf-7723-4a97-996b-a61efbf7e997"
-  },
-  {
-    "teamUUID": "14055c19-56ba-4190-8d2d-d40584682bdc",
-    "name": "Aston Martin Aramco Cognizant F1 Team",
-    "teamPrincipal": "Mike Krack",
-    "engine": "Mercedes-Benz 1.6 V6 Turbo",
-    "chassis": "Aston Martin AMR22",
-    "seasonUUID": "86b51fbf-7723-4a97-996b-a61efbf7e997"
-  },
-  {
-    "teamUUID": "bd0a3893-64bb-47b9-b37c-ca2f9f05dff8",
-    "name": "Scuderia Ferrari",
-    "teamPrincipal": "Mattia Binotto",
-    "engine": "Ferrari 1.6 V6",
-    "chassis": "SF21",
-    "seasonUUID": "be89824f-1168-49ce-b431-04052e481007"
-  },
-  {
-    "teamUUID": "5b07ad4a-b809-43dd-8ae1-b4f6a8e31fe0",
-    "name": "Oracle Red Bull Racing",
-    "teamPrincipal": "Christian Horner",
-    "engine": "Honda 1.6 V6 Hybrid",
-    "chassis": "Red Bull Racing RB16B",
-    "seasonUUID": "be89824f-1168-49ce-b431-04052e481007"
   }
 ]

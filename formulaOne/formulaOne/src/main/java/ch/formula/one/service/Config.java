@@ -18,8 +18,8 @@ import java.util.Properties;
  */
 @ApplicationPath("/formula")
 public class Config extends Application {
-    private static final String PROPERTIES_PATH = "C:\\Github\\M133-FormulaOne-Magnus\\formulaOne\\formulaOne\\src\\main\\resources\\formulaOne.properties";
-//    private static final String PROPERTIES_PATH = "C:\\Users\\MGGG\\Documents\\GitHub\\M133-FormulaOne-Magnus\\formulaOne\\formulaOne\\src\\main\\resources\\formulaOne.properties";
+//    private static final String PROPERTIES_PATH = "C:\\Github\\M133-FormulaOne-Magnus\\formulaOne\\formulaOne\\src\\main\\resources\\formulaOne.properties";
+    private static final String PROPERTIES_PATH = "C:\\Users\\MGGG\\Documents\\GitHub\\M133-FormulaOne-Magnus\\formulaOne\\formulaOne\\src\\main\\resources\\formulaOne.properties";
 
     private static Properties properties = null;
 

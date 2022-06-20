@@ -155,6 +155,7 @@ public class DataHandler {
                 getTeamList().add(team);
             }
         } catch (IOException ex) {
+//            makeTeamList();
             ex.printStackTrace();
         }
     }
