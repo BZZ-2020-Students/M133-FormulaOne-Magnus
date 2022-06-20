@@ -2,6 +2,7 @@ package ch.formula.one.service;
 
 import ch.formula.one.data.DataHandler;
 import ch.formula.one.model.Driver;
+import ch.formula.one.model.Season;
 import ch.formula.one.model.Team;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.*;
@@ -158,18 +159,20 @@ public class TeamService {
         int httpStatus = 400;
         String entity = "faild";
 
-        Team team = DataHandler.readTeamByUUID(t.getTeamUUID());
-        if (team != null) {
-            team.setTeamUUID(t.getTeamUUID());
-            team.setName(t.getName());
-            team.setTeamPrincipal(t.getTeamPrincipal());
-            team.setEngine(t.getEngine());
-            team.setChassis(t.getChassis());
-            team.setSeasonUUID(t.getSeasonUUID());
+        if (DataHandler.readSeasonByUUID(t.getSeasonUUID()) != null) {
+            Team team = DataHandler.readTeamByUUID(t.getTeamUUID());
+            if (team != null) {
+                team.setTeamUUID(t.getTeamUUID());
+                team.setName(t.getName());
+                team.setTeamPrincipal(t.getTeamPrincipal());
+                team.setEngine(t.getEngine());
+                team.setChassis(t.getChassis());
+                team.setSeasonUUID(t.getSeasonUUID());
 
-            DataHandler.updateTeam();
-            httpStatus = 200;
-            entity = "Team erfolgreich angelegt";
+                DataHandler.updateTeam();
+                httpStatus = 200;
+                entity = "Team erfolgreich angelegt";
+            }
         }
         
         return Response

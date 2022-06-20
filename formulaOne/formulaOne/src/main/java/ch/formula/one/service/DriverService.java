@@ -157,19 +157,21 @@ public class DriverService {
         int httpStatus = 400;
         String entity = "faild";
 
-        Driver driver = DataHandler.readDriverByUUID(d.getDriverUUID());
-        if (driver != null) {
-            driver.setDriverUUID(d.getDriverUUID());
-            driver.setName(d.getName());
-            driver.setFirstname(d.getFirstname());
-            driver.setFirstDriver(d.getFirstDriver());
-            driver.setWins(d.getWins());
-            driver.setTeamUUID(d.getTeamUUID());
+        if (DataHandler.readTeamByUUID(d.getTeamUUID()) != null){
+            Driver driver = DataHandler.readDriverByUUID(d.getDriverUUID());
+            if (driver != null) {
+                driver.setDriverUUID(d.getDriverUUID());
+                driver.setName(d.getName());
+                driver.setFirstname(d.getFirstname());
+                driver.setFirstDriver(d.getFirstDriver());
+                driver.setWins(d.getWins());
+                driver.setTeamUUID(d.getTeamUUID());
 
-            DataHandler.updateDriver();
+                DataHandler.updateDriver();
 
-            httpStatus = 200;
-            entity = "Driver successfully updated";
+                httpStatus = 200;
+                entity = "Driver successfully updated";
+            }
         }
 
         return Response
