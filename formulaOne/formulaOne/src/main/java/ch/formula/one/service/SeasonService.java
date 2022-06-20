@@ -108,12 +108,17 @@ public class SeasonService {
             @NotEmpty
             @QueryParam("uuid") String seasonUUID
     ) {
-        DataHandler.getInstance().deleteSeason(seasonUUID);
+        int httpStatus = 400;
+        String entity = "faild";
+        if(DataHandler.getInstance().readSeasonByUUID(seasonUUID) != null){
+            DataHandler.getInstance().deleteSeason(seasonUUID);
+            httpStatus = 200;
+            entity = "Season erfolgreich gelöscht";
+        }
 
-        int httpStatus = 200;
         return Response
                 .status(httpStatus)
-                .entity("Season erfolgreich gelöscht")
+                .entity(entity)
                 .build();
     }
 
@@ -128,17 +133,21 @@ public class SeasonService {
     public Response updateSeason(
             @Valid @BeanParam Season s
     ) {
+        int httpStatus = 400;
+        String entity = "faild";
         Season season = DataHandler.getInstance().readSeasonByUUID(s.getSeasonUUID());
-        season.setSeasonUUID(s.getSeasonUUID());
-        season.setYear(s.getYear());
-        season.setWinner(s.getWinner());
+        if (season != null) {
+            season.setSeasonUUID(s.getSeasonUUID());
+            season.setYear(s.getYear());
+            season.setWinner(s.getWinner());
+            DataHandler.getInstance().updateSeason();
+            httpStatus = 200;
+            entity = "Season erfolgreich geupdated";
+        }
 
-        DataHandler.getInstance().updateSeason();
-
-        int httpStatus = 200;
         return Response
                 .status(httpStatus)
-                .entity("Season erfolgreich geupdated")
+                .entity(entity)
                 .build();
     }
 }

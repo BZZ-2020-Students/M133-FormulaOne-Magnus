@@ -101,7 +101,7 @@ public class DriverService {
         int httpStatus = 200;
         return Response
                 .status(httpStatus)
-                .entity("Driver erfolgreich angelegt")
+                .entity("Driver successfully inserted")
                 .build();
     }
 
@@ -123,7 +123,7 @@ public class DriverService {
         int httpStatus = 200;
         return Response
                 .status(httpStatus)
-                .entity("Driver erfolgreich gelöscht")
+                .entity("Driver successfully deleted")
                 .build();
     }
 
@@ -151,7 +151,7 @@ public class DriverService {
         int httpStatus = 200;
         return Response
                 .status(httpStatus)
-                .entity("Driver erfolgreich angelegt")
+                .entity("Driver successfully updated")
                 .build();
     }
 }
