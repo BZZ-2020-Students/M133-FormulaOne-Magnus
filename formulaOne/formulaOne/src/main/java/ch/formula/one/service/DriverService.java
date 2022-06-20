@@ -160,8 +160,7 @@ public class DriverService {
         int httpStatus = 400;
         String entity = "faild";
 
-        if (DataHandler.readTeamByUUID(teamUUID) != null){
-            if (DataHandler.readTeamByUUID(d.getTeamUUID()) != null){
+            if (DataHandler.readTeamByUUID(teamUUID) != null){
                 Driver driver = DataHandler.readDriverByUUID(d.getDriverUUID());
                 if (driver != null) {
                     driver.setDriverUUID(d.getDriverUUID());
@@ -177,7 +176,6 @@ public class DriverService {
                     entity = "Driver successfully updated";
                 }
             }
-        }
 
         return Response
                 .status(httpStatus)
