@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DataHandler {
-    private static DataHandler instance = null;
+    private static final DataHandler instance = new DataHandler();
     private List<Driver> driverList;
     private List<Season> seasonList;
     private List<Team> teamList;
@@ -44,8 +44,6 @@ public class DataHandler {
      * @return
      */
     public static DataHandler getInstance() {
-        if (instance == null)
-            instance = new DataHandler();
         return instance;
     }
 
@@ -155,7 +153,6 @@ public class DataHandler {
                 getTeamList().add(team);
             }
         } catch (IOException ex) {
-//            makeTeamList();
             ex.printStackTrace();
         }
     }

@@ -129,15 +129,15 @@ public class SeasonService {
     ) {
         Season season = DataHandler.getInstance().readSeasonByUUID(s.getSeasonUUID());
         season.setSeasonUUID(s.getSeasonUUID());
-        season.setYear(season.getYear());
-        season.setWinner(season.getWinner());
+        season.setYear(s.getYear());
+        season.setWinner(s.getWinner());
 
         DataHandler.getInstance().updateSeason();
 
         int httpStatus = 200;
         return Response
                 .status(httpStatus)
-                .entity("Season erfolgreich angelegt")
+                .entity("Season erfolgreich geupdated")
                 .build();
     }
 }
