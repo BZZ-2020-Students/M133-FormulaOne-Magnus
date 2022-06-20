@@ -79,7 +79,7 @@ public class DriverService {
             @NotEmpty
             @Size(min=1, max=40)
             @FormParam("firstname") String firstname,
-            @NotEmpty
+            @NotNull
             @FormParam("firstDriver") Boolean firstDriver,
             @Max(999)
             @Min(0)

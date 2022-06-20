@@ -26,7 +26,7 @@ public class Driver {
     @Size(min=1, max=40)
     private String firstname;
     @FormParam("firstDriver")
-    @NotEmpty
+    @NotNull
     private Boolean firstDriver;         //Team Order who is preferred to win
     @FormParam("wins")
     @Max(999)
