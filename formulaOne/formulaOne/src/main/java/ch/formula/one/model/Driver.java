@@ -52,7 +52,7 @@ public class Driver {
      */
     public void setTeamUUID(String teamUUID) {
         setTeam(new Team());
-        Team team = DataHandler.getInstance().readTeamByUUID(teamUUID);
+        Team team = DataHandler.readTeamByUUID(teamUUID);
         getTeam().setTeamUUID(team.getTeamUUID());
         getTeam().setName(team.getName());
         getTeam().setChassis(team.getChassis());

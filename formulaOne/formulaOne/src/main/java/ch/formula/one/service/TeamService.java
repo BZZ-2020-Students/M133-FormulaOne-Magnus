@@ -30,7 +30,7 @@ public class TeamService {
     @Path("list")
     @Produces(MediaType.APPLICATION_JSON)
     public Response listTeams() {
-        List<Team> teamList = DataHandler.getInstance().readAllTeams();
+        List<Team> teamList = DataHandler.readAllTeams();
         return Response
                 .status(200)
                 .entity(teamList)
@@ -50,7 +50,7 @@ public class TeamService {
             @QueryParam("uuid") String teamUUID
     ) {
         int httpStatus = 200;
-        Team team = DataHandler.getInstance().readTeamByUUID(teamUUID);
+        Team team = DataHandler.readTeamByUUID(teamUUID);
         if (team == null) {
             httpStatus = 410;
         }
@@ -99,7 +99,7 @@ public class TeamService {
         team.setChassis(chassis);
         team.setSeasonUUID(seasonUUID);
 
-        DataHandler.getInstance().insertTeam(team);
+        DataHandler.insertTeam(team);
 
         int httpStatus = 200;
         return Response
@@ -121,7 +121,7 @@ public class TeamService {
             @NotEmpty
             @QueryParam("uuid") String teamUUID
     ) {
-        DataHandler.getInstance().deleteTeam(teamUUID);
+        DataHandler.deleteTeam(teamUUID);
 
         int httpStatus = 200;
         return Response
@@ -141,7 +141,7 @@ public class TeamService {
     public Response updateDriver(
             @Valid @BeanParam Team t
     ) {
-        Team team = DataHandler.getInstance().readTeamByUUID(t.getTeamUUID());
+        Team team = DataHandler.readTeamByUUID(t.getTeamUUID());
         team.setTeamUUID(t.getTeamUUID());
         team.setName(t.getName());
         team.setTeamPrincipal(t.getTeamPrincipal());
@@ -149,7 +149,7 @@ public class TeamService {
         team.setChassis(t.getChassis());
         team.setSeasonUUID(t.getSeasonUUID());
 
-        DataHandler.getInstance().updateTeam();
+        DataHandler.updateTeam();
 
         int httpStatus = 200;
         return Response

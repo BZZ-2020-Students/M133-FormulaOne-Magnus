@@ -28,7 +28,7 @@ public class DriverService {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public Response listDrivers() {
-        List<Driver> driverList = DataHandler.getInstance().readAllDrivers();
+        List<Driver> driverList = DataHandler.readAllDrivers();
         Response response = Response
                 .status(200)
                 .entity(driverList)
@@ -49,7 +49,7 @@ public class DriverService {
             @QueryParam("uuid") String driverUUID
     ) {
         int httpStatus = 200;
-        Driver driver = DataHandler.getInstance().readDriverByUUID(driverUUID);
+        Driver driver = DataHandler.readDriverByUUID(driverUUID);
         if (driver == null) {
             httpStatus = 410;
         }
@@ -96,7 +96,7 @@ public class DriverService {
         driver.setWins(wins);
         driver.setTeamUUID(teamUUID);
 
-        DataHandler.getInstance().insertDriver(driver);
+        DataHandler.insertDriver(driver);
 
         int httpStatus = 200;
         return Response
@@ -118,7 +118,7 @@ public class DriverService {
             @NotEmpty
             @QueryParam("uuid") String driverUUID
     ) {
-        DataHandler.getInstance().deleteDriver(driverUUID);
+        DataHandler.deleteDriver(driverUUID);
 
         int httpStatus = 200;
         return Response
@@ -138,7 +138,7 @@ public class DriverService {
     public Response updateDriver(
             @Valid @BeanParam Driver d
     ) {
-        Driver driver = DataHandler.getInstance().readDriverByUUID(d.getDriverUUID());
+        Driver driver = DataHandler.readDriverByUUID(d.getDriverUUID());
         driver.setDriverUUID(d.getDriverUUID());
         driver.setName(d.getName());
         driver.setFirstname(d.getFirstname());
@@ -146,7 +146,7 @@ public class DriverService {
         driver.setWins(d.getWins());
         driver.setTeamUUID(d.getTeamUUID());
 
-        DataHandler.getInstance().updateDriver();
+        DataHandler.updateDriver();
 
         int httpStatus = 200;
         return Response

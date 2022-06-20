@@ -54,7 +54,7 @@ public class Team {
      */
     public void setSeasonUUID(String seasonUUID) {
         setSeason(new Season());
-        Season season = DataHandler.getInstance().readSeasonByUUID(seasonUUID);
+        Season season = DataHandler.readSeasonByUUID(seasonUUID);
         getSeason().setSeasonUUID(seasonUUID);
         getSeason().setSeasonUUID(season.getSeasonUUID());
         getSeason().setYear(season.getYear());

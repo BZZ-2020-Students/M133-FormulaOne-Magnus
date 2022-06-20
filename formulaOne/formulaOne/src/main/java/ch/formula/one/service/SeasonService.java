@@ -32,7 +32,7 @@ public class SeasonService {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public Response listSeasons() {
-        List<Season> seasonList = DataHandler.getInstance().readAllSeasons();
+        List<Season> seasonList = DataHandler.readAllSeasons();
         Response response = Response
                 .status(200)
                 .entity(seasonList)
@@ -54,7 +54,7 @@ public class SeasonService {
             @QueryParam("uuid") String seasonUUID
     ) {
         int httpStatus = 200;
-        Season season = DataHandler.getInstance().readSeasonByUUID(seasonUUID);
+        Season season = DataHandler.readSeasonByUUID(seasonUUID);
         if (season == null) {
             httpStatus = 410;
         }
@@ -86,7 +86,7 @@ public class SeasonService {
         season.setYear(year);
         season.setWinner(winner);
 
-        DataHandler.getInstance().insertSeason(season);
+        DataHandler.insertSeason(season);
 
         int httpStatus = 200;
         return Response
@@ -110,8 +110,8 @@ public class SeasonService {
     ) {
         int httpStatus = 400;
         String entity = "faild";
-        if(DataHandler.getInstance().readSeasonByUUID(seasonUUID) != null){
-            DataHandler.getInstance().deleteSeason(seasonUUID);
+        if(DataHandler.readSeasonByUUID(seasonUUID) != null){
+            DataHandler.deleteSeason(seasonUUID);
             httpStatus = 200;
             entity = "Season erfolgreich gelöscht";
         }
@@ -135,12 +135,12 @@ public class SeasonService {
     ) {
         int httpStatus = 400;
         String entity = "faild";
-        Season season = DataHandler.getInstance().readSeasonByUUID(s.getSeasonUUID());
+        Season season = DataHandler.readSeasonByUUID(s.getSeasonUUID());
         if (season != null) {
             season.setSeasonUUID(s.getSeasonUUID());
             season.setYear(s.getYear());
             season.setWinner(s.getWinner());
-            DataHandler.getInstance().updateSeason();
+            DataHandler.updateSeason();
             httpStatus = 200;
             entity = "Season erfolgreich geupdated";
         }

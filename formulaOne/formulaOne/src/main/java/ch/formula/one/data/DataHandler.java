@@ -16,35 +16,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DataHandler {
-    private static final DataHandler instance = new DataHandler();
-    private List<Driver> driverList;
-    private List<Season> seasonList;
-    private List<Team> teamList;
-    private List<User> userList;
+    private static List<Driver> driverList;
+    private static List<Season> seasonList;
+    private static List<Team> teamList;
+    private static List<User> userList;
 
-    /**
-     * private constructor defeats instantiation
-     *
-     * @author Magnus Götz
-     * @version 1.0
-     * @since 2022-05-23
-     */
-    private DataHandler() {
+    static {
         setSeasonList(new ArrayList<>());
         setTeamList(new ArrayList<>());
         setDriverList(new ArrayList<>());
         readSeasonJSON();
         readTeamJSON();
         readDriverJSON();
-    }
-
-    /**
-     * gets the only instance of this class
-     *
-     * @return
-     */
-    public static DataHandler getInstance() {
-        return instance;
     }
 
 
@@ -55,7 +38,7 @@ public class DataHandler {
      *
      * @return list of Drivers
      */
-    public List<Driver> readAllDrivers() {
+    public static List<Driver> readAllDrivers() {
         return getDriverList();
     }
 
@@ -65,7 +48,7 @@ public class DataHandler {
      * @param driverUUID
      * @return the Driver (null=not found)
      */
-    public Driver readDriverByUUID(String driverUUID) {
+    public static Driver readDriverByUUID(String driverUUID) {
         Driver driver = null;
         for (Driver entry : getDriverList()) {
             if (entry.getDriverUUID().equals(driverUUID)) {
@@ -78,7 +61,7 @@ public class DataHandler {
     /**
      * reads the drivers from the JSON-file
      */
-    private void readDriverJSON() {
+    private static void readDriverJSON() {
         try {
             String path = Config.getProperty("driverJSON");
 
@@ -95,17 +78,17 @@ public class DataHandler {
         }
     }
 
-    public void insertDriver(Driver driver) {
+    public static void insertDriver(Driver driver) {
         getDriverList().add(driver);
         writeDriverJSON();
     }
 
-    public void deleteDriver(String driverUUID){
+    public static void deleteDriver(String driverUUID){
         getSeasonList().remove(readDriverByUUID(driverUUID));
         writeDriverJSON();
     }
 
-    public void updateDriver(){
+    public static void updateDriver(){
         writeDriverJSON();
     }
 
@@ -116,7 +99,7 @@ public class DataHandler {
      *
      * @return list of teams
      */
-    public List<Team> readAllTeams() {
+    public static List<Team> readAllTeams() {
 
         return getTeamList();
     }
@@ -127,7 +110,7 @@ public class DataHandler {
      * @param teamUUID
      * @return the Team (null=not found)
      */
-    public Team readTeamByUUID(String teamUUID) {
+    public static Team readTeamByUUID(String teamUUID) {
         Team team = null;
         for (Team entry : getTeamList()) {
             if (entry.getTeamUUID().equals(teamUUID)) {
@@ -140,7 +123,7 @@ public class DataHandler {
     /**
      * reads the teams from the JSON-file
      */
-    private void readTeamJSON() {
+    private static void readTeamJSON() {
         try {
             byte[] jsonData = Files.readAllBytes(
                     Paths.get(
@@ -157,17 +140,17 @@ public class DataHandler {
         }
     }
 
-    public void insertTeam(Team team) {
+    public static void insertTeam(Team team) {
         getTeamList().add(team);
         writeTeamJSON();
     }
 
-    public void deleteTeam(String driverUUID){
+    public static void deleteTeam(String driverUUID){
         getSeasonList().remove(readTeamByUUID(driverUUID));
         writeTeamJSON();
     }
 
-    public void updateTeam(){
+    public static void updateTeam(){
         writeDriverJSON();
     }
 
@@ -177,7 +160,7 @@ public class DataHandler {
      *
      * @return list of seasons
      */
-    public List<Season> readAllSeasons() {
+    public static List<Season> readAllSeasons() {
         return getSeasonList();
     }
 
@@ -187,7 +170,7 @@ public class DataHandler {
      * @param seasonUUID
      * @return the Season (null=not found)
      */
-    public Season readSeasonByUUID(String seasonUUID) {
+    public static Season readSeasonByUUID(String seasonUUID) {
         Season season = null;
         for (Season entry : getSeasonList()) {
             if (entry.getSeasonUUID().equals(seasonUUID)) {
@@ -202,24 +185,24 @@ public class DataHandler {
      *
      * @param season
      */
-    public void insertSeason(Season season) {
+    public static void insertSeason(Season season) {
         getSeasonList().add(season);
         writeSeasonJSON();
     }
 
-    public void deleteSeason(String seasonUUID){
+    public static void deleteSeason(String seasonUUID){
         getSeasonList().remove(readSeasonByUUID(seasonUUID));
         writeSeasonJSON();
     }
 
-    public void updateSeason(){
+    public static void updateSeason(){
         writeSeasonJSON();
     }
 
     /**
      * reads the seasons from the JSON-file
      */
-    private void readSeasonJSON() {
+    private static void readSeasonJSON() {
         try {
             String path = Config.getProperty("seasonJSON");
 
@@ -242,7 +225,7 @@ public class DataHandler {
      *
      * @return value of driverList
      */
-    private List<Driver> getDriverList() {
+    private static List<Driver> getDriverList() {
         return driverList;
     }
 
@@ -251,8 +234,8 @@ public class DataHandler {
      *
      * @param driverList the value to set
      */
-    private void setDriverList(List<Driver> driverList) {
-        this.driverList = driverList;
+    private static void setDriverList(List<Driver> driverList) {
+        DataHandler.driverList = driverList;
     }
 
     /**
@@ -260,7 +243,7 @@ public class DataHandler {
      *
      * @return value of teamList
      */
-    private List<Team> getTeamList() {
+    private static List<Team> getTeamList() {
         return teamList;
     }
 
@@ -269,8 +252,8 @@ public class DataHandler {
      *
      * @param teamList the value to set
      */
-    private void setTeamList(List<Team> teamList) {
-        this.teamList = teamList;
+    private static void setTeamList(List<Team> teamList) {
+        DataHandler.teamList = teamList;
     }
 
     /**
@@ -278,7 +261,7 @@ public class DataHandler {
      *
      * @return value of seasonList
      */
-    private List<Season> getSeasonList() {
+    private static List<Season> getSeasonList() {
         return seasonList;
     }
 
@@ -287,11 +270,11 @@ public class DataHandler {
      *
      * @param seasonList the value to set
      */
-    private void setSeasonList(List<Season> seasonList) {
-        this.seasonList = seasonList;
+    private static void setSeasonList(List<Season> seasonList) {
+        DataHandler.seasonList = seasonList;
     }
 
-    private void writeSeasonJSON() {
+    private static void writeSeasonJSON() {
         ObjectMapper objectMapper = new ObjectMapper();
         ObjectWriter objectWriter = objectMapper.writer(new DefaultPrettyPrinter());
         FileOutputStream fileOutputStream = null;
@@ -307,7 +290,7 @@ public class DataHandler {
         }
     }
 
-    private void writeDriverJSON() {
+    private static void writeDriverJSON() {
         ObjectMapper objectMapper = new ObjectMapper();
         ObjectWriter objectWriter = objectMapper.writer(new DefaultPrettyPrinter());
         FileOutputStream fileOutputStream = null;
@@ -323,7 +306,7 @@ public class DataHandler {
         }
     }
 
-    private void writeTeamJSON() {
+    private static void writeTeamJSON() {
         ObjectMapper objectMapper = new ObjectMapper();
         ObjectWriter objectWriter = objectMapper.writer(new DefaultPrettyPrinter());
         FileOutputStream fileOutputStream = null;
