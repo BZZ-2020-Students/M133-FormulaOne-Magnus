@@ -1,9 +1,9 @@
 [ {
   "driverUUID" : "4bf6862d-5ef4-4564-82e6-3ee7ed61fc94",
-  "name" : "Verstappen",
-  "firstname" : "Max",
+  "name" : "Hamilton",
+  "firstname" : "Lewis",
   "firstDriver" : true,
-  "wins" : 32,
+  "wins" : 103,
   "teamUUID" : "f2095f89-4a09-40b7-80b7-31915f629d93"
 }, {
   "driverUUID" : "18cac1b8-c463-41d6-ae9a-a2153e51befc",
@@ -12,11 +12,4 @@
   "firstDriver" : false,
   "wins" : 0,
   "teamUUID" : "f2095f89-4a09-40b7-80b7-31915f629d93"
-}, {
-  "driverUUID" : "91fb26d3-72dc-402c-a1e8-bee7106b42cb",
-  "name" : "Verstappen",
-  "firstname" : "Max",
-  "firstDriver" : true,
-  "wins" : 32,
-  "teamUUID" : "f2095f89-4a09-40b7-80b7-31915f629d93"
-} ]
+}]

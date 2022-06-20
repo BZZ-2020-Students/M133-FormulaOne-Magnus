@@ -1,15 +1,10 @@
-[ {
-  "teamUUID" : "f2095f89-4a09-40b7-80b7-31915f629d93",
-  "name" : "RedBull",
-  "teamPrincipal" : "Christian Horner",
-  "engine" : "Honda",
-  "chassis" : "RB16",
-  "seasonUUID" : "86b51fbf-7723-4a97-996b-a61efbf7e997"
-}, {
-  "teamUUID" : "bf2ed2db-221f-4cec-9404-2eb65a7ac8a5",
-  "name" : "RedBull",
-  "teamPrincipal" : "Christian Horner",
-  "engine" : "Honda",
-  "chassis" : "RB16",
-  "seasonUUID" : "86b51fbf-7723-4a97-996b-a61efbf7e997"
-} ]
+[
+  {
+    "teamUUID": "f2095f89-4a09-40b7-80b7-31915f629d93",
+    "name": "Mercedes-AMG Petronas F1 Team",
+    "engine": "Mercedes-AMG F1 W13 E Performance",
+    "chassis": "Mercedes-AMG M13",
+    "teamPrincipal": "Toto Wolf",
+    "seasonUUID": "86b51fbf-7723-4a97-996b-a61efbf7e997"
+  }
+]
