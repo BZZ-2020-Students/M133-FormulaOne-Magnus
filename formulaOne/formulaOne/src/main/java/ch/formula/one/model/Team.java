@@ -16,23 +16,24 @@ import jakarta.ws.rs.FormParam;
  */
 public class Team {
     @FormParam("teamUUID")
+    @NotEmpty
     @Pattern(regexp = "|[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}")
     private String teamUUID;
     @FormParam("name")
     @NotEmpty
-    @Size(min=5, max=40)
+    @Size(min=1, max=40)
     private String name;
     @FormParam("teamPrincipal")
     @NotEmpty
-    @Size(min=5, max=40)
+    @Size(min=1, max=40)
     private String teamPrincipal;
     @FormParam("engine")
     @NotEmpty
-    @Size(min=5, max=40)
+    @Size(min=1, max=40)
     private String engine;
     @FormParam("chassis")
     @NotEmpty
-    @Size(min=5, max=40)
+    @Size(min=1, max=40)
     private String chassis;
     @JsonIgnore
     private Season season;

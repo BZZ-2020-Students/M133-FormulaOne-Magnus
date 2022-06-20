@@ -14,15 +14,16 @@ import jakarta.ws.rs.FormParam;
  */
 public class Driver {
     @FormParam("driverUUID")
+    @NotEmpty
     @Pattern(regexp = "|[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}")
     private String driverUUID;
     @FormParam("name")
     @NotEmpty
-    @Size(min=5, max=40)
+    @Size(min=1, max=40)
     private String name;
     @FormParam("firstname")
     @NotEmpty
-    @Size(min=5, max=40)
+    @Size(min=1, max=40)
     private String firstname;
     @FormParam("firstDriver")
     @NotEmpty

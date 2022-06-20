@@ -105,6 +105,7 @@ public class SeasonService {
     @Produces(MediaType.TEXT_PLAIN)
     public Response insertSeason(
             @Pattern(regexp = "|[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}")
+            @NotEmpty
             @QueryParam("uuid") String seasonUUID
     ) {
         DataHandler.getInstance().deleteSeason(seasonUUID);

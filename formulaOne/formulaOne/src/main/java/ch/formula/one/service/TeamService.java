@@ -74,19 +74,20 @@ public class TeamService {
     @Produces(MediaType.TEXT_PLAIN)
     public Response insertDriver(
             @NotEmpty
-            @Size(min=5, max=40)
+            @Size(min=1, max=40)
             @FormParam("name") String name,
             @NotEmpty
-            @Size(min=5, max=40)
+            @Size(min=1, max=40)
             @FormParam("teamPrincipal") String teamPrincipal,
             @NotEmpty
-            @Size(min=5, max=40)
+            @Size(min=1, max=40)
             @FormParam("engine") String engine,
             @NotEmpty
-            @Size(min=5, max=40)
+            @Size(min=1, max=40)
             @FormParam("chassis") String chassis,
 
             @Pattern(regexp = "|[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}")
+            @NotEmpty
             @FormParam("seasonUUID") String seasonUUID
 
     ) {
@@ -117,6 +118,7 @@ public class TeamService {
     @Produces(MediaType.TEXT_PLAIN)
     public Response insertDriver(
             @Pattern(regexp = "|[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}")
+            @NotEmpty
             @QueryParam("uuid") String teamUUID
     ) {
         DataHandler.getInstance().deleteTeam(teamUUID);

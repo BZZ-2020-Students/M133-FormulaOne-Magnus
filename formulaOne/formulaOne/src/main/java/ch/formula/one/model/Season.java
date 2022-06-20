@@ -14,6 +14,7 @@ import jakarta.ws.rs.FormParam;
  */
 public class Season {
     @FormParam("seasonUUID")
+    @NotEmpty
     @Pattern(regexp = "|[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}")
     private String seasonUUID;
     @FormParam("year")

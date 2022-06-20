@@ -73,10 +73,10 @@ public class DriverService {
     @Produces(MediaType.TEXT_PLAIN)
     public Response insertDriver(
             @NotEmpty
-            @Size(min=5, max=40)
+            @Size(min=1, max=40)
             @FormParam("name") String name,
             @NotEmpty
-            @Size(min=5, max=40)
+            @Size(min=1, max=40)
             @FormParam("firstname") String firstname,
             @NotEmpty
             @FormParam("firstDriver") Boolean firstDriver,
@@ -84,6 +84,7 @@ public class DriverService {
             @Min(0)
             @FormParam("wins") Integer wins,
             @Pattern(regexp = "|[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}")
+            @NotEmpty
             @FormParam("teamUUID") String teamUUID
 
     ) {
@@ -114,6 +115,7 @@ public class DriverService {
     @Produces(MediaType.TEXT_PLAIN)
     public Response insertDriver(
             @Pattern(regexp = "|[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}")
+            @NotEmpty
             @QueryParam("uuid") String driverUUID
     ) {
         DataHandler.getInstance().deleteDriver(driverUUID);
