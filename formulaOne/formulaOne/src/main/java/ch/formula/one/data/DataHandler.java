@@ -84,7 +84,7 @@ public class DataHandler {
     }
 
     public static void deleteDriver(String driverUUID){
-        getSeasonList().remove(readDriverByUUID(driverUUID));
+        getDriverList().remove(readDriverByUUID(driverUUID));
         writeDriverJSON();
     }
 
@@ -146,7 +146,7 @@ public class DataHandler {
     }
 
     public static void deleteTeam(String driverUUID){
-        getSeasonList().remove(readTeamByUUID(driverUUID));
+        getTeamList().remove(readTeamByUUID(driverUUID));
         writeTeamJSON();
     }
 
