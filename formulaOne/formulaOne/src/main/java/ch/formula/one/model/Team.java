@@ -1,83 +1,65 @@
 package ch.formula.one.model;
 
 import ch.formula.one.data.DataHandler;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonProperty;
-
-import java.util.ArrayList;
-import java.util.List;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.Size;
+import jakarta.ws.rs.FormParam;
 
 /**
- * the Team has Drivers for a Saison
+ * the Team has Drivers for a Season
  *
  * @author Magnus Götz
  * @version 1.0
  * @since 2022-05-23
  */
 public class Team {
+    @FormParam("teamUUID")
+    @NotEmpty
+    @Pattern(regexp = "|[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}")
     private String teamUUID;
-    private String bezeichnung;
-    private String teamchef;
-    private String motor;
+    @FormParam("name")
+    @NotEmpty
+    @Size(min=1, max=40)
+    private String name;
+    @FormParam("teamPrincipal")
+    @NotEmpty
+    @Size(min=1, max=40)
+    private String teamPrincipal;
+    @FormParam("engine")
+    @NotEmpty
+    @Size(min=1, max=40)
+    private String engine;
+    @FormParam("chassis")
+    @NotEmpty
+    @Size(min=1, max=40)
     private String chassis;
-//    @JsonIgnore
-//    private List<Fahrer> fahrerList;
     @JsonIgnore
-    private Saison saison;
+    private Season season;
 
     /**
-     * gets saisonUUID
+     * gets seasonUUID
      *
-     * @return saisonUUID
+     * @return seasonUUID
      */
-    public String getSaisonUUID() {
-        return getSaison().getSaisonUUID();
+    public String getSeasonUUID() {
+        return getSeason().getSeasonUUID();
     }
 
     /**
-     * creates a Saison by saisonUUID
+     * creates a Season by seasonUUID
      *
-     * @param saisonUUID
+     * @param seasonUUID
      */
-    public void setSaisonUUID(String saisonUUID) {
-        setSaison(new Saison());
-        Saison saison = DataHandler.getInstance().readSaisonByUUID(saisonUUID);
-        getSaison().setSaisonUUID(saisonUUID);
-        getSaison().setSaisonUUID(saison.getSaisonUUID());
-        getSaison().setJahr(saison.getJahr());
-        getSaison().setGewinner(saison.getGewinner());
-
+    public void setSeasonUUID(String seasonUUID) {
+        setSeason(new Season());
+        Season season = DataHandler.readSeasonByUUID(seasonUUID);
+        getSeason().setSeasonUUID(seasonUUID);
+        getSeason().setSeasonUUID(season.getSeasonUUID());
+        getSeason().setYear(season.getYear());
+        getSeason().setWinner(season.getWinner());
     }
-
-//    /***
-//     * gets List of fahrerUUIDs
-//     * @return List of fahrerUUIDs
-//     */
-//    public List<String> getFahrerUUID() {
-//        List<String> uuids = new ArrayList<>();
-//        if (fahrerList != null) {
-//            for (Fahrer fahrer : fahrerList) {
-//                uuids.add(fahrer.getFahrerUUID());
-//            }
-//        }
-//        return uuids;
-//    }
-//
-//    /**
-//     * creates a List of Fahrers by fahrerUUIDs
-//     *
-//     * @param fahrerUUIDs
-//     */
-//    public void setFahrerUUID(List<String> fahrerUUIDs) {
-//        fahrerList = new ArrayList<>();
-//        if (fahrerUUIDs != null) {
-//            for (String fahrerUUID : fahrerUUIDs) {
-//                Fahrer fahrer = DataHandler.getInstance().readFahrerByUUID(fahrerUUID);
-//                fahrerList.add(fahrer);
-//            }
-//        }
-//    }
 
     /**
      * gets teamUUID
@@ -98,57 +80,57 @@ public class Team {
     }
 
     /**
-     * gets bezeichnung
+     * gets name
      *
-     * @return value of bezeichnung
+     * @return value of name
      */
-    public String getBezeichnung() {
-        return bezeichnung;
+    public String getName() {
+        return name;
     }
 
     /**
-     * sets bezeichnung
+     * sets name
      *
-     * @param bezeichnung the value to set
+     * @param name the value to set
      */
-    public void setBezeichnung(String bezeichnung) {
-        this.bezeichnung = bezeichnung;
+    public void setName(String name) {
+        this.name = name;
     }
 
     /**
-     * gets teamchef
+     * gets teamPrincipal
      *
-     * @return value of teamchef
+     * @return value of teamPrincipal
      */
-    public String getTeamchef() {
-        return teamchef;
+    public String getTeamPrincipal() {
+        return teamPrincipal;
     }
 
     /**
-     * sets teamchef
+     * sets teamPrincipal
      *
-     * @param teamchef the value to set
+     * @param teamPrincipal the value to set
      */
-    public void setTeamchef(String teamchef) {
-        this.teamchef = teamchef;
+    public void setTeamPrincipal(String teamPrincipal) {
+        this.teamPrincipal = teamPrincipal;
     }
 
     /**
-     * gets motor
+     * gets engine
      *
-     * @return value of motor
+     * @return value of engine
      */
-    public String getMotor() {
-        return motor;
+    public String getEngine() {
+        return engine;
     }
 
     /**
-     * sets motor
+     * sets engine
      *
-     * @param motor the value to set
+     * @param engine the value to set
      */
-    public void setMotor(String motor) {
-        this.motor = motor;
+    public void setEngine(String engine) {
+        this.engine = engine;
     }
 
     /**
@@ -169,39 +151,21 @@ public class Team {
         this.chassis = chassis;
     }
 
-//    /**
-//     * gets fahrerList
-//     *
-//     * @return value of fahrerList
-//     */
-//    public List<Fahrer> getFahrerList() {
-//        return fahrerList;
-//    }
-//
-//    /**
-//     * sets fahrerList
-//     *
-//     * @param fahrerList the value to set
-//     */
-//    public void setFahrerList(List<Fahrer> fahrerList) {
-//        this.fahrerList = fahrerList;
-//    }
-
     /**
-     * gets saison
+     * gets season
      *
-     * @return value of saison
+     * @return value of season
      */
-    public Saison getSaison() {
-        return saison;
+    public Season getSeason() {
+        return season;
     }
 
     /**
-     * sets saison
+     * sets season
      *
-     * @param saison the value to set
+     * @param season the value to set
      */
-    public void setSaison(Saison saison) {
-        this.saison = saison;
+    public void setSeason(Season season) {
+        this.season = season;
     }
 }

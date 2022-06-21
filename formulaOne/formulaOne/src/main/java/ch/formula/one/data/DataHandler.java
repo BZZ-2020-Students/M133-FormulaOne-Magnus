@@ -1,83 +1,105 @@
 package ch.formula.one.data;
 
-import ch.formula.one.model.Fahrer;
-import ch.formula.one.model.Saison;
+import ch.formula.one.model.Driver;
+import ch.formula.one.model.Season;
 import ch.formula.one.model.Team;
 import ch.formula.one.model.User;
 import ch.formula.one.service.Config;
+import com.fasterxml.jackson.core.util.DefaultPrettyPrinter;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import java.io.IOException;
+import com.fasterxml.jackson.databind.ObjectWriter;
+import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
 public class DataHandler {
-    private static DataHandler instance = null;
-    private List<Fahrer> fahrerList;
-    private List<Saison> saisonList;
-    private List<Team> teamList;
-    private List<User> userList;
+    private static List<Driver> driverList;
+    private static List<Season> seasonList;
+    private static List<Team> teamList;
+    private static List<User> userList;
 
-    /**
-     * private constructor defeats instantiation
-     *
-     * @author Magnus Götz
-     * @version 1.0
-     * @since 2022-05-23
-     */
-    private DataHandler() {
-        setSaisonList(new ArrayList<>());
-        readSaisonJSON();
+    static {
+        setSeasonList(new ArrayList<>());
         setTeamList(new ArrayList<>());
+        setDriverList(new ArrayList<>());
+        readSeasonJSON();
         readTeamJSON();
-        setFahrerList(new ArrayList<>());
-        readFahrerJSON();
-    }
-
-    /**
-     * gets the only instance of this class
-     *
-     * @return
-     */
-    public static DataHandler getInstance() {
-        if (instance == null)
-            instance = new DataHandler();
-        return instance;
+        readDriverJSON();
     }
 
 
+    /*********************************************Driver*********************************************/
+
     /**
-     * reads all fahrers
+     * reads all Drivers
      *
-     * @return list of fahrers
+     * @return list of Drivers
      */
-    public List<Fahrer> readAllFahrers() {
-        return getFahrerList();
+    public static List<Driver> readAllDrivers() {
+        return getDriverList();
     }
 
     /**
-     * reads a fahrer by its uuid
+     * reads a Driver by its uuid
      *
-     * @param fahrerUUID
-     * @return the Fahrer (null=not found)
+     * @param driverUUID
+     * @return the Driver (null=not found)
      */
-    public Fahrer readFahrerByUUID(String fahrerUUID) {
-        Fahrer fahrer = null;
-        for (Fahrer entry : getFahrerList()) {
-            if (entry.getFahrerUUID().equals(fahrerUUID)) {
-                fahrer = entry;
+    public static Driver readDriverByUUID(String driverUUID) {
+        Driver driver = null;
+        for (Driver entry : getDriverList()) {
+            if (entry.getDriverUUID().equals(driverUUID)) {
+                driver = entry;
             }
         }
-        return fahrer;
+        return driver;
     }
+
+    /**
+     * reads the drivers from the JSON-file
+     */
+    private static void readDriverJSON() {
+        try {
+            String path = Config.getProperty("driverJSON");
+
+            byte[] jsonData = Files.readAllBytes(
+                    Paths.get(path)
+            );
+            ObjectMapper objectMapper = new ObjectMapper();
+            Driver[] drivers = objectMapper.readValue(jsonData, Driver[].class);
+            for (Driver driver : drivers) {
+                getDriverList().add(driver);
+            }
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    public static void insertDriver(Driver driver) {
+        getDriverList().add(driver);
+        writeDriverJSON();
+    }
+
+    public static void deleteDriver(String driverUUID){
+        getSeasonList().remove(readDriverByUUID(driverUUID));
+        writeDriverJSON();
+    }
+
+    public static void updateDriver(){
+        writeDriverJSON();
+    }
+
+    /*********************************************TEAM*********************************************/
 
     /**
      * reads all Teams
      *
      * @return list of teams
      */
-    public List<Team> readAllTeams() {
+    public static List<Team> readAllTeams() {
 
         return getTeamList();
     }
@@ -88,7 +110,7 @@ public class DataHandler {
      * @param teamUUID
      * @return the Team (null=not found)
      */
-    public Team readTeamByUUID(String teamUUID) {
+    public static Team readTeamByUUID(String teamUUID) {
         Team team = null;
         for (Team entry : getTeamList()) {
             if (entry.getTeamUUID().equals(teamUUID)) {
@@ -99,55 +121,9 @@ public class DataHandler {
     }
 
     /**
-     * reads all saisons
-     *
-     * @return list of saisons
-     */
-    public List<Saison> readAllSaisons() {
-        return getSaisonList();
-    }
-
-    /**
-     * reads a saison by its uuid
-     *
-     * @param saisonUUID
-     * @return the Saison (null=not found)
-     */
-    public Saison readSaisonByUUID(String saisonUUID) {
-        Saison saison = null;
-        for (Saison entry : getSaisonList()) {
-            if (entry.getSaisonUUID().equals(saisonUUID)) {
-                saison = entry;
-            }
-        }
-        return saison;
-    }
-
-
-    /**
-     * reads the fahrers from the JSON-file
-     */
-    private void readFahrerJSON() {
-        try {
-            String path = Config.getProperty("fahrerJSON");
-
-            byte[] jsonData = Files.readAllBytes(
-                    Paths.get(path)
-            );
-            ObjectMapper objectMapper = new ObjectMapper();
-            Fahrer[] fahrers = objectMapper.readValue(jsonData, Fahrer[].class);
-            for (Fahrer fahrer : fahrers) {
-                getFahrerList().add(fahrer);
-            }
-        } catch (IOException ex) {
-            ex.printStackTrace();
-        }
-    }
-
-    /**
      * reads the teams from the JSON-file
      */
-    private void readTeamJSON() {
+    private static void readTeamJSON() {
         try {
             byte[] jsonData = Files.readAllBytes(
                     Paths.get(
@@ -164,20 +140,79 @@ public class DataHandler {
         }
     }
 
+    public static void insertTeam(Team team) {
+        getTeamList().add(team);
+        writeTeamJSON();
+    }
+
+    public static void deleteTeam(String driverUUID){
+        getSeasonList().remove(readTeamByUUID(driverUUID));
+        writeTeamJSON();
+    }
+
+    public static void updateTeam(){
+        writeTeamJSON();
+    }
+
+    /*********************************************Season*********************************************/
     /**
-     * reads the saisons from the JSON-file
+     * reads all seasons
+     *
+     * @return list of seasons
      */
-    private void readSaisonJSON() {
+    public static List<Season> readAllSeasons() {
+        return getSeasonList();
+    }
+
+    /**
+     * reads a season by its uuid
+     *
+     * @param seasonUUID
+     * @return the Season (null=not found)
+     */
+    public static Season readSeasonByUUID(String seasonUUID) {
+        Season season = null;
+        for (Season entry : getSeasonList()) {
+            if (entry.getSeasonUUID().equals(seasonUUID)) {
+                season = entry;
+            }
+        }
+        return season;
+    }
+
+    /**
+     * insert a season
+     *
+     * @param season
+     */
+    public static void insertSeason(Season season) {
+        getSeasonList().add(season);
+        writeSeasonJSON();
+    }
+
+    public static void deleteSeason(String seasonUUID){
+        getSeasonList().remove(readSeasonByUUID(seasonUUID));
+        writeSeasonJSON();
+    }
+
+    public static void updateSeason(){
+        writeSeasonJSON();
+    }
+
+    /**
+     * reads the seasons from the JSON-file
+     */
+    private static void readSeasonJSON() {
         try {
-            String path = Config.getProperty("saisonJSON");
+            String path = Config.getProperty("seasonJSON");
 
             byte[] jsonData = Files.readAllBytes(
                     Paths.get(path)
             );
             ObjectMapper objectMapper = new ObjectMapper();
-            Saison[] saisons = objectMapper.readValue(jsonData, Saison[].class);
-            for (Saison saison : saisons) {
-                getSaisonList().add(saison);
+            Season[] seasons = objectMapper.readValue(jsonData, Season[].class);
+            for (Season season : seasons) {
+                getSeasonList().add(season);
             }
         } catch (IOException ex) {
             ex.printStackTrace();
@@ -186,21 +221,21 @@ public class DataHandler {
 
 
     /**
-     * gets fahrerList
+     * gets driverList
      *
-     * @return value of fahrerList
+     * @return value of driverList
      */
-    private List<Fahrer> getFahrerList() {
-        return fahrerList;
+    private static List<Driver> getDriverList() {
+        return driverList;
     }
 
     /**
-     * sets fahrerList
+     * sets driverList
      *
-     * @param fahrerList the value to set
+     * @param driverList the value to set
      */
-    private void setFahrerList(List<Fahrer> fahrerList) {
-        this.fahrerList = fahrerList;
+    private static void setDriverList(List<Driver> driverList) {
+        DataHandler.driverList = driverList;
     }
 
     /**
@@ -208,7 +243,7 @@ public class DataHandler {
      *
      * @return value of teamList
      */
-    private List<Team> getTeamList() {
+    private static List<Team> getTeamList() {
         return teamList;
     }
 
@@ -217,25 +252,73 @@ public class DataHandler {
      *
      * @param teamList the value to set
      */
-    private void setTeamList(List<Team> teamList) {
-        this.teamList = teamList;
+    private static void setTeamList(List<Team> teamList) {
+        DataHandler.teamList = teamList;
     }
 
     /**
-     * gets saisonList
+     * gets seasonList
      *
-     * @return value of saisonList
+     * @return value of seasonList
      */
-    private List<Saison> getSaisonList() {
-        return saisonList;
+    private static List<Season> getSeasonList() {
+        return seasonList;
     }
 
     /**
-     * sets saisonList
+     * sets seasonList
      *
-     * @param saisonList the value to set
+     * @param seasonList the value to set
      */
-    private void setSaisonList(List<Saison> saisonList) {
-        this.saisonList = saisonList;
+    private static void setSeasonList(List<Season> seasonList) {
+        DataHandler.seasonList = seasonList;
+    }
+
+    private static void writeSeasonJSON() {
+        ObjectMapper objectMapper = new ObjectMapper();
+        ObjectWriter objectWriter = objectMapper.writer(new DefaultPrettyPrinter());
+        FileOutputStream fileOutputStream = null;
+        Writer fileWriter;
+
+        String seasonPath = Config.getProperty("seasonJSON");
+        try {
+            fileOutputStream = new FileOutputStream(seasonPath);
+            fileWriter = new BufferedWriter(new OutputStreamWriter(fileOutputStream, StandardCharsets.UTF_8));
+            objectWriter.writeValue(fileWriter, getSeasonList());
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    private static void writeDriverJSON() {
+        ObjectMapper objectMapper = new ObjectMapper();
+        ObjectWriter objectWriter = objectMapper.writer(new DefaultPrettyPrinter());
+        FileOutputStream fileOutputStream = null;
+        Writer fileWriter;
+
+        String driverPath = Config.getProperty("driverJSON");
+        try {
+            fileOutputStream = new FileOutputStream(driverPath);
+            fileWriter = new BufferedWriter(new OutputStreamWriter(fileOutputStream, StandardCharsets.UTF_8));
+            objectWriter.writeValue(fileWriter, getDriverList());
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    private static void writeTeamJSON() {
+        ObjectMapper objectMapper = new ObjectMapper();
+        ObjectWriter objectWriter = objectMapper.writer(new DefaultPrettyPrinter());
+        FileOutputStream fileOutputStream = null;
+        Writer fileWriter;
+
+        String teamPath = Config.getProperty("teamJSON");
+        try {
+            fileOutputStream = new FileOutputStream(teamPath);
+            fileWriter = new BufferedWriter(new OutputStreamWriter(fileOutputStream, StandardCharsets.UTF_8));
+            objectWriter.writeValue(fileWriter, getTeamList());
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
     }
 }
