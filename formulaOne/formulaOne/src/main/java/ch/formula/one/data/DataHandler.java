@@ -30,6 +30,67 @@ public class DataHandler {
         readDriverJSON();
     }
 
+    /*********************************************User***********************************************/
+
+    /**
+     * reads all Users
+     *
+     * @return list of Users
+     */
+    public static List<User> readAllUser() {
+        return getUserList();
+    }
+
+    /**
+     * reads a User by its uuid
+     *
+     * @param userUUID
+     * @return the User (null=not found)
+     */
+    public static User readUserByUUID(String userUUID) {
+        User user = null;
+        for (User entry : getUserList()) {
+            if (entry.getUserUUID().equals(userUUID)) {
+                user = entry;
+            }
+        }
+        return user;
+    }
+
+    /**
+     * reads the users from the JSON-file
+     */
+    private static void readUserJSON() {
+        try {
+            String path = Config.getProperty("userJSON");
+
+            byte[] jsonData = Files.readAllBytes(
+                    Paths.get(path)
+            );
+            ObjectMapper objectMapper = new ObjectMapper();
+            User[] users = objectMapper.readValue(jsonData, User[].class);
+            for (User user : users) {
+                getUserList().add(user);
+            }
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    public static void insertUser(User user) {
+        getUserList().add(user);
+        writeUserJSON();
+    }
+
+    public static void deleteUser(String userUUID){
+        getUserList().remove(readUserByUUID(userUUID));
+        writeUserJSON();
+    }
+
+    public static void updateUser(){
+        writeUserJSON();
+    }
+
 
     /*********************************************Driver*********************************************/
 
@@ -219,6 +280,25 @@ public class DataHandler {
         }
     }
 
+    /**
+     * gets userList
+     *
+     * @return value of userList
+     */
+    private static List<User> getUserList() {
+        return userList;
+    }
+
+    /**
+     * sets userList
+     *
+     * @param userList the value to set
+     */
+    private static void setUserList(List<User> userList) {
+        DataHandler.userList = userList;
+    }
+
+
 
     /**
      * gets driverList
@@ -237,6 +317,7 @@ public class DataHandler {
     private static void setDriverList(List<Driver> driverList) {
         DataHandler.driverList = driverList;
     }
+
 
     /**
      * gets teamList
@@ -285,6 +366,22 @@ public class DataHandler {
             fileOutputStream = new FileOutputStream(seasonPath);
             fileWriter = new BufferedWriter(new OutputStreamWriter(fileOutputStream, StandardCharsets.UTF_8));
             objectWriter.writeValue(fileWriter, getSeasonList());
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    private static void writeUserJSON() {
+        ObjectMapper objectMapper = new ObjectMapper();
+        ObjectWriter objectWriter = objectMapper.writer(new DefaultPrettyPrinter());
+        FileOutputStream fileOutputStream = null;
+        Writer fileWriter;
+
+        String driverPath = Config.getProperty("userJSON");
+        try {
+            fileOutputStream = new FileOutputStream(driverPath);
+            fileWriter = new BufferedWriter(new OutputStreamWriter(fileOutputStream, StandardCharsets.UTF_8));
+            objectWriter.writeValue(fileWriter, getUserList());
         } catch (IOException ex) {
             ex.printStackTrace();
         }
