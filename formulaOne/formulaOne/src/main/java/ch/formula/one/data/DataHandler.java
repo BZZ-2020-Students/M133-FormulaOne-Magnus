@@ -25,9 +25,11 @@ public class DataHandler {
         setSeasonList(new ArrayList<>());
         setTeamList(new ArrayList<>());
         setDriverList(new ArrayList<>());
+        setUserList(new ArrayList<>());
         readSeasonJSON();
         readTeamJSON();
         readDriverJSON();
+        readUserJSON();
     }
 
     /*********************************************User***********************************************/
