@@ -43,6 +43,17 @@ public class DataHandler {
         return getUserList();
     }
 
+    public static User readUser(String username, String password){
+        User user = null;
+
+        for (User checkUser : getUserList()) {
+            if (checkUser.getUserName().equals(username)&&checkUser.getPassword().equals(password))
+                user = checkUser;
+        }
+
+        return user;
+    }
+
     /**
      * reads a User by its uuid
      *

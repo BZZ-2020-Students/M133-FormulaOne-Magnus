@@ -1,19 +1,46 @@
+/**
+ * view-controller for login-form
+ */
+document.cookie = "userRole=guest; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+document.addEventListener("DOMContentLoaded", () => {
+    showNav("guest");
+    document.getElementById("loginForm").addEventListener("submit", loginUser);
+});
 
+function loginUser(event) {
+    event.preventDefault();
+    showMessage("", "info");
+    const loginForm = document.getElementById("loginForm");
+    const formData = new FormData(loginForm);
+    const data = new URLSearchParams(formData);
 
-function login() {
-    fetch("./formula/user/list")
-        .then(function (response) {
-            if (response.ok) {
-                return response;
-            } else {
-                console.log(response);
-            }
+    fetch("./formula/user/login",
+        {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded"
+            },
+            body: data
         })
-        .then(response => response.json())
-        .then(data => {
-
+        .then(function (response) {
+            if (!response.ok) {
+                showMessage("Benutzername/Passwort unbekannt", "error");
+            } else loginSuccess(response)
         })
         .catch(function (error) {
             console.log(error);
         });
+}
+
+/**
+ * save the JWToken and redirect
+ * @param response
+ */
+function loginSuccess(response) {
+    saveToken(response.headers);
+    window.location.href = "./2fa.html";
+}
+
+function test(){
+    console.log("Hello world");
 }
