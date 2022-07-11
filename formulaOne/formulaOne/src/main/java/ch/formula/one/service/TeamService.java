@@ -4,6 +4,7 @@ import ch.formula.one.data.DataHandler;
 import ch.formula.one.model.Driver;
 import ch.formula.one.model.Season;
 import ch.formula.one.model.Team;
+import ch.formula.one.util.AES256;
 import jakarta.annotation.security.RolesAllowed;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.*;

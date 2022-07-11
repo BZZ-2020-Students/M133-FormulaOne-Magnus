@@ -27,9 +27,9 @@ public class CreateJSON {
         };
 
         User[] users = {
-                new User("7c7ea8ed-2f4a-4943-9a76-bd19bdf984cf","admin","passwort","admin"),
-                new User("7c7ea8ed-2f4a-4943-9a76-bd19bdf984cf", "user", "passwort2", "user")
-
+                new User("7c7ea8ed-2f4a-4943-9a76-bd19bdf984cf","admin","CrwPeU416DGHALVGCKdp0Q==","admin"),
+                new User("7c7ea8ed-2f4a-4943-9a76-bd19bdf984cf","user","f4dPRb+AOWDv9EeVfLx+OA==","user"),
+                new User("7c7ea8ed-2f4a-4943-9a76-bd19bdf984cf","guest","4hn8HnRQ49Mv3uYR37ZMaQ==","guest"),
         };
 
 
