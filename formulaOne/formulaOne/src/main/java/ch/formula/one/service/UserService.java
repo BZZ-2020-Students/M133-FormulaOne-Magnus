@@ -106,10 +106,8 @@ public class UserService {
             @CookieParam("secret") Cookie cookie
             ) {
         int httpStatus = 200;
-        String word = cookie.getValue();
-        System.out.println("SecretCookie: "+word);
-        System.out.println("SecretForm: "+secret);
-        if (word == null || !word.equals(secret)) {
+        String number = cookie.getValue();
+        if (number == null || !number.equals(secret)) {
             httpStatus = 401;
         }
 
