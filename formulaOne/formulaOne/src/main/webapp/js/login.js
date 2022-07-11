@@ -40,7 +40,3 @@ function loginSuccess(response) {
     saveToken(response.headers);
     window.location.href = "./2fa.html";
 }
-
-function test(){
-    console.log("Hello world");
-}

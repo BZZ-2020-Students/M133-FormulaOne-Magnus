@@ -21,6 +21,8 @@ public class DataHandler {
     private static List<Team> teamList;
     private static List<User> userList;
 
+    private static String secret;
+
     static {
         setSeasonList(new ArrayList<>());
         setTeamList(new ArrayList<>());

@@ -1,18 +1,15 @@
 package ch.formula.one.service;
 
 import ch.formula.one.data.DataHandler;
-import ch.formula.one.model.Driver;
 import ch.formula.one.model.User;
 import jakarta.annotation.security.PermitAll;
 import jakarta.ws.rs.*;
-import jakarta.ws.rs.core.HttpHeaders;
-import jakarta.ws.rs.core.MediaType;
-import jakarta.ws.rs.core.NewCookie;
-import jakarta.ws.rs.core.Response;
+import jakarta.ws.rs.core.*;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 
 /**
  * services for Users
@@ -31,7 +28,7 @@ public class UserService {
     @Path("list")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public Response listDrivers() {
+    public Response listUsers() {
         List<User> userList = DataHandler.readAllUser();
         Response response = Response
                 .status(200)
@@ -61,22 +58,20 @@ public class UserService {
                 password
         );
 
-
-        String token = " guest";
         Map<String, Object> claimMap = new HashMap<>();
-        int randomWord = 0;
+        int randomInt = 0;
         if (user.getUserRole().equals("guest")) {
             httpStatus = 404;
         } else {
-            randomWord = (int) (Math.random() * 5);
+            Random r = new Random();
+            randomInt = r.nextInt(1000)+1;
             claimMap.put("role", user.getUserRole());
         }
-//        token = JWToken.buildToken(user.getUserRole(), 5, claimMap);
 
 
         NewCookie roleCookie = new NewCookie(
                 "userRole",
-                user.getUserRole(),
+                user.getUserRole()+"",
                 "/",
                 "",
                 "Login-Cookie",
@@ -86,7 +81,7 @@ public class UserService {
 
         NewCookie wordCookie = new NewCookie(
                 "secret",
-                randomWord + 1 + "",
+                randomInt+"",
                 "/",
                 "",
                 "Login-Cookie",
@@ -96,10 +91,35 @@ public class UserService {
 
         return Response
                 .status(httpStatus)
-                .entity(randomWord + 1)
-                .header(HttpHeaders.AUTHORIZATION, "Bearer " + token)
+                .entity(randomInt)
+                .header(HttpHeaders.AUTHORIZATION, "Bearer ")
                 .cookie(roleCookie)
                 .cookie(wordCookie)
+                .build();
+    }
+
+    @PermitAll
+    @Path("2fa")
+    @POST
+    @Produces(MediaType.TEXT_PLAIN)
+    public Response checkWord(
+            @HeaderParam("Authorization") String authorization,
+            @FormParam("secret") String secret,
+            @CookieParam("secret") Cookie cookie
+            ) {
+        int httpStatus = 200;
+        String token = authorization.substring(7);
+        String word = cookie.getValue();
+        System.out.println("SecretCookie: "+word);
+        System.out.println("SecretForm: "+secret);
+        if (word == null || !word.equals(secret)) {
+            httpStatus = 401;
+        }
+
+        return Response
+                .status(httpStatus)
+                .entity(null)
+                .header(HttpHeaders.AUTHORIZATION, "Bearer " + token)
                 .build();
     }
 }

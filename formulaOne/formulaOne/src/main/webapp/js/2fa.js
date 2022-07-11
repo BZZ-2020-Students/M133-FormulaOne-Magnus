@@ -12,12 +12,12 @@ function twoFAUser(event) {
     event.preventDefault();
     showMessage("", "info");
 
-    fetch("./resource/user/2fa",
+    fetch("./formula/user/2fa",
         {
             method: "POST",
             headers: {
                 "Content-Type": "application/x-www-form-urlencoded",
-                "Authorization": "Bearer " + readStorage("token")
+                "Authorization": "Bearer "
             },
             body: "secret=" + document.getElementById("secret").value
         })
