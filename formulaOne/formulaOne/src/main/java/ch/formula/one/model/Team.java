@@ -38,6 +38,18 @@ public class Team {
     @JsonIgnore
     private Season season;
 
+    public Team() {
+    }
+
+    public Team(String teamUUID, String name, String teamPrincipal, String engine, String chassis, Season season) {
+        this.teamUUID = teamUUID;
+        this.name = name;
+        this.teamPrincipal = teamPrincipal;
+        this.engine = engine;
+        this.chassis = chassis;
+        this.season = season;
+    }
+
     /**
      * gets seasonUUID
      *

@@ -36,6 +36,18 @@ public class Driver {
     @JsonIgnore
     private Team team;
 
+    public Driver(){
+    }
+
+    public Driver(String driverUUID, String name, String firstname, Boolean firstDriver, Integer wins, Team team) {
+        this.driverUUID = driverUUID;
+        this.name = name;
+        this.firstname = firstname;
+        this.firstDriver = firstDriver;
+        this.wins = wins;
+        this.team = team;
+    }
+
     /**
      * gets teamUUID
      *
@@ -69,9 +81,6 @@ public class Driver {
 
     public void setTeam(Team team) {
         this.team = team;
-    }
-
-    public Driver(){
     }
 
     /**

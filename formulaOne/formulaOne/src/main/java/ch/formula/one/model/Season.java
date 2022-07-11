@@ -29,6 +29,12 @@ public class Season {
     public Season(){
     }
 
+    public Season(String seasonUUID, String year, String winner) {
+        this.seasonUUID = seasonUUID;
+        this.year = year;
+        this.winner = winner;
+    }
+
     /**
      * gets year
      *
