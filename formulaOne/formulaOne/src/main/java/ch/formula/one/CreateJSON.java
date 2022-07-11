@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.nio.file.Paths;
 
 public class CreateJSON {
-    public static void main(String[] args) {
+    public static void reset() {
         Season[] seasons = {
                 new Season("86b51fbf-7723-4a97-996b-a61efbf7e997", "2022", "-"),
                 new Season("ac4d2ae3-b0d4-479d-90db-00e68b1cf447", "2001", "Michael Schumacher"),

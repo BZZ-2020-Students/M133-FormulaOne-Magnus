@@ -1,15 +1,1 @@
-[ {
-  "driverUUID" : "4bf6862d-5ef4-4564-82e6-3ee7ed61fc94",
-  "name" : "Hamilton",
-  "firstname" : "Lewis",
-  "firstDriver" : true,
-  "wins" : 103,
-  "teamUUID" : "f2095f89-4a09-40b7-80b7-31915f629d93"
-}, {
-  "driverUUID" : "18cac1b8-c463-41d6-ae9a-a2153e51befc",
-  "name" : "Russell",
-  "firstname" : "George",
-  "firstDriver" : false,
-  "wins" : 0,
-  "teamUUID" : "f2095f89-4a09-40b7-80b7-31915f629d93"
-}]
+[{"driverUUID":"4bf6862d-5ef4-4564-82e6-3ee7ed61fc94","name":"Hamilton","firstname":"Lewis","firstDriver":true,"wins":103,"teamUUID":"f2095f89-4a09-40b7-80b7-31915f629d93"},{"driverUUID":"18cac1b8-c463-41d6-ae9a-a2153e51befc","name":"Russell","firstname":"George","firstDriver":false,"wins":0,"teamUUID":"f2095f89-4a09-40b7-80b7-31915f629d93"}]
