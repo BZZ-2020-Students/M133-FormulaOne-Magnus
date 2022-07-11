@@ -4,6 +4,7 @@ import ch.formula.one.data.DataHandler;
 import ch.formula.one.model.Driver;
 import ch.formula.one.model.Season;
 import ch.formula.one.model.Team;
+import jakarta.annotation.security.RolesAllowed;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.*;
 import jakarta.ws.rs.*;
@@ -27,6 +28,7 @@ public class TeamService {
      *
      * @return fahrer
      */
+    @RolesAllowed({"admin","user"})
     @GET
     @Path("list")
     @Produces(MediaType.APPLICATION_JSON)
@@ -44,6 +46,7 @@ public class TeamService {
      * @param teamUUID
      * @return team
      */
+    @RolesAllowed({"admin","user"})
     @GET
     @Path("read")
     @Produces(MediaType.APPLICATION_JSON)
@@ -70,6 +73,7 @@ public class TeamService {
      * @param chassis
      * @param seasonUUID
      */
+    @RolesAllowed({"admin"})
     @Path("create")
     @POST
     @Produces(MediaType.TEXT_PLAIN)
@@ -122,6 +126,7 @@ public class TeamService {
      *
      * @param teamUUID
      */
+    @RolesAllowed({"admin"})
     @Path("delete")
     @GET
     @Produces(MediaType.TEXT_PLAIN)
@@ -150,6 +155,7 @@ public class TeamService {
      *
      * @param t
      */
+    @RolesAllowed({"admin"})
     @Path("update")
     @PUT
     @Produces(MediaType.TEXT_PLAIN)

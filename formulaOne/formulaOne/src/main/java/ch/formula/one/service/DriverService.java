@@ -3,6 +3,7 @@ package ch.formula.one.service;
 import ch.formula.one.data.DataHandler;
 import ch.formula.one.model.Driver;
 import ch.formula.one.model.Season;
+import jakarta.annotation.security.RolesAllowed;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.*;
 import jakarta.ws.rs.*;
@@ -25,6 +26,7 @@ public class DriverService {
      *
      * @return driver
      */
+    @RolesAllowed({"admin", "user"})
     @Path("list")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
@@ -43,6 +45,7 @@ public class DriverService {
      * @param driverUUID
      * @return driver
      */
+    @RolesAllowed({"admin", "user"})
     @GET
     @Path("read")
     @Produces(MediaType.APPLICATION_JSON)
@@ -69,6 +72,7 @@ public class DriverService {
      * @param wins
      * @param teamUUID
      */
+    @RolesAllowed({"admin"})
     @Path("create")
     @POST
     @Produces(MediaType.TEXT_PLAIN)
@@ -119,6 +123,7 @@ public class DriverService {
      *
      * @param driverUUID
      */
+    @RolesAllowed({"admin"})
     @Path("delete")
     @GET
     @Produces(MediaType.TEXT_PLAIN)
@@ -148,6 +153,7 @@ public class DriverService {
      *
      * @param d
      */
+    @RolesAllowed({"admin"})
     @Path("update")
     @PUT
     @Produces(MediaType.TEXT_PLAIN)

@@ -21,23 +21,6 @@ import java.util.Random;
 @Path("user")
 public class UserService {
     /**
-     * reads a list of user
-     *
-     * @return user
-     */
-    @Path("list")
-    @GET
-    @Produces(MediaType.APPLICATION_JSON)
-    public Response listUsers() {
-        List<User> userList = DataHandler.readAllUser();
-        Response response = Response
-                .status(200)
-                .entity(userList)
-                .build();
-        return response;
-    }
-
-    /**
      * login-service
      *
      * @param username the username

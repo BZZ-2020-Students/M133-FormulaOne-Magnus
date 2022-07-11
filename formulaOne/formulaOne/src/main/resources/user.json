@@ -5,6 +5,11 @@
   "userRole" : "admin"
 },{
   "userUUID" : "ac5efd51-c51e-4119-8e6b-319cc6fed08a",
+  "userName" : "user",
+  "password" : "user",
+  "userRole" : "user"
+},{
+  "userUUID" : "ac5efd51-c51e-4119-8e6b-319cc6fed08a",
   "userName" : "guest",
   "password" : "guest",
   "userRole" : "guest"
