@@ -17,7 +17,6 @@ function twoFAUser(event) {
             method: "POST",
             headers: {
                 "Content-Type": "application/x-www-form-urlencoded",
-                "Authorization": "Bearer "
             },
             body: "secret=" + document.getElementById("secret").value
         })
@@ -37,8 +36,7 @@ function twoFAUser(event) {
  * @param response
  */
 function loginSuccess(response) {
-    saveToken(response.headers);
-    window.location.href = "./bookshelf.html";
+    window.location.href = "./home.html";
 }
 
 /**

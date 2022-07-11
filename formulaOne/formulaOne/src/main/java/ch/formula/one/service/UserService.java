@@ -92,7 +92,6 @@ public class UserService {
         return Response
                 .status(httpStatus)
                 .entity(randomInt)
-                .header(HttpHeaders.AUTHORIZATION, "Bearer ")
                 .cookie(roleCookie)
                 .cookie(wordCookie)
                 .build();
@@ -103,12 +102,10 @@ public class UserService {
     @POST
     @Produces(MediaType.TEXT_PLAIN)
     public Response checkWord(
-            @HeaderParam("Authorization") String authorization,
             @FormParam("secret") String secret,
             @CookieParam("secret") Cookie cookie
             ) {
         int httpStatus = 200;
-        String token = authorization.substring(7);
         String word = cookie.getValue();
         System.out.println("SecretCookie: "+word);
         System.out.println("SecretForm: "+secret);
@@ -119,7 +116,6 @@ public class UserService {
         return Response
                 .status(httpStatus)
                 .entity(null)
-                .header(HttpHeaders.AUTHORIZATION, "Bearer " + token)
                 .build();
     }
 }

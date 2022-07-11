@@ -53,24 +53,6 @@ function getCookie(cname) {
 }
 
 /**
- * saves the JWToken in SessionStorage
- * @param headers  response headers
- */
-function saveToken(headers) {
-    const auth = headers.get("Authorization");
-    const token = auth.substring(7);
-    sessionStorage.setItem("token", token);
-}
-
-/**
- * reads the JWToken from SessionStorage
- * @returns {string}
- */
-function readStorage(item) {
-    return sessionStorage.getItem(item);
-}
-
-/**
  * locks/unlocks a form: input=readonly, select=disabled / submit, reset-buttons = hidden
  * @param formId  the id of the form
  * @param locked  should the fields be locked or unlocked
