@@ -16,9 +16,22 @@
 							"listen": "test",
 							"script": {
 								"exec": [
-									"pm.test(\"Status test\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
-									"});"
+									"pm.test(\"Status for \" + pm.collectionVariables.get(\"username\"), () => {\r",
+									"    var expected = 0\r",
+									"        switch (pm.collectionVariables.get(\"username\")) {\r",
+									"            case \"admin\":\r",
+									"            case \"user\":\r",
+									"                expected = 200;\r",
+									"                break;\r",
+									"            \r",
+									"            \r",
+									"            case \"guest\":\r",
+									"                expected = 403;\r",
+									"                break;\r",
+									"        }\r",
+									"        pm.response.to.have.status(expected);\r",
+									"    }\r",
+									")"
 								],
 								"type": "text/javascript"
 							}
@@ -51,9 +64,21 @@
 							"listen": "test",
 							"script": {
 								"exec": [
-									"pm.test(\"Status test\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
-									"});"
+									"pm.test(\"Status for \" + pm.collectionVariables.get(\"username\"), () => {\r",
+									"    var expected = 0\r",
+									"        switch (pm.collectionVariables.get(\"username\")) {\r",
+									"            case \"admin\":\r",
+									"            case \"user\":\r",
+									"                expected = 200;\r",
+									"                break;\r",
+									"\r",
+									"            case \"guest\":\r",
+									"                expected = 403;\r",
+									"                break;\r",
+									"        }\r",
+									"        pm.response.to.have.status(expected);\r",
+									"    }\r",
+									")"
 								],
 								"type": "text/javascript"
 							}
@@ -86,9 +111,22 @@
 							"listen": "test",
 							"script": {
 								"exec": [
-									"pm.test(\"Status test\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
-									"});"
+									"pm.test(\"Status for \" + pm.collectionVariables.get(\"username\"), () => {\r",
+									"    var expected = 0\r",
+									"        switch (pm.collectionVariables.get(\"username\")) {\r",
+									"            case \"admin\":\r",
+									"            case \"user\":\r",
+									"                expected = 200;\r",
+									"                break;\r",
+									"            \r",
+									"            \r",
+									"            case \"guest\":\r",
+									"                expected = 403;\r",
+									"                break;\r",
+									"        }\r",
+									"        pm.response.to.have.status(expected);\r",
+									"    }\r",
+									")"
 								],
 								"type": "text/javascript"
 							}
@@ -115,15 +153,50 @@
 					"response": []
 				},
 				{
+					"name": "User list",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/formulaOne-1.0-SNAPSHOT/formula/user/list",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"formulaOne-1.0-SNAPSHOT",
+								"formula",
+								"user",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "DriverRead 200",
 					"event": [
 						{
 							"listen": "test",
 							"script": {
 								"exec": [
-									"pm.test(\"Status test\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
-									"});"
+									"pm.test(\"Status for \" + pm.collectionVariables.get(\"username\"), () => {\r",
+									"    var expected = 0\r",
+									"        switch (pm.collectionVariables.get(\"username\")) {\r",
+									"            case \"admin\":\r",
+									"            case \"user\":\r",
+									"                expected = 200;\r",
+									"                break;\r",
+									"            \r",
+									"            \r",
+									"            case \"guest\":\r",
+									"                expected = 403;\r",
+									"                break;\r",
+									"        }\r",
+									"        pm.response.to.have.status(expected);\r",
+									"    }\r",
+									")"
 								],
 								"type": "text/javascript"
 							}
@@ -162,9 +235,22 @@
 							"listen": "test",
 							"script": {
 								"exec": [
-									"pm.test(\"Status test\", function () {\r",
-									"    pm.response.to.have.status(410);\r",
-									"});"
+									"pm.test(\"Status for \" + pm.collectionVariables.get(\"username\"), () => {\r",
+									"    var expected = 0\r",
+									"        switch (pm.collectionVariables.get(\"username\")) {\r",
+									"            case \"admin\":\r",
+									"            case \"user\":\r",
+									"                expected = 410;\r",
+									"                break;\r",
+									"            \r",
+									"            \r",
+									"            case \"guest\":\r",
+									"                expected = 403;\r",
+									"                break;\r",
+									"        }\r",
+									"        pm.response.to.have.status(expected);\r",
+									"    }\r",
+									")"
 								],
 								"type": "text/javascript"
 							}
@@ -203,9 +289,22 @@
 							"listen": "test",
 							"script": {
 								"exec": [
-									"pm.test(\"Status test\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
-									"});"
+									"pm.test(\"Status for \" + pm.collectionVariables.get(\"username\"), () => {\r",
+									"    var expected = 0\r",
+									"        switch (pm.collectionVariables.get(\"username\")) {\r",
+									"            case \"admin\":\r",
+									"            case \"user\":\r",
+									"                expected = 200;\r",
+									"                break;\r",
+									"            \r",
+									"            \r",
+									"            case \"guest\":\r",
+									"                expected = 403;\r",
+									"                break;\r",
+									"        }\r",
+									"        pm.response.to.have.status(expected);\r",
+									"    }\r",
+									")"
 								],
 								"type": "text/javascript"
 							}
@@ -244,9 +343,22 @@
 							"listen": "test",
 							"script": {
 								"exec": [
-									"pm.test(\"Status test\", function () {\r",
-									"    pm.response.to.have.status(410);\r",
-									"});"
+									"pm.test(\"Status for \" + pm.collectionVariables.get(\"username\"), () => {\r",
+									"    var expected = 0\r",
+									"        switch (pm.collectionVariables.get(\"username\")) {\r",
+									"            case \"admin\":\r",
+									"            case \"user\":\r",
+									"                expected = 410;\r",
+									"                break;\r",
+									"            \r",
+									"            \r",
+									"            case \"guest\":\r",
+									"                expected = 403;\r",
+									"                break;\r",
+									"        }\r",
+									"        pm.response.to.have.status(expected);\r",
+									"    }\r",
+									")"
 								],
 								"type": "text/javascript"
 							}
@@ -285,9 +397,21 @@
 							"listen": "test",
 							"script": {
 								"exec": [
-									"pm.test(\"Status test\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
-									"});"
+									"pm.test(\"Status for \" + pm.collectionVariables.get(\"username\"), () => {\r",
+									"    var expected = 0\r",
+									"        switch (pm.collectionVariables.get(\"username\")) {\r",
+									"            case \"admin\":\r",
+									"            case \"user\":\r",
+									"                expected = 200;\r",
+									"                break;\r",
+									"\r",
+									"            case \"guest\":\r",
+									"                expected = 403;\r",
+									"                break;\r",
+									"        }\r",
+									"        pm.response.to.have.status(expected);\r",
+									"    }\r",
+									")"
 								],
 								"type": "text/javascript"
 							}
@@ -326,9 +450,21 @@
 							"listen": "test",
 							"script": {
 								"exec": [
-									"pm.test(\"Status test\", function () {\r",
-									"    pm.response.to.have.status(410);\r",
-									"});"
+									"pm.test(\"Status for \" + pm.collectionVariables.get(\"username\"), () => {\r",
+									"    var expected = 0\r",
+									"        switch (pm.collectionVariables.get(\"username\")) {\r",
+									"            case \"admin\":\r",
+									"            case \"user\":\r",
+									"                expected = 410;\r",
+									"                break;\r",
+									"\r",
+									"            case \"guest\":\r",
+									"            expected = 403;\r",
+									"                break;\r",
+									"        }\r",
+									"        pm.response.to.have.status(expected);\r",
+									"    }\r",
+									")"
 								],
 								"type": "text/javascript"
 							}
@@ -372,9 +508,22 @@
 							"listen": "test",
 							"script": {
 								"exec": [
-									"pm.test(\"Status test\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
-									"});"
+									"pm.test(\"Status for \" + pm.collectionVariables.get(\"username\"), () => {\r",
+									"    var expected = 0\r",
+									"        switch (pm.collectionVariables.get(\"username\")) {\r",
+									"            case \"admin\":\r",
+									"                expected = 200;\r",
+									"                break;\r",
+									"            \r",
+									"            \r",
+									"            case \"guest\":\r",
+									"            case \"user\":\r",
+									"                expected = 403;\r",
+									"                break;\r",
+									"        }\r",
+									"        pm.response.to.have.status(expected);\r",
+									"    }\r",
+									")"
 								],
 								"type": "text/javascript"
 							}
@@ -622,9 +771,22 @@
 							"listen": "test",
 							"script": {
 								"exec": [
-									"pm.test(\"Status test\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
-									"});"
+									"pm.test(\"Status for \" + pm.collectionVariables.get(\"username\"), () => {\r",
+									"    var expected = 0\r",
+									"        switch (pm.collectionVariables.get(\"username\")) {\r",
+									"            case \"admin\":\r",
+									"                expected = 200;\r",
+									"                break;\r",
+									"            \r",
+									"            \r",
+									"            case \"guest\":\r",
+									"            case \"user\":\r",
+									"                expected = 403;\r",
+									"                break;\r",
+									"        }\r",
+									"        pm.response.to.have.status(expected);\r",
+									"    }\r",
+									")"
 								],
 								"type": "text/javascript"
 							}
@@ -1272,9 +1434,22 @@
 							"listen": "test",
 							"script": {
 								"exec": [
-									"pm.test(\"Status test\", function () {\r",
-									"    pm.response.to.have.status(400);\r",
-									"});"
+									"pm.test(\"Status for \" + pm.collectionVariables.get(\"username\"), () => {\r",
+									"    var expected = 0\r",
+									"        switch (pm.collectionVariables.get(\"username\")) {\r",
+									"            case \"admin\":\r",
+									"                expected = 400;\r",
+									"                break;\r",
+									"            \r",
+									"            \r",
+									"            case \"guest\":\r",
+									"            case \"user\":\r",
+									"                expected = 403;\r",
+									"                break;\r",
+									"        }\r",
+									"        pm.response.to.have.status(expected);\r",
+									"    }\r",
+									")"
 								],
 								"type": "text/javascript"
 							}
@@ -1337,9 +1512,22 @@
 							"listen": "test",
 							"script": {
 								"exec": [
-									"pm.test(\"Status test\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
-									"});"
+									"pm.test(\"Status for \" + pm.collectionVariables.get(\"username\"), () => {\r",
+									"    var expected = 0\r",
+									"        switch (pm.collectionVariables.get(\"username\")) {\r",
+									"            case \"admin\":\r",
+									"                expected = 200;\r",
+									"                break;\r",
+									"            \r",
+									"            \r",
+									"            case \"guest\":\r",
+									"            case \"user\":\r",
+									"                expected = 403;\r",
+									"                break;\r",
+									"        }\r",
+									"        pm.response.to.have.status(expected);\r",
+									"    }\r",
+									")"
 								],
 								"type": "text/javascript"
 							}
@@ -1402,9 +1590,18 @@
 							"listen": "test",
 							"script": {
 								"exec": [
-									"pm.test(\"Status test\", function () {\r",
-									"    pm.response.to.have.status(400);\r",
-									"});"
+									"pm.test(\"Status for \" + pm.collectionVariables.get(\"username\"), () => {\r",
+									"    var expected = 0\r",
+									"        switch (pm.collectionVariables.get(\"username\")) {\r",
+									"            case \"admin\":\r",
+									"            case \"user\":\r",
+									"            case \"guest\":\r",
+									"                expected = 400;\r",
+									"                break;\r",
+									"        }\r",
+									"        pm.response.to.have.status(expected);\r",
+									"    }\r",
+									")"
 								],
 								"type": "text/javascript"
 							}
@@ -1467,9 +1664,18 @@
 							"listen": "test",
 							"script": {
 								"exec": [
-									"pm.test(\"Status test\", function () {\r",
-									"    pm.response.to.have.status(400);\r",
-									"});"
+									"pm.test(\"Status for \" + pm.collectionVariables.get(\"username\"), () => {\r",
+									"    var expected = 0\r",
+									"        switch (pm.collectionVariables.get(\"username\")) {\r",
+									"            case \"admin\":\r",
+									"            case \"user\":\r",
+									"            case \"guest\":\r",
+									"                expected = 400;\r",
+									"                break;\r",
+									"        }\r",
+									"        pm.response.to.have.status(expected);\r",
+									"    }\r",
+									")"
 								],
 								"type": "text/javascript"
 							}
@@ -1532,9 +1738,18 @@
 							"listen": "test",
 							"script": {
 								"exec": [
-									"pm.test(\"Status test\", function () {\r",
-									"    pm.response.to.have.status(400);\r",
-									"});"
+									"pm.test(\"Status for \" + pm.collectionVariables.get(\"username\"), () => {\r",
+									"    var expected = 0\r",
+									"        switch (pm.collectionVariables.get(\"username\")) {\r",
+									"            case \"admin\":\r",
+									"            case \"user\":\r",
+									"            case \"guest\":\r",
+									"                expected = 400;\r",
+									"                break;\r",
+									"        }\r",
+									"        pm.response.to.have.status(expected);\r",
+									"    }\r",
+									")"
 								],
 								"type": "text/javascript"
 							}
@@ -1597,9 +1812,18 @@
 							"listen": "test",
 							"script": {
 								"exec": [
-									"pm.test(\"Status test\", function () {\r",
-									"    pm.response.to.have.status(400);\r",
-									"});"
+									"pm.test(\"Status for \" + pm.collectionVariables.get(\"username\"), () => {\r",
+									"    var expected = 0\r",
+									"        switch (pm.collectionVariables.get(\"username\")) {\r",
+									"            case \"admin\":\r",
+									"            case \"user\":\r",
+									"            case \"guest\":\r",
+									"                expected = 400;\r",
+									"                break;\r",
+									"        }\r",
+									"        pm.response.to.have.status(expected);\r",
+									"    }\r",
+									")"
 								],
 								"type": "text/javascript"
 							}
@@ -1662,9 +1886,22 @@
 							"listen": "test",
 							"script": {
 								"exec": [
-									"pm.test(\"Status test\", function () {\r",
-									"    pm.response.to.have.status(400);\r",
-									"});"
+									"pm.test(\"Status for \" + pm.collectionVariables.get(\"username\"), () => {\r",
+									"    var expected = 0\r",
+									"        switch (pm.collectionVariables.get(\"username\")) {\r",
+									"            case \"admin\":\r",
+									"                expected = 400;\r",
+									"                break;\r",
+									"            \r",
+									"            \r",
+									"            case \"guest\":\r",
+									"            case \"user\":\r",
+									"                expected = 403;\r",
+									"                break;\r",
+									"        }\r",
+									"        pm.response.to.have.status(expected);\r",
+									"    }\r",
+									")"
 								],
 								"type": "text/javascript"
 							}
@@ -1727,9 +1964,22 @@
 							"listen": "test",
 							"script": {
 								"exec": [
-									"pm.test(\"Status test\", function () {\r",
-									"    pm.response.to.have.status(400);\r",
-									"});"
+									"pm.test(\"Status for \" + pm.collectionVariables.get(\"username\"), () => {\r",
+									"    var expected = 0\r",
+									"        switch (pm.collectionVariables.get(\"username\")) {\r",
+									"            case \"admin\":\r",
+									"                expected = 400;\r",
+									"                break;\r",
+									"            \r",
+									"            \r",
+									"            case \"guest\":\r",
+									"            case \"user\":\r",
+									"                expected = 403;\r",
+									"                break;\r",
+									"        }\r",
+									"        pm.response.to.have.status(expected);\r",
+									"    }\r",
+									")"
 								],
 								"type": "text/javascript"
 							}
@@ -1792,9 +2042,22 @@
 							"listen": "test",
 							"script": {
 								"exec": [
-									"pm.test(\"Status test\", function () {\r",
-									"    pm.response.to.have.status(400);\r",
-									"});"
+									"pm.test(\"Status for \" + pm.collectionVariables.get(\"username\"), () => {\r",
+									"    var expected = 0\r",
+									"        switch (pm.collectionVariables.get(\"username\")) {\r",
+									"            case \"admin\":\r",
+									"                expected = 400;\r",
+									"                break;\r",
+									"            \r",
+									"            \r",
+									"            case \"guest\":\r",
+									"            case \"user\":\r",
+									"                expected = 403;\r",
+									"                break;\r",
+									"        }\r",
+									"        pm.response.to.have.status(expected);\r",
+									"    }\r",
+									")"
 								],
 								"type": "text/javascript"
 							}
@@ -1857,9 +2120,18 @@
 							"listen": "test",
 							"script": {
 								"exec": [
-									"pm.test(\"Status test\", function () {\r",
-									"    pm.response.to.have.status(400);\r",
-									"});"
+									"pm.test(\"Status for \" + pm.collectionVariables.get(\"username\"), () => {\r",
+									"    var expected = 0\r",
+									"        switch (pm.collectionVariables.get(\"username\")) {\r",
+									"            case \"admin\":\r",
+									"            case \"user\":\r",
+									"            case \"guest\":\r",
+									"                expected = 400;\r",
+									"                break;\r",
+									"        }\r",
+									"        pm.response.to.have.status(expected);\r",
+									"    }\r",
+									")"
 								],
 								"type": "text/javascript"
 							}
@@ -1922,9 +2194,18 @@
 							"listen": "test",
 							"script": {
 								"exec": [
-									"pm.test(\"Status test\", function () {\r",
-									"    pm.response.to.have.status(400);\r",
-									"});"
+									"pm.test(\"Status for \" + pm.collectionVariables.get(\"username\"), () => {\r",
+									"    var expected = 0\r",
+									"        switch (pm.collectionVariables.get(\"username\")) {\r",
+									"            case \"admin\":\r",
+									"            case \"user\":\r",
+									"            case \"guest\":\r",
+									"                expected = 400;\r",
+									"                break;\r",
+									"        }\r",
+									"        pm.response.to.have.status(expected);\r",
+									"    }\r",
+									")"
 								],
 								"type": "text/javascript"
 							}
@@ -1987,9 +2268,22 @@
 							"listen": "test",
 							"script": {
 								"exec": [
-									"pm.test(\"Status test\", function () {\r",
-									"    pm.response.to.have.status(400);\r",
-									"});"
+									"pm.test(\"Status for \" + pm.collectionVariables.get(\"username\"), () => {\r",
+									"    var expected = 0\r",
+									"        switch (pm.collectionVariables.get(\"username\")) {\r",
+									"            case \"admin\":\r",
+									"                expected = 400;\r",
+									"                break;\r",
+									"            \r",
+									"            \r",
+									"            case \"guest\":\r",
+									"             case \"user\":\r",
+									"                expected = 403;\r",
+									"                break;\r",
+									"        }\r",
+									"        pm.response.to.have.status(expected);\r",
+									"    }\r",
+									")"
 								],
 								"type": "text/javascript"
 							}
@@ -2057,9 +2351,22 @@
 							"listen": "test",
 							"script": {
 								"exec": [
-									"pm.test(\"Status test\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
-									"});"
+									"pm.test(\"Status for \" + pm.collectionVariables.get(\"username\"), () => {\r",
+									"    var expected = 0\r",
+									"        switch (pm.collectionVariables.get(\"username\")) {\r",
+									"            case \"admin\":\r",
+									"                expected = 200;\r",
+									"                break;\r",
+									"            \r",
+									"            \r",
+									"            case \"guest\":\r",
+									"            case \"user\":\r",
+									"                expected = 403;\r",
+									"                break;\r",
+									"        }\r",
+									"        pm.response.to.have.status(expected);\r",
+									"    }\r",
+									")"
 								],
 								"type": "text/javascript"
 							}
@@ -2332,9 +2639,22 @@
 							"listen": "test",
 							"script": {
 								"exec": [
-									"pm.test(\"Status test\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
-									"});"
+									"pm.test(\"Status for \" + pm.collectionVariables.get(\"username\"), () => {\r",
+									"    var expected = 0\r",
+									"        switch (pm.collectionVariables.get(\"username\")) {\r",
+									"            case \"admin\":\r",
+									"                expected = 200;\r",
+									"                break;\r",
+									"            \r",
+									"            \r",
+									"            case \"guest\":\r",
+									"            case \"user\":\r",
+									"                expected = 403;\r",
+									"                break;\r",
+									"        }\r",
+									"        pm.response.to.have.status(expected);\r",
+									"    }\r",
+									")"
 								],
 								"type": "text/javascript"
 							}
@@ -3032,9 +3352,22 @@
 							"listen": "test",
 							"script": {
 								"exec": [
-									"pm.test(\"Status test\", function () {\r",
-									"    pm.response.to.have.status(400);\r",
-									"});"
+									"pm.test(\"Status for \" + pm.collectionVariables.get(\"username\"), () => {\r",
+									"    var expected = 0\r",
+									"        switch (pm.collectionVariables.get(\"username\")) {\r",
+									"            case \"admin\":\r",
+									"                expected = 400;\r",
+									"                break;\r",
+									"            \r",
+									"            \r",
+									"            case \"guest\":\r",
+									"            case \"user\":\r",
+									"                expected = 403;\r",
+									"                break;\r",
+									"        }\r",
+									"        pm.response.to.have.status(expected);\r",
+									"    }\r",
+									")"
 								],
 								"type": "text/javascript"
 							}
@@ -3172,9 +3505,22 @@
 							"listen": "test",
 							"script": {
 								"exec": [
-									"pm.test(\"Status test\", function () {\r",
-									"    pm.response.to.have.status(400);\r",
-									"});"
+									"pm.test(\"Status for \" + pm.collectionVariables.get(\"username\"), () => {\r",
+									"    var expected = 0\r",
+									"        switch (pm.collectionVariables.get(\"username\")) {\r",
+									"            case \"admin\":\r",
+									"                expected = 400;\r",
+									"                break;\r",
+									"            \r",
+									"            \r",
+									"            case \"guest\":\r",
+									"            case \"user\":\r",
+									"                expected = 403;\r",
+									"                break;\r",
+									"        }\r",
+									"        pm.response.to.have.status(expected);\r",
+									"    }\r",
+									")"
 								],
 								"type": "text/javascript"
 							}
@@ -3242,9 +3588,22 @@
 							"listen": "test",
 							"script": {
 								"exec": [
-									"pm.test(\"Status test\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
-									"});"
+									"pm.test(\"Status for \" + pm.collectionVariables.get(\"username\"), () => {\r",
+									"    var expected = 0\r",
+									"        switch (pm.collectionVariables.get(\"username\")) {\r",
+									"            case \"admin\":\r",
+									"                expected = 200;\r",
+									"                break;\r",
+									"            \r",
+									"            \r",
+									"            case \"guest\":\r",
+									"            case \"user\":\r",
+									"                expected = 403;\r",
+									"                break;\r",
+									"        }\r",
+									"        pm.response.to.have.status(expected);\r",
+									"    }\r",
+									")"
 								],
 								"type": "text/javascript"
 							}
@@ -3312,9 +3671,18 @@
 							"listen": "test",
 							"script": {
 								"exec": [
-									"pm.test(\"Status test\", function () {\r",
-									"    pm.response.to.have.status(400);\r",
-									"});"
+									"pm.test(\"Status for \" + pm.collectionVariables.get(\"username\"), () => {\r",
+									"    var expected = 0\r",
+									"        switch (pm.collectionVariables.get(\"username\")) {\r",
+									"            case \"admin\":\r",
+									"            case \"user\":\r",
+									"            case \"guest\":\r",
+									"                expected = 400;\r",
+									"                break;\r",
+									"        }\r",
+									"        pm.response.to.have.status(expected);\r",
+									"    }\r",
+									")"
 								],
 								"type": "text/javascript"
 							}
@@ -3382,9 +3750,18 @@
 							"listen": "test",
 							"script": {
 								"exec": [
-									"pm.test(\"Status test\", function () {\r",
-									"    pm.response.to.have.status(400);\r",
-									"});"
+									"pm.test(\"Status for \" + pm.collectionVariables.get(\"username\"), () => {\r",
+									"    var expected = 0\r",
+									"        switch (pm.collectionVariables.get(\"username\")) {\r",
+									"            case \"admin\":\r",
+									"            case \"user\":\r",
+									"            case \"guest\":\r",
+									"                expected = 400;\r",
+									"                break;\r",
+									"        }\r",
+									"        pm.response.to.have.status(expected);\r",
+									"    }\r",
+									")"
 								],
 								"type": "text/javascript"
 							}
@@ -3452,9 +3829,18 @@
 							"listen": "test",
 							"script": {
 								"exec": [
-									"pm.test(\"Status test\", function () {\r",
-									"    pm.response.to.have.status(400);\r",
-									"});"
+									"pm.test(\"Status for \" + pm.collectionVariables.get(\"username\"), () => {\r",
+									"    var expected = 0\r",
+									"        switch (pm.collectionVariables.get(\"username\")) {\r",
+									"            case \"admin\":\r",
+									"            case \"user\":\r",
+									"            case \"guest\":\r",
+									"                expected = 400;\r",
+									"                break;\r",
+									"        }\r",
+									"        pm.response.to.have.status(expected);\r",
+									"    }\r",
+									")"
 								],
 								"type": "text/javascript"
 							}
@@ -3522,9 +3908,18 @@
 							"listen": "test",
 							"script": {
 								"exec": [
-									"pm.test(\"Status test\", function () {\r",
-									"    pm.response.to.have.status(400);\r",
-									"});"
+									"pm.test(\"Status for \" + pm.collectionVariables.get(\"username\"), () => {\r",
+									"    var expected = 0\r",
+									"        switch (pm.collectionVariables.get(\"username\")) {\r",
+									"            case \"admin\":\r",
+									"            case \"user\":\r",
+									"            case \"guest\":\r",
+									"                expected = 400;\r",
+									"                break;\r",
+									"        }\r",
+									"        pm.response.to.have.status(expected);\r",
+									"    }\r",
+									")"
 								],
 								"type": "text/javascript"
 							}
@@ -3592,9 +3987,22 @@
 							"listen": "test",
 							"script": {
 								"exec": [
-									"pm.test(\"Status test\", function () {\r",
-									"    pm.response.to.have.status(400);\r",
-									"});"
+									"pm.test(\"Status for \" + pm.collectionVariables.get(\"username\"), () => {\r",
+									"    var expected = 0\r",
+									"        switch (pm.collectionVariables.get(\"username\")) {\r",
+									"            case \"admin\":\r",
+									"                expected = 400;\r",
+									"                break;\r",
+									"            \r",
+									"            \r",
+									"            case \"guest\":\r",
+									"            case \"user\":\r",
+									"                expected = 403;\r",
+									"                break;\r",
+									"        }\r",
+									"        pm.response.to.have.status(expected);\r",
+									"    }\r",
+									")"
 								],
 								"type": "text/javascript"
 							}
@@ -3662,9 +4070,22 @@
 							"listen": "test",
 							"script": {
 								"exec": [
-									"pm.test(\"Status test\", function () {\r",
-									"    pm.response.to.have.status(400);\r",
-									"});"
+									"pm.test(\"Status for \" + pm.collectionVariables.get(\"username\"), () => {\r",
+									"    var expected = 0\r",
+									"        switch (pm.collectionVariables.get(\"username\")) {\r",
+									"            case \"admin\":\r",
+									"                expected = 400;\r",
+									"                break;\r",
+									"            \r",
+									"            \r",
+									"            case \"guest\":\r",
+									"            case \"user\":\r",
+									"                expected = 403;\r",
+									"                break;\r",
+									"        }\r",
+									"        pm.response.to.have.status(expected);\r",
+									"    }\r",
+									")"
 								],
 								"type": "text/javascript"
 							}
@@ -3732,9 +4153,22 @@
 							"listen": "test",
 							"script": {
 								"exec": [
-									"pm.test(\"Status test\", function () {\r",
-									"    pm.response.to.have.status(400);\r",
-									"});"
+									"pm.test(\"Status for \" + pm.collectionVariables.get(\"username\"), () => {\r",
+									"    var expected = 0\r",
+									"        switch (pm.collectionVariables.get(\"username\")) {\r",
+									"            case \"admin\":\r",
+									"                expected = 400;\r",
+									"                break;\r",
+									"            \r",
+									"            \r",
+									"            case \"guest\":\r",
+									"            case \"user\":\r",
+									"                expected = 403;\r",
+									"                break;\r",
+									"        }\r",
+									"        pm.response.to.have.status(expected);\r",
+									"    }\r",
+									")"
 								],
 								"type": "text/javascript"
 							}
@@ -3802,9 +4236,18 @@
 							"listen": "test",
 							"script": {
 								"exec": [
-									"pm.test(\"Status test\", function () {\r",
-									"    pm.response.to.have.status(400);\r",
-									"});"
+									"pm.test(\"Status for \" + pm.collectionVariables.get(\"username\"), () => {\r",
+									"    var expected = 0\r",
+									"        switch (pm.collectionVariables.get(\"username\")) {\r",
+									"            case \"admin\":\r",
+									"            case \"user\":\r",
+									"            case \"guest\":\r",
+									"                expected = 400;\r",
+									"                break;\r",
+									"        }\r",
+									"        pm.response.to.have.status(expected);\r",
+									"    }\r",
+									")"
 								],
 								"type": "text/javascript"
 							}
@@ -3872,9 +4315,18 @@
 							"listen": "test",
 							"script": {
 								"exec": [
-									"pm.test(\"Status test\", function () {\r",
-									"    pm.response.to.have.status(400);\r",
-									"});"
+									"pm.test(\"Status for \" + pm.collectionVariables.get(\"username\"), () => {\r",
+									"    var expected = 0\r",
+									"        switch (pm.collectionVariables.get(\"username\")) {\r",
+									"            case \"admin\":\r",
+									"            case \"user\":\r",
+									"            case \"guest\":\r",
+									"                expected = 400;\r",
+									"                break;\r",
+									"        }\r",
+									"        pm.response.to.have.status(expected);\r",
+									"    }\r",
+									")"
 								],
 								"type": "text/javascript"
 							}
@@ -3942,9 +4394,22 @@
 							"listen": "test",
 							"script": {
 								"exec": [
-									"pm.test(\"Status test\", function () {\r",
-									"    pm.response.to.have.status(400);\r",
-									"});"
+									"pm.test(\"Status for \" + pm.collectionVariables.get(\"username\"), () => {\r",
+									"    var expected = 0\r",
+									"        switch (pm.collectionVariables.get(\"username\")) {\r",
+									"            case \"admin\":\r",
+									"                expected = 400;\r",
+									"                break;\r",
+									"            \r",
+									"            \r",
+									"            case \"guest\":\r",
+									"            case \"user\":\r",
+									"                expected = 403;\r",
+									"                break;\r",
+									"        }\r",
+									"        pm.response.to.have.status(expected);\r",
+									"    }\r",
+									")"
 								],
 								"type": "text/javascript"
 							}
@@ -4012,9 +4477,18 @@
 							"listen": "test",
 							"script": {
 								"exec": [
-									"pm.test(\"Status test\", function () {\r",
-									"    pm.response.to.have.status(400);\r",
-									"});"
+									"pm.test(\"Status for \" + pm.collectionVariables.get(\"username\"), () => {\r",
+									"    var expected = 0\r",
+									"        switch (pm.collectionVariables.get(\"username\")) {\r",
+									"            case \"admin\":\r",
+									"            case \"user\":\r",
+									"            case \"guest\":\r",
+									"                expected = 400;\r",
+									"                break;\r",
+									"        }\r",
+									"        pm.response.to.have.status(expected);\r",
+									"    }\r",
+									")"
 								],
 								"type": "text/javascript"
 							}
@@ -4082,9 +4556,22 @@
 							"listen": "test",
 							"script": {
 								"exec": [
-									"pm.test(\"Status test\", function () {\r",
-									"    pm.response.to.have.status(400);\r",
-									"});"
+									"pm.test(\"Status for \" + pm.collectionVariables.get(\"username\"), () => {\r",
+									"    var expected = 0\r",
+									"        switch (pm.collectionVariables.get(\"username\")) {\r",
+									"            case \"admin\":\r",
+									"                expected = 400;\r",
+									"                break;\r",
+									"            \r",
+									"            \r",
+									"            case \"guest\":\r",
+									"            case \"user\":\r",
+									"                expected = 403;\r",
+									"                break;\r",
+									"        }\r",
+									"        pm.response.to.have.status(expected);\r",
+									"    }\r",
+									")"
 								],
 								"type": "text/javascript"
 							}
@@ -4157,9 +4644,22 @@
 							"listen": "test",
 							"script": {
 								"exec": [
-									"pm.test(\"Status test\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
-									"});"
+									"pm.test(\"Status for \" + pm.collectionVariables.get(\"username\"), () => {\r",
+									"    var expected = 0\r",
+									"        switch (pm.collectionVariables.get(\"username\")) {\r",
+									"            case \"admin\":\r",
+									"                expected = 200;\r",
+									"                break;\r",
+									"            \r",
+									"            \r",
+									"            case \"guest\":\r",
+									"            case \"user\":\r",
+									"                expected = 403;\r",
+									"                break;\r",
+									"        }\r",
+									"        pm.response.to.have.status(expected);\r",
+									"    }\r",
+									")"
 								],
 								"type": "text/javascript"
 							}
@@ -4253,9 +4753,22 @@
 							"listen": "test",
 							"script": {
 								"exec": [
-									"pm.test(\"Status test\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
-									"});"
+									"pm.test(\"Status for \" + pm.collectionVariables.get(\"username\"), () => {\r",
+									"    var expected = 0\r",
+									"        switch (pm.collectionVariables.get(\"username\")) {\r",
+									"            case \"admin\":\r",
+									"                expected = 200;\r",
+									"                break;\r",
+									"            \r",
+									"            \r",
+									"            case \"guest\":\r",
+									"            case \"user\":\r",
+									"                expected = 403;\r",
+									"                break;\r",
+									"        }\r",
+									"        pm.response.to.have.status(expected);\r",
+									"    }\r",
+									")"
 								],
 								"type": "text/javascript"
 							}
@@ -4301,9 +4814,22 @@
 							"listen": "test",
 							"script": {
 								"exec": [
-									"pm.test(\"Status test\", function () {\r",
-									"    pm.response.to.have.status(400);\r",
-									"});"
+									"pm.test(\"Status for \" + pm.collectionVariables.get(\"username\"), () => {\r",
+									"    var expected = 0\r",
+									"        switch (pm.collectionVariables.get(\"username\")) {\r",
+									"            case \"admin\":\r",
+									"                expected = 400;\r",
+									"                break;\r",
+									"            \r",
+									"            \r",
+									"            case \"guest\":\r",
+									"            case \"user\":\r",
+									"                expected = 403;\r",
+									"                break;\r",
+									"        }\r",
+									"        pm.response.to.have.status(expected);\r",
+									"    }\r",
+									")"
 								],
 								"type": "text/javascript"
 							}
@@ -4349,9 +4875,22 @@
 							"listen": "test",
 							"script": {
 								"exec": [
-									"pm.test(\"Status test\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
-									"});"
+									"pm.test(\"Status for \" + pm.collectionVariables.get(\"username\"), () => {\r",
+									"    var expected = 0\r",
+									"        switch (pm.collectionVariables.get(\"username\")) {\r",
+									"            case \"admin\":\r",
+									"                expected = 200;\r",
+									"                break;\r",
+									"            \r",
+									"            \r",
+									"            case \"guest\":\r",
+									"            case \"user\":\r",
+									"                expected = 403;\r",
+									"                break;\r",
+									"        }\r",
+									"        pm.response.to.have.status(expected);\r",
+									"    }\r",
+									")"
 								],
 								"type": "text/javascript"
 							}
@@ -4397,9 +4936,22 @@
 							"listen": "test",
 							"script": {
 								"exec": [
-									"pm.test(\"Status test\", function () {\r",
-									"    pm.response.to.have.status(400);\r",
-									"});"
+									"pm.test(\"Status for \" + pm.collectionVariables.get(\"username\"), () => {\r",
+									"    var expected = 0\r",
+									"        switch (pm.collectionVariables.get(\"username\")) {\r",
+									"            case \"admin\":\r",
+									"                expected = 400;\r",
+									"                break;\r",
+									"            \r",
+									"            \r",
+									"            case \"guest\":\r",
+									"            case \"user\":\r",
+									"                expected = 403;\r",
+									"                break;\r",
+									"        }\r",
+									"        pm.response.to.have.status(expected);\r",
+									"    }\r",
+									")"
 								],
 								"type": "text/javascript"
 							}
@@ -4433,6 +4985,160 @@
 									"key": "uuid",
 									"value": "4bf6862d-5ef4-4564-82e6-3ee7ed61fc95"
 								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Login",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"let usernames = pm.collectionVariables.get(\"userlogins\");\r",
+									"\r",
+									"if(!usernames || usernames.length == 0) {\r",
+									"    usernames = [[\"admin\", \"admin\"], [\"user\", \"user\"], [\"guest\", \"guest\"]];\r",
+									"}\r",
+									"\r",
+									"let currentUsername = usernames.shift();\r",
+									"console.log(currentUsername)\r",
+									"pm.collectionVariables.set(\"username\", currentUsername[0]);\r",
+									"pm.collectionVariables.set(\"password\", currentUsername[1]);\r",
+									"pm.collectionVariables.set(\"userlogins\", usernames);"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status for \" + pm.collectionVariables.get(\"username\"), () => {\r",
+									"    var expected = 0\r",
+									"        switch (pm.collectionVariables.get(\"username\")) {\r",
+									"            case \"admin\":\r",
+									"            case \"user\":\r",
+									"                expected = 200;\r",
+									"                break;\r",
+									"            \r",
+									"            \r",
+									"            case \"guest\":\r",
+									"                expected = 403;\r",
+									"                break;\r",
+									"        }\r",
+									"        pm.response.to.have.status(expected);\r",
+									"    }\r",
+									")"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "{{username}}",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "{{password}}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/formulaOne-1.0-SNAPSHOT/formula/user/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"formulaOne-1.0-SNAPSHOT",
+								"formula",
+								"user",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "2FA",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status for \" + pm.collectionVariables.get(\"username\"), () => {\r",
+									"    var expected = 0\r",
+									"        switch (pm.collectionVariables.get(\"username\")) {\r",
+									"            case \"admin\":\r",
+									"            case \"user\":\r",
+									"                expected = 200;\r",
+									"                break;\r",
+									"            \r",
+									"            \r",
+									"            case \"guest\":\r",
+									"                expected = 403;\r",
+									"                break;\r",
+									"        }\r",
+									"        pm.response.to.have.status(expected);\r",
+									"    }\r",
+									")"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "secret",
+									"value": "10",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/formulaOne-1.0-SNAPSHOT/formula/user/2fa",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"formulaOne-1.0-SNAPSHOT",
+								"formula",
+								"user",
+								"2fa"
 							]
 						}
 					},
@@ -4475,6 +5181,79 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "Reset ALL",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/formulaOne-1.0-SNAPSHOT/formula/test/resetJSON",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"formulaOne-1.0-SNAPSHOT",
+						"formula",
+						"test",
+						"resetJSON"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "username",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "password",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "userlogins",
+			"value": "",
+			"type": "string"
 		}
 	]
 }

@@ -21,9 +21,18 @@ public class DataHandler {
     private static List<Team> teamList;
     private static List<User> userList;
 
-    private static String secret;
-
     static {
+        setSeasonList(new ArrayList<>());
+        setTeamList(new ArrayList<>());
+        setDriverList(new ArrayList<>());
+        setUserList(new ArrayList<>());
+        readSeasonJSON();
+        readTeamJSON();
+        readDriverJSON();
+        readUserJSON();
+    }
+
+    public static void readALl(){
         setSeasonList(new ArrayList<>());
         setTeamList(new ArrayList<>());
         setDriverList(new ArrayList<>());

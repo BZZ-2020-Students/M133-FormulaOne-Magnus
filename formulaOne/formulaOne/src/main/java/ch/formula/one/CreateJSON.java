@@ -1,5 +1,6 @@
 package ch.formula.one;
 
+import ch.formula.one.data.DataHandler;
 import ch.formula.one.model.Driver;
 import ch.formula.one.model.Season;
 import ch.formula.one.model.Team;
@@ -39,7 +40,7 @@ public class CreateJSON {
             om.writeValue(Paths.get("C:\\Users\\MGGG\\Documents\\GitHub\\M133-FormulaOne-Magnus\\formulaOne\\formulaOne\\src\\main\\resources\\team.json").toFile(), teams);
             om.writeValue(Paths.get("C:\\Users\\MGGG\\Documents\\GitHub\\M133-FormulaOne-Magnus\\formulaOne\\formulaOne\\src\\main\\resources\\driver.json").toFile(), drivers);
             om.writeValue(Paths.get("C:\\Users\\MGGG\\Documents\\GitHub\\M133-FormulaOne-Magnus\\formulaOne\\formulaOne\\src\\main\\resources\\user.json").toFile(), users);
-
+            DataHandler.readALl();
         } catch (IOException e) {
             e.printStackTrace();
         }

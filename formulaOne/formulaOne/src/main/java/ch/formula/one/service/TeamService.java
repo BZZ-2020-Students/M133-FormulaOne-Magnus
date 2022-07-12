@@ -9,6 +9,7 @@ import jakarta.annotation.security.RolesAllowed;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.*;
 import jakarta.ws.rs.*;
+import jakarta.ws.rs.core.Cookie;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 
@@ -29,16 +30,24 @@ public class TeamService {
      *
      * @return fahrer
      */
-    @RolesAllowed({"admin","user"})
     @GET
     @Path("list")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response listTeams() {
-        List<Team> teamList = DataHandler.readAllTeams();
-        return Response
-                .status(200)
-                .entity(teamList)
-                .build();
+    public Response listTeams(
+            @CookieParam("userRole") Cookie cookie
+    ) {
+        if (cookie.getValue().equals("guest")) {
+            Response response = Response
+                    .status(403)
+                    .build();
+            return response;
+        }else {
+            List<Team> teamList = DataHandler.readAllTeams();
+            return Response
+                    .status(200)
+                    .entity(teamList)
+                    .build();
+        }
     }
 
     /**
@@ -47,22 +56,29 @@ public class TeamService {
      * @param teamUUID
      * @return team
      */
-    @RolesAllowed({"admin","user"})
     @GET
     @Path("read")
     @Produces(MediaType.APPLICATION_JSON)
     public Response readTeam(
-            @QueryParam("uuid") String teamUUID
+            @QueryParam("uuid") String teamUUID,
+            @CookieParam("userRole") Cookie cookie
     ) {
-        int httpStatus = 200;
-        Team team = DataHandler.readTeamByUUID(teamUUID);
-        if (team == null) {
-            httpStatus = 410;
+        if (cookie.getValue().equals("guest")) {
+            Response response = Response
+                    .status(403)
+                    .build();
+            return response;
+        }else {
+            int httpStatus = 200;
+            Team team = DataHandler.readTeamByUUID(teamUUID);
+            if (team == null) {
+                httpStatus = 410;
+            }
+            return Response
+                    .status(httpStatus)
+                    .entity(team)
+                    .build();
         }
-        return Response
-                .status(httpStatus)
-                .entity(team)
-                .build();
     }
 
     /**
@@ -74,7 +90,6 @@ public class TeamService {
      * @param chassis
      * @param seasonUUID
      */
-    @RolesAllowed({"admin"})
     @Path("create")
     @POST
     @Produces(MediaType.TEXT_PLAIN)
@@ -94,32 +109,40 @@ public class TeamService {
 
             @Pattern(regexp = "|[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}")
             @NotEmpty
-            @FormParam("seasonUUID") String seasonUUID
+            @FormParam("seasonUUID") String seasonUUID,
+            @CookieParam("userRole") Cookie cookie
 
     ) {
-        int httpStatus = 400;
-        String entity = "faield";
+        if (cookie.getValue().equals("guest")||cookie.getValue().equals("user")) {
+            Response response = Response
+                    .status(403)
+                    .build();
+            return response;
+        }else {
+            int httpStatus = 400;
+            String entity = "faield";
 
-        if (DataHandler.readSeasonByUUID(seasonUUID) != null) {
-            Team team = new Team();
-            team.setTeamUUID(UUID.randomUUID().toString());
-            team.setName(name);
-            team.setTeamPrincipal(teamPrincipal);
-            team.setEngine(engine);
-            team.setChassis(chassis);
-            team.setSeasonUUID(seasonUUID);
+            if (DataHandler.readSeasonByUUID(seasonUUID) != null) {
+                Team team = new Team();
+                team.setTeamUUID(UUID.randomUUID().toString());
+                team.setName(name);
+                team.setTeamPrincipal(teamPrincipal);
+                team.setEngine(engine);
+                team.setChassis(chassis);
+                team.setSeasonUUID(seasonUUID);
 
-            DataHandler.insertTeam(team);
+                DataHandler.insertTeam(team);
 
-            httpStatus = 200;
-            entity = "Driver successfully inserted";
+                httpStatus = 200;
+                entity = "Driver successfully inserted";
+            }
+
+
+            return Response
+                    .status(httpStatus)
+                    .entity(entity)
+                    .build();
         }
-
-
-        return Response
-                .status(httpStatus)
-                .entity(entity)
-                .build();
     }
 
     /**
@@ -127,28 +150,35 @@ public class TeamService {
      *
      * @param teamUUID
      */
-    @RolesAllowed({"admin"})
     @Path("delete")
     @GET
     @Produces(MediaType.TEXT_PLAIN)
     public Response deleteTeam(
             @Pattern(regexp = "|[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}")
             @NotEmpty
-            @QueryParam("uuid") String teamUUID
+            @QueryParam("uuid") String teamUUID,
+            @CookieParam("userRole") Cookie cookie
     ) {
-        int httpStatus = 400;
-        String entity = "faild";
+        if (cookie.getValue().equals("guest") || cookie.getValue().equals("user")) {
+            Response response = Response
+                    .status(403)
+                    .build();
+            return response;
+        } else {
+            int httpStatus = 400;
+            String entity = "faild";
 
-        if (DataHandler.readTeamByUUID(teamUUID) != null) {
-            DataHandler.deleteTeam(teamUUID);
-            httpStatus = 200;
-            entity = "Team erfolgreich gelöscht";
+            if (DataHandler.readTeamByUUID(teamUUID) != null) {
+                DataHandler.deleteTeam(teamUUID);
+                httpStatus = 200;
+                entity = "Team erfolgreich gelöscht";
+            }
+
+            return Response
+                    .status(httpStatus)
+                    .entity(entity)
+                    .build();
         }
-
-        return Response
-                .status(httpStatus)
-                .entity(entity)
-                .build();
     }
 
     /**
@@ -156,7 +186,6 @@ public class TeamService {
      *
      * @param t
      */
-    @RolesAllowed({"admin"})
     @Path("update")
     @PUT
     @Produces(MediaType.TEXT_PLAIN)
@@ -164,30 +193,38 @@ public class TeamService {
             @Valid @BeanParam Team t,
             @NotEmpty
             @Pattern(regexp = "|[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}")
-            @FormParam("seasonUUID") String seasonUUID
+            @FormParam("seasonUUID") String seasonUUID,
+            @CookieParam("userRole") Cookie cookie
     ) {
-        int httpStatus = 400;
-        String entity = "faild";
+        if (cookie.getValue().equals("guest") || cookie.getValue().equals("user")) {
+            Response response = Response
+                    .status(403)
+                    .build();
+            return response;
+        } else {
+            int httpStatus = 400;
+            String entity = "faild";
 
-        if (DataHandler.readSeasonByUUID(seasonUUID) != null) {
-            Team team = DataHandler.readTeamByUUID(t.getTeamUUID());
-            if (team != null) {
-                team.setTeamUUID(t.getTeamUUID());
-                team.setName(t.getName());
-                team.setTeamPrincipal(t.getTeamPrincipal());
-                team.setEngine(t.getEngine());
-                team.setChassis(t.getChassis());
-                team.setSeasonUUID(seasonUUID);
+            if (DataHandler.readSeasonByUUID(seasonUUID) != null) {
+                Team team = DataHandler.readTeamByUUID(t.getTeamUUID());
+                if (team != null) {
+                    team.setTeamUUID(t.getTeamUUID());
+                    team.setName(t.getName());
+                    team.setTeamPrincipal(t.getTeamPrincipal());
+                    team.setEngine(t.getEngine());
+                    team.setChassis(t.getChassis());
+                    team.setSeasonUUID(seasonUUID);
 
-                DataHandler.updateTeam();
-                httpStatus = 200;
-                entity = "Team erfolgreich angelegt";
+                    DataHandler.updateTeam();
+                    httpStatus = 200;
+                    entity = "Team erfolgreich angelegt";
+                }
             }
-        }
 
-        return Response
-                .status(httpStatus)
-                .entity(entity)
-                .build();
+            return Response
+                    .status(httpStatus)
+                    .entity(entity)
+                    .build();
+        }
     }
 }

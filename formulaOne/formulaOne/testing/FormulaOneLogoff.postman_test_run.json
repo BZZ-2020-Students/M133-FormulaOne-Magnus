@@ -1,0 +1,80 @@
+{
+	"id": "b67d8497-0eca-480e-978a-69529ad891e1",
+	"name": "FormulaOneLogoff",
+	"timestamp": "2022-07-12T00:05:25.575Z",
+	"collection_id": "20900061-ec57b5c9-883f-4c0b-92f3-0089ba6fa165",
+	"folder_id": 0,
+	"environment_id": "0",
+	"totalPass": 2,
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "f87c36ff-8761-4c0a-8cda-f92855ac99b6",
+			"name": "Login",
+			"url": "http://localhost:8080/formulaOne-1.0-SNAPSHOT/formula/user/login",
+			"time": 15,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status test": true
+			},
+			"testPassFailCounts": {
+				"Status test": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				15
+			],
+			"allTests": [
+				{
+					"Status test": true
+				}
+			]
+		},
+		{
+			"id": "b4b77871-e24e-47e5-bf77-c64aed408d7e",
+			"name": "Logoff",
+			"url": "http://localhost:8080/formulaOne-1.0-SNAPSHOT/formula/user/logoff",
+			"time": 3,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status test": true
+			},
+			"testPassFailCounts": {
+				"Status test": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				3
+			],
+			"allTests": [
+				{
+					"Status test": true
+				}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 18,
+	"collection": {
+		"requests": [
+			{
+				"id": "f87c36ff-8761-4c0a-8cda-f92855ac99b6",
+				"method": "POST"
+			},
+			{
+				"id": "b4b77871-e24e-47e5-bf77-c64aed408d7e",
+				"method": "GET"
+			}
+		]
+	}
+}
