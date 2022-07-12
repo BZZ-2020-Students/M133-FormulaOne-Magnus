@@ -2,11 +2,13 @@ package ch.formula.one.service;
 
 import ch.formula.one.data.DataHandler;
 import ch.formula.one.model.Season;
+import jakarta.annotation.security.RolesAllowed;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 import jakarta.ws.rs.*;
+import jakarta.ws.rs.core.Cookie;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 
@@ -28,16 +30,26 @@ public class SeasonService {
      *
      * @return seasons as JSON
      */
+    @RolesAllowed({"admin","user"})
     @Path("list")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public Response listSeasons() {
-        List<Season> seasonList = DataHandler.readAllSeasons();
-        Response response = Response
-                .status(200)
-                .entity(seasonList)
-                .build();
-        return response;
+    public Response listSeasons(
+            @CookieParam("userRole") Cookie cookie
+    ) {
+        if (cookie.getValue().equals("guest")) {
+            Response response = Response
+                    .status(403)
+                    .build();
+            return response;
+        }else {
+            List<Season> seasonList = DataHandler.readAllSeasons();
+            Response response = Response
+                    .status(200)
+                    .entity(seasonList)
+                    .build();
+            return response;
+        }
     }
 
     /**
@@ -46,22 +58,31 @@ public class SeasonService {
      * @param seasonUUID
      * @return season
      */
+    @RolesAllowed({"admin","user"})
     @GET
     @Path("read")
     @Produces(MediaType.APPLICATION_JSON)
     public Response readSeason(
             @Pattern(regexp = "|[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}")
-            @QueryParam("uuid") String seasonUUID
+            @QueryParam("uuid") String seasonUUID,
+            @CookieParam("userRole") Cookie cookie
     ) {
-        int httpStatus = 200;
-        Season season = DataHandler.readSeasonByUUID(seasonUUID);
-        if (season == null) {
-            httpStatus = 410;
+        if (cookie.getValue().equals("guest")) {
+            Response response = Response
+                    .status(403)
+                    .build();
+            return response;
+        }else {
+            int httpStatus = 200;
+            Season season = DataHandler.readSeasonByUUID(seasonUUID);
+            if (season == null) {
+                httpStatus = 410;
+            }
+            return Response
+                    .status(httpStatus)
+                    .entity(season)
+                    .build();
         }
-        return Response
-                .status(httpStatus)
-                .entity(season)
-                .build();
     }
 
     /**
@@ -79,20 +100,28 @@ public class SeasonService {
             @FormParam("year") String year,
             @NotEmpty
             @Size(min=1, max=40)
-            @FormParam("winner") String winner
+            @FormParam("winner") String winner,
+            @CookieParam("userRole") Cookie cookie
     ) {
-        Season season = new Season();
-        season.setSeasonUUID(UUID.randomUUID().toString());
-        season.setYear(year);
-        season.setWinner(winner);
+        if (cookie.getValue().equals("guest")||cookie.getValue().equals("user")) {
+            Response response = Response
+                    .status(403)
+                    .build();
+            return response;
+        } else {
+            Season season = new Season();
+            season.setSeasonUUID(UUID.randomUUID().toString());
+            season.setYear(year);
+            season.setWinner(winner);
 
-        DataHandler.insertSeason(season);
+            DataHandler.insertSeason(season);
 
-        int httpStatus = 200;
-        return Response
-                .status(httpStatus)
-                .entity("Season erfolgreich angelegt")
-                .build();
+            int httpStatus = 200;
+            return Response
+                    .status(httpStatus)
+                    .entity("Season erfolgreich angelegt")
+                    .build();
+        }
     }
 
     /**
@@ -106,20 +135,28 @@ public class SeasonService {
     public Response deleteSeason(
             @Pattern(regexp = "|[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}")
             @NotEmpty
-            @QueryParam("uuid") String seasonUUID
+            @QueryParam("uuid") String seasonUUID,
+            @CookieParam("userRole") Cookie cookie
     ) {
-        int httpStatus = 400;
-        String entity = "faild";
-        if(DataHandler.readSeasonByUUID(seasonUUID) != null){
-            DataHandler.deleteSeason(seasonUUID);
-            httpStatus = 200;
-            entity = "Season erfolgreich gelöscht";
-        }
+        if (cookie.getValue().equals("guest")||cookie.getValue().equals("user")) {
+            Response response = Response
+                    .status(403)
+                    .build();
+            return response;
+        } else {
+            int httpStatus = 400;
+            String entity = "faild";
+            if (DataHandler.readSeasonByUUID(seasonUUID) != null) {
+                DataHandler.deleteSeason(seasonUUID);
+                httpStatus = 200;
+                entity = "Season erfolgreich gelöscht";
+            }
 
-        return Response
-                .status(httpStatus)
-                .entity(entity)
-                .build();
+            return Response
+                    .status(httpStatus)
+                    .entity(entity)
+                    .build();
+        }
     }
 
     /**
@@ -131,23 +168,31 @@ public class SeasonService {
     @PUT
     @Produces(MediaType.TEXT_PLAIN)
     public Response updateSeason(
-            @Valid @BeanParam Season s
+            @Valid @BeanParam Season s,
+            @CookieParam("userRole") Cookie cookie
     ) {
-        int httpStatus = 400;
-        String entity = "faild";
-        Season season = DataHandler.readSeasonByUUID(s.getSeasonUUID());
-        if (season != null) {
-            season.setSeasonUUID(s.getSeasonUUID());
-            season.setYear(s.getYear());
-            season.setWinner(s.getWinner());
-            DataHandler.updateSeason();
-            httpStatus = 200;
-            entity = "Season erfolgreich geupdated";
-        }
+        if (cookie.getValue().equals("guest")||cookie.getValue().equals("user")) {
+            Response response = Response
+                    .status(403)
+                    .build();
+            return response;
+        } else {
+            int httpStatus = 400;
+            String entity = "faild";
+            Season season = DataHandler.readSeasonByUUID(s.getSeasonUUID());
+            if (season != null) {
+                season.setSeasonUUID(s.getSeasonUUID());
+                season.setYear(s.getYear());
+                season.setWinner(s.getWinner());
+                DataHandler.updateSeason();
+                httpStatus = 200;
+                entity = "Season erfolgreich geupdated";
+            }
 
-        return Response
-                .status(httpStatus)
-                .entity(entity)
-                .build();
+            return Response
+                    .status(httpStatus)
+                    .entity(entity)
+                    .build();
+        }
     }
 }

@@ -1,288 +1,458 @@
 {
-	"id": "4fa22f64-b820-4149-995c-63aea0781219",
+	"id": "4f88731a-c65c-4de9-b8c9-0b59f93a520d",
 	"name": "FormulaOne",
-	"timestamp": "2022-06-20T21:28:51.940Z",
+	"timestamp": "2022-07-11T23:55:32.353Z",
 	"collection_id": "20900061-2dc93426-d7fd-4b6f-a0ab-8271e4b75e9b",
 	"folder_id": 0,
 	"environment_id": "0",
-	"totalPass": 74,
+	"totalPass": 231,
 	"totalFail": 0,
 	"results": [
 		{
 			"id": "0b4b77a7-6d5d-4680-80a5-0eeff5ef2278",
 			"name": "Driver List",
-			"url": "http://localhost:8080/formulaOne-1.0-SNAPSHOT/formula/driver/list",
-			"time": 59,
+			"time": 2,
 			"responseCode": {
-				"code": 200,
-				"name": "OK"
+				"code": 403,
+				"name": "Forbidden"
 			},
 			"tests": {
-				"Status test": true
+				"Status for guest": true
 			},
 			"testPassFailCounts": {
-				"Status test": {
+				"Status for admin": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for user": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for guest": {
 					"pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				59
+				3,
+				2,
+				2
 			],
 			"allTests": [
 				{
-					"Status test": true
+					"Status for admin": true
+				},
+				{
+					"Status for user": true
+				},
+				{
+					"Status for guest": true
 				}
 			]
 		},
 		{
 			"id": "47b8a1d9-c1c4-4fa8-9b86-cbb500c64083",
 			"name": "Team List",
-			"url": "http://localhost:8080/formulaOne-1.0-SNAPSHOT/formula/team/list",
-			"time": 3,
+			"time": 2,
 			"responseCode": {
-				"code": 200,
-				"name": "OK"
+				"code": 403,
+				"name": "Forbidden"
 			},
 			"tests": {
-				"Status test": true
+				"Status for guest": true
 			},
 			"testPassFailCounts": {
-				"Status test": {
+				"Status for admin": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for user": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for guest": {
 					"pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				3
+				2,
+				2,
+				2
 			],
 			"allTests": [
 				{
-					"Status test": true
+					"Status for admin": true
+				},
+				{
+					"Status for user": true
+				},
+				{
+					"Status for guest": true
 				}
 			]
 		},
 		{
 			"id": "b2eb241f-ad4b-459a-8894-9067745f9ac4",
 			"name": "Season List",
-			"url": "http://localhost:8080/formulaOne-1.0-SNAPSHOT/formula/season/list",
-			"time": 5,
+			"time": 2,
 			"responseCode": {
-				"code": 200,
-				"name": "OK"
+				"code": 403,
+				"name": "Forbidden"
 			},
 			"tests": {
-				"Status test": true
+				"Status for guest": true
 			},
 			"testPassFailCounts": {
-				"Status test": {
+				"Status for admin": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for user": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for guest": {
 					"pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				5
+				2,
+				3,
+				2
 			],
 			"allTests": [
 				{
-					"Status test": true
+					"Status for admin": true
+				},
+				{
+					"Status for user": true
+				},
+				{
+					"Status for guest": true
 				}
+			]
+		},
+		{
+			"id": "df8d875c-b6b8-4df3-a49c-62be5b9702e0",
+			"name": "User list",
+			"time": 2,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				2,
+				2,
+				2
+			],
+			"allTests": [
+				{},
+				{},
+				{}
 			]
 		},
 		{
 			"id": "f768c24f-1351-4a69-a6c7-ce9850421175",
 			"name": "DriverRead 200",
-			"url": "http://localhost:8080/formulaOne-1.0-SNAPSHOT/formula/driver/read?uuid=4bf6862d-5ef4-4564-82e6-3ee7ed61fc94",
 			"time": 3,
 			"responseCode": {
-				"code": 200,
-				"name": "OK"
+				"code": 403,
+				"name": "Forbidden"
 			},
 			"tests": {
-				"Status test": true
+				"Status for guest": true
 			},
 			"testPassFailCounts": {
-				"Status test": {
+				"Status for admin": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for user": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for guest": {
 					"pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
+				2,
+				2,
 				3
 			],
 			"allTests": [
 				{
-					"Status test": true
+					"Status for admin": true
+				},
+				{
+					"Status for user": true
+				},
+				{
+					"Status for guest": true
 				}
 			]
 		},
 		{
 			"id": "fce8d434-ddd3-46ea-8329-944ef79219f9",
 			"name": "Driver Read 410",
-			"url": "http://localhost:8080/formulaOne-1.0-SNAPSHOT/formula/driver/read?uuid=18cac1b8-c463-41d6-ae9a-a2153e51befd",
 			"time": 3,
 			"responseCode": {
-				"code": 410,
-				"name": "Gone"
+				"code": 403,
+				"name": "Forbidden"
 			},
 			"tests": {
-				"Status test": true
+				"Status for guest": true
 			},
 			"testPassFailCounts": {
-				"Status test": {
+				"Status for admin": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for user": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for guest": {
 					"pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
+				2,
+				2,
 				3
 			],
 			"allTests": [
 				{
-					"Status test": true
+					"Status for admin": true
+				},
+				{
+					"Status for user": true
+				},
+				{
+					"Status for guest": true
 				}
 			]
 		},
 		{
 			"id": "072a910e-6e97-4e64-83f4-1059a4209dcb",
 			"name": "Season Read 200",
-			"url": "http://localhost:8080/formulaOne-1.0-SNAPSHOT/formula/season/read?uuid=86b51fbf-7723-4a97-996b-a61efbf7e997",
-			"time": 3,
+			"time": 2,
 			"responseCode": {
-				"code": 200,
-				"name": "OK"
+				"code": 403,
+				"name": "Forbidden"
 			},
 			"tests": {
-				"Status test": true
+				"Status for guest": true
 			},
 			"testPassFailCounts": {
-				"Status test": {
+				"Status for admin": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for user": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for guest": {
 					"pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				3
+				2,
+				2,
+				2
 			],
 			"allTests": [
 				{
-					"Status test": true
+					"Status for admin": true
+				},
+				{
+					"Status for user": true
+				},
+				{
+					"Status for guest": true
 				}
 			]
 		},
 		{
 			"id": "a137c718-2721-4753-bde7-f2ab431bafde",
 			"name": "Season Read 410",
-			"url": "http://localhost:8080/formulaOne-1.0-SNAPSHOT/formula/season/read?uuid=86b51fbf-7723-4a97-996b-a61efbf7e998",
-			"time": 3,
+			"time": 2,
 			"responseCode": {
-				"code": 410,
-				"name": "Gone"
+				"code": 403,
+				"name": "Forbidden"
 			},
 			"tests": {
-				"Status test": true
+				"Status for guest": true
 			},
 			"testPassFailCounts": {
-				"Status test": {
+				"Status for admin": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for user": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for guest": {
 					"pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				3
+				2,
+				3,
+				2
 			],
 			"allTests": [
 				{
-					"Status test": true
+					"Status for admin": true
+				},
+				{
+					"Status for user": true
+				},
+				{
+					"Status for guest": true
 				}
 			]
 		},
 		{
 			"id": "87dd6128-b8ca-415a-ad62-cc5fa245895f",
 			"name": "Team Read 200",
-			"url": "http://localhost:8080/formulaOne-1.0-SNAPSHOT/formula/team/read?uuid=f2095f89-4a09-40b7-80b7-31915f629d93",
-			"time": 10,
+			"time": 3,
 			"responseCode": {
-				"code": 200,
-				"name": "OK"
+				"code": 403,
+				"name": "Forbidden"
 			},
 			"tests": {
-				"Status test": true
+				"Status for guest": true
 			},
 			"testPassFailCounts": {
-				"Status test": {
+				"Status for admin": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for user": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for guest": {
 					"pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				10
+				3,
+				2,
+				3
 			],
 			"allTests": [
 				{
-					"Status test": true
+					"Status for admin": true
+				},
+				{
+					"Status for user": true
+				},
+				{
+					"Status for guest": true
 				}
 			]
 		},
 		{
 			"id": "5893e701-e8e0-4347-b9c5-565ee77144dd",
 			"name": "Team Read 410",
-			"url": "http://localhost:8080/formulaOne-1.0-SNAPSHOT/formula/team/read?uuid=f2095f89-4a09-40b7-80b7-31915f629d94",
 			"time": 3,
 			"responseCode": {
-				"code": 410,
-				"name": "Gone"
+				"code": 403,
+				"name": "Forbidden"
 			},
 			"tests": {
-				"Status test": true
+				"Status for guest": true
 			},
 			"testPassFailCounts": {
-				"Status test": {
+				"Status for admin": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for user": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for guest": {
 					"pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
+				2,
+				2,
 				3
 			],
 			"allTests": [
 				{
-					"Status test": true
+					"Status for admin": true
+				},
+				{
+					"Status for user": true
+				},
+				{
+					"Status for guest": true
 				}
 			]
 		},
 		{
 			"id": "ea8ca25c-4bab-42d4-9ca1-f851e1e3b691",
 			"name": "Season Insert 200",
-			"url": "http://localhost:8080/formulaOne-1.0-SNAPSHOT/formula/season/create",
-			"time": 5,
+			"time": 2,
 			"responseCode": {
-				"code": 200,
-				"name": "OK"
+				"code": 403,
+				"name": "Forbidden"
 			},
 			"tests": {
-				"Status test": true
+				"Status for guest": true
 			},
 			"testPassFailCounts": {
-				"Status test": {
+				"Status for admin": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for user": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for guest": {
 					"pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				5
+				4,
+				2,
+				2
 			],
 			"allTests": [
 				{
-					"Status test": true
+					"Status for admin": true
+				},
+				{
+					"Status for user": true
+				},
+				{
+					"Status for guest": true
 				}
 			]
 		},
 		{
 			"id": "787e2f18-66cd-4a01-80ef-de29e6548455",
 			"name": "Season Insert winner empty",
-			"url": "http://localhost:8080/formulaOne-1.0-SNAPSHOT/formula/season/create",
-			"time": 4,
+			"time": 3,
 			"responseCode": {
 				"code": 400,
 				"name": "Bad Request"
@@ -292,14 +462,22 @@
 			},
 			"testPassFailCounts": {
 				"Status test": {
-					"pass": 1,
+					"pass": 3,
 					"fail": 0
 				}
 			},
 			"times": [
-				4
+				2,
+				2,
+				3
 			],
 			"allTests": [
+				{
+					"Status test": true
+				},
+				{
+					"Status test": true
+				},
 				{
 					"Status test": true
 				}
@@ -308,8 +486,7 @@
 		{
 			"id": "8b21b78a-7bca-4fa0-b92b-80aab17fac0b",
 			"name": "Season Insert winner large",
-			"url": "http://localhost:8080/formulaOne-1.0-SNAPSHOT/formula/season/create",
-			"time": 5,
+			"time": 3,
 			"responseCode": {
 				"code": 400,
 				"name": "Bad Request"
@@ -319,14 +496,22 @@
 			},
 			"testPassFailCounts": {
 				"Status test": {
-					"pass": 1,
+					"pass": 3,
 					"fail": 0
 				}
 			},
 			"times": [
-				5
+				4,
+				4,
+				3
 			],
 			"allTests": [
+				{
+					"Status test": true
+				},
+				{
+					"Status test": true
+				},
 				{
 					"Status test": true
 				}
@@ -335,8 +520,7 @@
 		{
 			"id": "2d9b7fd5-c6fc-4657-a0f1-feeacc75700c",
 			"name": "Season Insert year empty",
-			"url": "http://localhost:8080/formulaOne-1.0-SNAPSHOT/formula/season/create",
-			"time": 4,
+			"time": 3,
 			"responseCode": {
 				"code": 400,
 				"name": "Bad Request"
@@ -346,14 +530,22 @@
 			},
 			"testPassFailCounts": {
 				"Status test": {
-					"pass": 1,
+					"pass": 3,
 					"fail": 0
 				}
 			},
 			"times": [
-				4
+				4,
+				3,
+				3
 			],
 			"allTests": [
+				{
+					"Status test": true
+				},
+				{
+					"Status test": true
+				},
 				{
 					"Status test": true
 				}
@@ -362,7 +554,6 @@
 		{
 			"id": "cff47845-35d9-4132-aac3-2db12a254d64",
 			"name": "Season Insert year large",
-			"url": "http://localhost:8080/formulaOne-1.0-SNAPSHOT/formula/season/create",
 			"time": 4,
 			"responseCode": {
 				"code": 400,
@@ -373,14 +564,22 @@
 			},
 			"testPassFailCounts": {
 				"Status test": {
-					"pass": 1,
+					"pass": 3,
 					"fail": 0
 				}
 			},
 			"times": [
+				5,
+				3,
 				4
 			],
 			"allTests": [
+				{
+					"Status test": true
+				},
+				{
+					"Status test": true
+				},
 				{
 					"Status test": true
 				}
@@ -389,35 +588,49 @@
 		{
 			"id": "314fcf65-21f6-4964-9b72-540c1568f92a",
 			"name": "Team Insert 200",
-			"url": "http://localhost:8080/formulaOne-1.0-SNAPSHOT/formula/team/create",
-			"time": 6,
+			"time": 4,
 			"responseCode": {
-				"code": 200,
-				"name": "OK"
+				"code": 403,
+				"name": "Forbidden"
 			},
 			"tests": {
-				"Status test": true
+				"Status for guest": true
 			},
 			"testPassFailCounts": {
-				"Status test": {
+				"Status for admin": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for user": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for guest": {
 					"pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				6
+				4,
+				29,
+				4
 			],
 			"allTests": [
 				{
-					"Status test": true
+					"Status for admin": true
+				},
+				{
+					"Status for user": true
+				},
+				{
+					"Status for guest": true
 				}
 			]
 		},
 		{
 			"id": "d3762c43-85d7-48d8-b4ea-47e1d92a56a0",
 			"name": "Team Insert name empty",
-			"url": "http://localhost:8080/formulaOne-1.0-SNAPSHOT/formula/team/create",
-			"time": 3,
+			"time": 2,
 			"responseCode": {
 				"code": 400,
 				"name": "Bad Request"
@@ -427,14 +640,22 @@
 			},
 			"testPassFailCounts": {
 				"Status test": {
-					"pass": 1,
+					"pass": 3,
 					"fail": 0
 				}
 			},
 			"times": [
-				3
+				3,
+				2,
+				2
 			],
 			"allTests": [
+				{
+					"Status test": true
+				},
+				{
+					"Status test": true
+				},
 				{
 					"Status test": true
 				}
@@ -443,8 +664,7 @@
 		{
 			"id": "f313fb98-904e-4337-a7c6-02ae95569877",
 			"name": "Team Insert name large",
-			"url": "http://localhost:8080/formulaOne-1.0-SNAPSHOT/formula/team/create",
-			"time": 4,
+			"time": 3,
 			"responseCode": {
 				"code": 400,
 				"name": "Bad Request"
@@ -454,14 +674,22 @@
 			},
 			"testPassFailCounts": {
 				"Status test": {
-					"pass": 1,
+					"pass": 3,
 					"fail": 0
 				}
 			},
 			"times": [
-				4
+				3,
+				2,
+				3
 			],
 			"allTests": [
+				{
+					"Status test": true
+				},
+				{
+					"Status test": true
+				},
 				{
 					"Status test": true
 				}
@@ -470,8 +698,7 @@
 		{
 			"id": "5f3c63ed-4bd1-49e8-b78f-eb418bcc2edf",
 			"name": "Team Insert teamPrincipal empty",
-			"url": "http://localhost:8080/formulaOne-1.0-SNAPSHOT/formula/team/create",
-			"time": 4,
+			"time": 3,
 			"responseCode": {
 				"code": 400,
 				"name": "Bad Request"
@@ -481,14 +708,22 @@
 			},
 			"testPassFailCounts": {
 				"Status test": {
-					"pass": 1,
+					"pass": 3,
 					"fail": 0
 				}
 			},
 			"times": [
-				4
+				3,
+				6,
+				3
 			],
 			"allTests": [
+				{
+					"Status test": true
+				},
+				{
+					"Status test": true
+				},
 				{
 					"Status test": true
 				}
@@ -497,8 +732,7 @@
 		{
 			"id": "c88f83b1-f8cd-475c-b167-bf488a17b3a6",
 			"name": "Team Insert teamPrincipal large",
-			"url": "http://localhost:8080/formulaOne-1.0-SNAPSHOT/formula/team/create",
-			"time": 4,
+			"time": 3,
 			"responseCode": {
 				"code": 400,
 				"name": "Bad Request"
@@ -508,14 +742,22 @@
 			},
 			"testPassFailCounts": {
 				"Status test": {
-					"pass": 1,
+					"pass": 3,
 					"fail": 0
 				}
 			},
 			"times": [
-				4
+				3,
+				3,
+				3
 			],
 			"allTests": [
+				{
+					"Status test": true
+				},
+				{
+					"Status test": true
+				},
 				{
 					"Status test": true
 				}
@@ -524,8 +766,7 @@
 		{
 			"id": "d6bb99c6-3dea-4501-8966-01729c3b2be2",
 			"name": "Team Insert engine emtpy",
-			"url": "http://localhost:8080/formulaOne-1.0-SNAPSHOT/formula/team/create",
-			"time": 4,
+			"time": 3,
 			"responseCode": {
 				"code": 400,
 				"name": "Bad Request"
@@ -535,14 +776,22 @@
 			},
 			"testPassFailCounts": {
 				"Status test": {
-					"pass": 1,
+					"pass": 3,
 					"fail": 0
 				}
 			},
 			"times": [
-				4
+				3,
+				3,
+				3
 			],
 			"allTests": [
+				{
+					"Status test": true
+				},
+				{
+					"Status test": true
+				},
 				{
 					"Status test": true
 				}
@@ -551,8 +800,7 @@
 		{
 			"id": "eb2a467b-67c4-482f-9570-8fe395e73e6b",
 			"name": "Team Insert engine large",
-			"url": "http://localhost:8080/formulaOne-1.0-SNAPSHOT/formula/team/create",
-			"time": 4,
+			"time": 30,
 			"responseCode": {
 				"code": 400,
 				"name": "Bad Request"
@@ -562,14 +810,22 @@
 			},
 			"testPassFailCounts": {
 				"Status test": {
-					"pass": 1,
+					"pass": 3,
 					"fail": 0
 				}
 			},
 			"times": [
-				4
+				3,
+				3,
+				30
 			],
 			"allTests": [
+				{
+					"Status test": true
+				},
+				{
+					"Status test": true
+				},
 				{
 					"Status test": true
 				}
@@ -578,8 +834,7 @@
 		{
 			"id": "4c249ac8-5e0a-40d3-850e-ed8dbe6e40d5",
 			"name": "Team Insert chassis emtpy",
-			"url": "http://localhost:8080/formulaOne-1.0-SNAPSHOT/formula/team/create",
-			"time": 4,
+			"time": 3,
 			"responseCode": {
 				"code": 400,
 				"name": "Bad Request"
@@ -589,14 +844,22 @@
 			},
 			"testPassFailCounts": {
 				"Status test": {
-					"pass": 1,
+					"pass": 3,
 					"fail": 0
 				}
 			},
 			"times": [
-				4
+				3,
+				3,
+				3
 			],
 			"allTests": [
+				{
+					"Status test": true
+				},
+				{
+					"Status test": true
+				},
 				{
 					"Status test": true
 				}
@@ -605,7 +868,6 @@
 		{
 			"id": "d57597bd-ba04-456b-8ed4-1f18b05c1da5",
 			"name": "Team Insert chassis large",
-			"url": "http://localhost:8080/formulaOne-1.0-SNAPSHOT/formula/team/create",
 			"time": 4,
 			"responseCode": {
 				"code": 400,
@@ -616,14 +878,22 @@
 			},
 			"testPassFailCounts": {
 				"Status test": {
-					"pass": 1,
+					"pass": 3,
 					"fail": 0
 				}
 			},
 			"times": [
+				3,
+				3,
 				4
 			],
 			"allTests": [
+				{
+					"Status test": true
+				},
+				{
+					"Status test": true
+				},
 				{
 					"Status test": true
 				}
@@ -632,8 +902,7 @@
 		{
 			"id": "aa74c228-fedc-4483-80a5-f2bd26e89a82",
 			"name": "Team Insert seasonUUID empty",
-			"url": "http://localhost:8080/formulaOne-1.0-SNAPSHOT/formula/team/create",
-			"time": 9,
+			"time": 3,
 			"responseCode": {
 				"code": 400,
 				"name": "Bad Request"
@@ -643,14 +912,22 @@
 			},
 			"testPassFailCounts": {
 				"Status test": {
-					"pass": 1,
+					"pass": 3,
 					"fail": 0
 				}
 			},
 			"times": [
-				9
+				3,
+				3,
+				3
 			],
 			"allTests": [
+				{
+					"Status test": true
+				},
+				{
+					"Status test": true
+				},
 				{
 					"Status test": true
 				}
@@ -659,376 +936,578 @@
 		{
 			"id": "30c09e83-b3f3-4d44-89c2-730e65d1fad7",
 			"name": "Team Insert seasonUUID wrong",
-			"url": "http://localhost:8080/formulaOne-1.0-SNAPSHOT/formula/team/create",
-			"time": 4,
+			"time": 3,
 			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
+				"code": 403,
+				"name": "Forbidden"
 			},
 			"tests": {
-				"Status test": true
+				"Status for guest": true
 			},
 			"testPassFailCounts": {
-				"Status test": {
+				"Status for admin": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for user": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for guest": {
 					"pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				4
+				3,
+				3,
+				3
 			],
 			"allTests": [
 				{
-					"Status test": true
+					"Status for admin": true
+				},
+				{
+					"Status for user": true
+				},
+				{
+					"Status for guest": true
 				}
 			]
 		},
 		{
 			"id": "fb2c9122-085e-4819-abbc-2578188dedb2",
 			"name": "Driver Insert 200",
-			"url": "http://localhost:8080/formulaOne-1.0-SNAPSHOT/formula/driver/create",
-			"time": 5,
+			"time": 2,
 			"responseCode": {
-				"code": 200,
-				"name": "OK"
+				"code": 403,
+				"name": "Forbidden"
 			},
 			"tests": {
-				"Status test": true
+				"Status for guest": true
 			},
 			"testPassFailCounts": {
-				"Status test": {
+				"Status for admin": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for user": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for guest": {
 					"pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				5
+				6,
+				2,
+				2
 			],
 			"allTests": [
 				{
-					"Status test": true
+					"Status for admin": true
+				},
+				{
+					"Status for user": true
+				},
+				{
+					"Status for guest": true
 				}
 			]
 		},
 		{
 			"id": "8769cdd3-3039-462c-97c2-dbb57bae55a0",
 			"name": "Driver Insert name empty",
-			"url": "http://localhost:8080/formulaOne-1.0-SNAPSHOT/formula/driver/create",
-			"time": 4,
+			"time": 2,
 			"responseCode": {
 				"code": 400,
 				"name": "Bad Request"
 			},
 			"tests": {
-				"Status test": true
+				"Status for guest": true
 			},
 			"testPassFailCounts": {
-				"Status test": {
+				"Status for admin": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for user": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for guest": {
 					"pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				4
+				2,
+				2,
+				2
 			],
 			"allTests": [
 				{
-					"Status test": true
+					"Status for admin": true
+				},
+				{
+					"Status for user": true
+				},
+				{
+					"Status for guest": true
 				}
 			]
 		},
 		{
 			"id": "983df85f-e75f-48a2-ab02-16bbc46771aa",
 			"name": "Driver Insert name large",
-			"url": "http://localhost:8080/formulaOne-1.0-SNAPSHOT/formula/driver/create",
-			"time": 4,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"Status test": true
-			},
-			"testPassFailCounts": {
-				"Status test": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				4
-			],
-			"allTests": [
-				{
-					"Status test": true
-				}
-			]
-		},
-		{
-			"id": "c53e7f77-d5c0-4b34-892f-a3b899b1e258",
-			"name": "Driver Insert firstname empty",
-			"url": "http://localhost:8080/formulaOne-1.0-SNAPSHOT/formula/driver/create",
-			"time": 5,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"Status test": true
-			},
-			"testPassFailCounts": {
-				"Status test": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				5
-			],
-			"allTests": [
-				{
-					"Status test": true
-				}
-			]
-		},
-		{
-			"id": "200c1faa-0c14-4ff1-8fdd-e07d66359f04",
-			"name": "Driver Insert firstname large",
-			"url": "http://localhost:8080/formulaOne-1.0-SNAPSHOT/formula/driver/create",
-			"time": 4,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"Status test": true
-			},
-			"testPassFailCounts": {
-				"Status test": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				4
-			],
-			"allTests": [
-				{
-					"Status test": true
-				}
-			]
-		},
-		{
-			"id": "0b2db9d7-ae3d-4bab-b294-ba812f0b75c7",
-			"name": "Driver Insert firstDriver empty",
-			"url": "http://localhost:8080/formulaOne-1.0-SNAPSHOT/formula/driver/create",
-			"time": 5,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"Status test": true
-			},
-			"testPassFailCounts": {
-				"Status test": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				5
-			],
-			"allTests": [
-				{
-					"Status test": true
-				}
-			]
-		},
-		{
-			"id": "66b4aebd-a095-4477-9855-e014bc879f7d",
-			"name": "Driver Insert firstDriver wrong",
-			"url": "http://localhost:8080/formulaOne-1.0-SNAPSHOT/formula/driver/create",
-			"time": 5,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"Status test": true
-			},
-			"testPassFailCounts": {
-				"Status test": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				5
-			],
-			"allTests": [
-				{
-					"Status test": true
-				}
-			]
-		},
-		{
-			"id": "e7b72ed7-0cc9-4bec-aff3-4f535af4471e",
-			"name": "Driver Insert wins empty",
-			"url": "http://localhost:8080/formulaOne-1.0-SNAPSHOT/formula/driver/create",
-			"time": 5,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"Status test": true
-			},
-			"testPassFailCounts": {
-				"Status test": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				5
-			],
-			"allTests": [
-				{
-					"Status test": true
-				}
-			]
-		},
-		{
-			"id": "b378bb73-bd62-4118-aaf7-da28fe7122b4",
-			"name": "Driver Insert wins large",
-			"url": "http://localhost:8080/formulaOne-1.0-SNAPSHOT/formula/driver/create",
-			"time": 4,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"Status test": true
-			},
-			"testPassFailCounts": {
-				"Status test": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				4
-			],
-			"allTests": [
-				{
-					"Status test": true
-				}
-			]
-		},
-		{
-			"id": "46b1a53d-8075-489a-b5cb-a7f372fdcab5",
-			"name": "Driver Insert teamUUID empty",
-			"url": "http://localhost:8080/formulaOne-1.0-SNAPSHOT/formula/driver/create",
-			"time": 4,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"Status test": true
-			},
-			"testPassFailCounts": {
-				"Status test": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				4
-			],
-			"allTests": [
-				{
-					"Status test": true
-				}
-			]
-		},
-		{
-			"id": "28a29bce-cb63-402a-81af-e9c78b804739",
-			"name": "Driver Insert teamUUID wrong",
-			"url": "http://localhost:8080/formulaOne-1.0-SNAPSHOT/formula/driver/create",
-			"time": 5,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"Status test": true
-			},
-			"testPassFailCounts": {
-				"Status test": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				5
-			],
-			"allTests": [
-				{
-					"Status test": true
-				}
-			]
-		},
-		{
-			"id": "53dce633-c05d-4a30-9af1-f3ef85b90726",
-			"name": "Season Update 200",
-			"url": "http://localhost:8080/formulaOne-1.0-SNAPSHOT/formula/season/update",
-			"time": 6,
-			"responseCode": {
-				"code": 200,
-				"name": "OK"
-			},
-			"tests": {
-				"Status test": true
-			},
-			"testPassFailCounts": {
-				"Status test": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				6
-			],
-			"allTests": [
-				{
-					"Status test": true
-				}
-			]
-		},
-		{
-			"id": "279145b0-7cb0-4781-9bd6-4dc602b7f65d",
-			"name": "Season Update winner empty",
-			"url": "http://localhost:8080/formulaOne-1.0-SNAPSHOT/formula/season/update",
 			"time": 3,
 			"responseCode": {
 				"code": 400,
 				"name": "Bad Request"
 			},
 			"tests": {
-				"Status test": true
+				"Status for guest": true
 			},
 			"testPassFailCounts": {
-				"Status test": {
+				"Status for admin": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for user": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for guest": {
 					"pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
+				3,
+				3,
 				3
 			],
 			"allTests": [
+				{
+					"Status for admin": true
+				},
+				{
+					"Status for user": true
+				},
+				{
+					"Status for guest": true
+				}
+			]
+		},
+		{
+			"id": "c53e7f77-d5c0-4b34-892f-a3b899b1e258",
+			"name": "Driver Insert firstname empty",
+			"time": 3,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status for guest": true
+			},
+			"testPassFailCounts": {
+				"Status for admin": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for user": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for guest": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				18,
+				4,
+				3
+			],
+			"allTests": [
+				{
+					"Status for admin": true
+				},
+				{
+					"Status for user": true
+				},
+				{
+					"Status for guest": true
+				}
+			]
+		},
+		{
+			"id": "200c1faa-0c14-4ff1-8fdd-e07d66359f04",
+			"name": "Driver Insert firstname large",
+			"time": 3,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status for guest": true
+			},
+			"testPassFailCounts": {
+				"Status for admin": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for user": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for guest": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				4,
+				3,
+				3
+			],
+			"allTests": [
+				{
+					"Status for admin": true
+				},
+				{
+					"Status for user": true
+				},
+				{
+					"Status for guest": true
+				}
+			]
+		},
+		{
+			"id": "0b2db9d7-ae3d-4bab-b294-ba812f0b75c7",
+			"name": "Driver Insert firstDriver empty",
+			"time": 3,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {
+				"Status for guest": true
+			},
+			"testPassFailCounts": {
+				"Status for admin": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for user": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for guest": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				3,
+				3,
+				3
+			],
+			"allTests": [
+				{
+					"Status for admin": true
+				},
+				{
+					"Status for user": true
+				},
+				{
+					"Status for guest": true
+				}
+			]
+		},
+		{
+			"id": "66b4aebd-a095-4477-9855-e014bc879f7d",
+			"name": "Driver Insert firstDriver wrong",
+			"time": 2,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {
+				"Status for guest": true
+			},
+			"testPassFailCounts": {
+				"Status for admin": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for user": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for guest": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				3,
+				4,
+				2
+			],
+			"allTests": [
+				{
+					"Status for admin": true
+				},
+				{
+					"Status for user": true
+				},
+				{
+					"Status for guest": true
+				}
+			]
+		},
+		{
+			"id": "e7b72ed7-0cc9-4bec-aff3-4f535af4471e",
+			"name": "Driver Insert wins empty",
+			"time": 2,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {
+				"Status for guest": true
+			},
+			"testPassFailCounts": {
+				"Status for admin": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for user": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for guest": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				3,
+				2,
+				2
+			],
+			"allTests": [
+				{
+					"Status for admin": true
+				},
+				{
+					"Status for user": true
+				},
+				{
+					"Status for guest": true
+				}
+			]
+		},
+		{
+			"id": "b378bb73-bd62-4118-aaf7-da28fe7122b4",
+			"name": "Driver Insert wins large",
+			"time": 2,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status for guest": true
+			},
+			"testPassFailCounts": {
+				"Status for admin": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for user": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for guest": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				3,
+				2,
+				2
+			],
+			"allTests": [
+				{
+					"Status for admin": true
+				},
+				{
+					"Status for user": true
+				},
+				{
+					"Status for guest": true
+				}
+			]
+		},
+		{
+			"id": "46b1a53d-8075-489a-b5cb-a7f372fdcab5",
+			"name": "Driver Insert teamUUID empty",
+			"time": 3,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status for guest": true
+			},
+			"testPassFailCounts": {
+				"Status for admin": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for user": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for guest": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				3,
+				3,
+				3
+			],
+			"allTests": [
+				{
+					"Status for admin": true
+				},
+				{
+					"Status for user": true
+				},
+				{
+					"Status for guest": true
+				}
+			]
+		},
+		{
+			"id": "28a29bce-cb63-402a-81af-e9c78b804739",
+			"name": "Driver Insert teamUUID wrong",
+			"time": 2,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {
+				"Status for guest": true
+			},
+			"testPassFailCounts": {
+				"Status for admin": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for user": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for guest": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				3,
+				3,
+				2
+			],
+			"allTests": [
+				{
+					"Status for admin": true
+				},
+				{
+					"Status for user": true
+				},
+				{
+					"Status for guest": true
+				}
+			]
+		},
+		{
+			"id": "53dce633-c05d-4a30-9af1-f3ef85b90726",
+			"name": "Season Update 200",
+			"time": 2,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {
+				"Status for guest": true
+			},
+			"testPassFailCounts": {
+				"Status for admin": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for user": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for guest": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				6,
+				2,
+				2
+			],
+			"allTests": [
+				{
+					"Status for admin": true
+				},
+				{
+					"Status for user": true
+				},
+				{
+					"Status for guest": true
+				}
+			]
+		},
+		{
+			"id": "279145b0-7cb0-4781-9bd6-4dc602b7f65d",
+			"name": "Season Update winner empty",
+			"time": 2,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status test": true
+			},
+			"testPassFailCounts": {
+				"Status test": {
+					"pass": 3,
+					"fail": 0
+				}
+			},
+			"times": [
+				2,
+				2,
+				2
+			],
+			"allTests": [
+				{
+					"Status test": true
+				},
+				{
+					"Status test": true
+				},
 				{
 					"Status test": true
 				}
@@ -1037,8 +1516,7 @@
 		{
 			"id": "77431ccf-a586-462f-9f98-62bf982b4a8d",
 			"name": "Season Update winner large",
-			"url": "http://localhost:8080/formulaOne-1.0-SNAPSHOT/formula/season/update",
-			"time": 32,
+			"time": 3,
 			"responseCode": {
 				"code": 400,
 				"name": "Bad Request"
@@ -1048,14 +1526,22 @@
 			},
 			"testPassFailCounts": {
 				"Status test": {
-					"pass": 1,
+					"pass": 3,
 					"fail": 0
 				}
 			},
 			"times": [
-				32
+				3,
+				3,
+				3
 			],
 			"allTests": [
+				{
+					"Status test": true
+				},
+				{
+					"Status test": true
+				},
 				{
 					"Status test": true
 				}
@@ -1064,8 +1550,7 @@
 		{
 			"id": "576d52f6-a804-410a-96ca-c265b23cfefc",
 			"name": "Season Update season empty",
-			"url": "http://localhost:8080/formulaOne-1.0-SNAPSHOT/formula/season/update",
-			"time": 4,
+			"time": 3,
 			"responseCode": {
 				"code": 400,
 				"name": "Bad Request"
@@ -1075,14 +1560,22 @@
 			},
 			"testPassFailCounts": {
 				"Status test": {
-					"pass": 1,
+					"pass": 3,
 					"fail": 0
 				}
 			},
 			"times": [
-				4
+				3,
+				3,
+				3
 			],
 			"allTests": [
+				{
+					"Status test": true
+				},
+				{
+					"Status test": true
+				},
 				{
 					"Status test": true
 				}
@@ -1091,8 +1584,7 @@
 		{
 			"id": "e124806d-80b3-477b-a465-2ff8975b5459",
 			"name": "Season Update season large",
-			"url": "http://localhost:8080/formulaOne-1.0-SNAPSHOT/formula/season/update",
-			"time": 6,
+			"time": 3,
 			"responseCode": {
 				"code": 400,
 				"name": "Bad Request"
@@ -1102,14 +1594,22 @@
 			},
 			"testPassFailCounts": {
 				"Status test": {
-					"pass": 1,
+					"pass": 3,
 					"fail": 0
 				}
 			},
 			"times": [
-				6
+				4,
+				3,
+				3
 			],
 			"allTests": [
+				{
+					"Status test": true
+				},
+				{
+					"Status test": true
+				},
 				{
 					"Status test": true
 				}
@@ -1118,35 +1618,49 @@
 		{
 			"id": "25d43c49-3d26-4032-b023-940f11c0ce66",
 			"name": "Team Update 200",
-			"url": "http://localhost:8080/formulaOne-1.0-SNAPSHOT/formula/team/update",
 			"time": 6,
 			"responseCode": {
-				"code": 200,
-				"name": "OK"
+				"code": 403,
+				"name": "Forbidden"
 			},
 			"tests": {
-				"Status test": true
+				"Status for guest": true
 			},
 			"testPassFailCounts": {
-				"Status test": {
+				"Status for admin": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for user": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for guest": {
 					"pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
+				23,
+				3,
 				6
 			],
 			"allTests": [
 				{
-					"Status test": true
+					"Status for admin": true
+				},
+				{
+					"Status for user": true
+				},
+				{
+					"Status for guest": true
 				}
 			]
 		},
 		{
 			"id": "0bb5b503-bc6e-415d-b691-cc76ca197a70",
 			"name": "Team Update name empty",
-			"url": "http://localhost:8080/formulaOne-1.0-SNAPSHOT/formula/team/update",
-			"time": 4,
+			"time": 3,
 			"responseCode": {
 				"code": 400,
 				"name": "Bad Request"
@@ -1156,14 +1670,22 @@
 			},
 			"testPassFailCounts": {
 				"Status test": {
-					"pass": 1,
+					"pass": 3,
 					"fail": 0
 				}
 			},
 			"times": [
-				4
+				3,
+				2,
+				3
 			],
 			"allTests": [
+				{
+					"Status test": true
+				},
+				{
+					"Status test": true
+				},
 				{
 					"Status test": true
 				}
@@ -1172,8 +1694,7 @@
 		{
 			"id": "64e4273a-ce0a-4f16-8399-4eba01f7eb11",
 			"name": "Team Update name large",
-			"url": "http://localhost:8080/formulaOne-1.0-SNAPSHOT/formula/team/update",
-			"time": 5,
+			"time": 6,
 			"responseCode": {
 				"code": 400,
 				"name": "Bad Request"
@@ -1183,14 +1704,22 @@
 			},
 			"testPassFailCounts": {
 				"Status test": {
-					"pass": 1,
+					"pass": 3,
 					"fail": 0
 				}
 			},
 			"times": [
-				5
+				3,
+				3,
+				6
 			],
 			"allTests": [
+				{
+					"Status test": true
+				},
+				{
+					"Status test": true
+				},
 				{
 					"Status test": true
 				}
@@ -1199,7 +1728,6 @@
 		{
 			"id": "79e28e88-db0f-46e7-bbfe-2985e4bcd698",
 			"name": "Team Update teamPrincipal empty",
-			"url": "http://localhost:8080/formulaOne-1.0-SNAPSHOT/formula/team/update",
 			"time": 6,
 			"responseCode": {
 				"code": 400,
@@ -1210,14 +1738,22 @@
 			},
 			"testPassFailCounts": {
 				"Status test": {
-					"pass": 1,
+					"pass": 3,
 					"fail": 0
 				}
 			},
 			"times": [
+				4,
+				5,
 				6
 			],
 			"allTests": [
+				{
+					"Status test": true
+				},
+				{
+					"Status test": true
+				},
 				{
 					"Status test": true
 				}
@@ -1226,7 +1762,6 @@
 		{
 			"id": "a887147a-bf83-4c81-8c2f-4a1fe1290223",
 			"name": "Team Update teamPrincipal large",
-			"url": "http://localhost:8080/formulaOne-1.0-SNAPSHOT/formula/team/update",
 			"time": 4,
 			"responseCode": {
 				"code": 400,
@@ -1237,14 +1772,22 @@
 			},
 			"testPassFailCounts": {
 				"Status test": {
-					"pass": 1,
+					"pass": 3,
 					"fail": 0
 				}
 			},
 			"times": [
+				4,
+				3,
 				4
 			],
 			"allTests": [
+				{
+					"Status test": true
+				},
+				{
+					"Status test": true
+				},
 				{
 					"Status test": true
 				}
@@ -1253,8 +1796,7 @@
 		{
 			"id": "839d4268-5153-423f-87fc-a0db70e82a0d",
 			"name": "Team Update engine emtpy",
-			"url": "http://localhost:8080/formulaOne-1.0-SNAPSHOT/formula/team/update",
-			"time": 5,
+			"time": 3,
 			"responseCode": {
 				"code": 400,
 				"name": "Bad Request"
@@ -1264,14 +1806,22 @@
 			},
 			"testPassFailCounts": {
 				"Status test": {
-					"pass": 1,
+					"pass": 3,
 					"fail": 0
 				}
 			},
 			"times": [
-				5
+				3,
+				4,
+				3
 			],
 			"allTests": [
+				{
+					"Status test": true
+				},
+				{
+					"Status test": true
+				},
 				{
 					"Status test": true
 				}
@@ -1280,8 +1830,7 @@
 		{
 			"id": "6ea14f8a-5427-4e05-911f-9a415b820e7b",
 			"name": "Team Update engine large",
-			"url": "http://localhost:8080/formulaOne-1.0-SNAPSHOT/formula/team/update",
-			"time": 5,
+			"time": 3,
 			"responseCode": {
 				"code": 400,
 				"name": "Bad Request"
@@ -1291,14 +1840,22 @@
 			},
 			"testPassFailCounts": {
 				"Status test": {
-					"pass": 1,
+					"pass": 3,
 					"fail": 0
 				}
 			},
 			"times": [
-				5
+				6,
+				5,
+				3
 			],
 			"allTests": [
+				{
+					"Status test": true
+				},
+				{
+					"Status test": true
+				},
 				{
 					"Status test": true
 				}
@@ -1307,8 +1864,7 @@
 		{
 			"id": "176ebcc2-d51c-4db2-b1e0-2f0bb917d56b",
 			"name": "Team Update  chassis emtpy",
-			"url": "http://localhost:8080/formulaOne-1.0-SNAPSHOT/formula/team/update",
-			"time": 5,
+			"time": 3,
 			"responseCode": {
 				"code": 400,
 				"name": "Bad Request"
@@ -1318,14 +1874,22 @@
 			},
 			"testPassFailCounts": {
 				"Status test": {
-					"pass": 1,
+					"pass": 3,
 					"fail": 0
 				}
 			},
 			"times": [
-				5
+				3,
+				4,
+				3
 			],
 			"allTests": [
+				{
+					"Status test": true
+				},
+				{
+					"Status test": true
+				},
 				{
 					"Status test": true
 				}
@@ -1334,8 +1898,7 @@
 		{
 			"id": "b0e52c16-afc5-4d91-8587-d6760f92642a",
 			"name": "Team Update chassis large",
-			"url": "http://localhost:8080/formulaOne-1.0-SNAPSHOT/formula/team/update",
-			"time": 5,
+			"time": 4,
 			"responseCode": {
 				"code": 400,
 				"name": "Bad Request"
@@ -1345,14 +1908,22 @@
 			},
 			"testPassFailCounts": {
 				"Status test": {
-					"pass": 1,
+					"pass": 3,
 					"fail": 0
 				}
 			},
 			"times": [
-				5
+				3,
+				3,
+				4
 			],
 			"allTests": [
+				{
+					"Status test": true
+				},
+				{
+					"Status test": true
+				},
 				{
 					"Status test": true
 				}
@@ -1361,8 +1932,7 @@
 		{
 			"id": "9cc0a633-194f-4e72-8003-e3de9136bdb5",
 			"name": "Team Update  seasonUUID empty",
-			"url": "http://localhost:8080/formulaOne-1.0-SNAPSHOT/formula/team/update",
-			"time": 6,
+			"time": 3,
 			"responseCode": {
 				"code": 400,
 				"name": "Bad Request"
@@ -1372,14 +1942,22 @@
 			},
 			"testPassFailCounts": {
 				"Status test": {
-					"pass": 1,
+					"pass": 3,
 					"fail": 0
 				}
 			},
 			"times": [
-				6
+				3,
+				3,
+				3
 			],
 			"allTests": [
+				{
+					"Status test": true
+				},
+				{
+					"Status test": true
+				},
 				{
 					"Status test": true
 				}
@@ -1388,35 +1966,49 @@
 		{
 			"id": "0e010aee-cb42-477e-b379-41ab4df0e524",
 			"name": "Team Update seasonUUID wrong",
-			"url": "http://localhost:8080/formulaOne-1.0-SNAPSHOT/formula/team/update",
-			"time": 5,
+			"time": 3,
 			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
+				"code": 403,
+				"name": "Forbidden"
 			},
 			"tests": {
-				"Status test": true
+				"Status for guest": true
 			},
 			"testPassFailCounts": {
-				"Status test": {
+				"Status for admin": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for user": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for guest": {
 					"pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				5
+				3,
+				3,
+				3
 			],
 			"allTests": [
 				{
-					"Status test": true
+					"Status for admin": true
+				},
+				{
+					"Status for user": true
+				},
+				{
+					"Status for guest": true
 				}
 			]
 		},
 		{
 			"id": "e76e2216-dfc1-43e0-b831-f0b37ba4a673",
 			"name": "Team Update teamUUID empty",
-			"url": "http://localhost:8080/formulaOne-1.0-SNAPSHOT/formula/team/update",
-			"time": 4,
+			"time": 2,
 			"responseCode": {
 				"code": 400,
 				"name": "Bad Request"
@@ -1426,14 +2018,22 @@
 			},
 			"testPassFailCounts": {
 				"Status test": {
-					"pass": 1,
+					"pass": 3,
 					"fail": 0
 				}
 			},
 			"times": [
-				4
+				3,
+				2,
+				2
 			],
 			"allTests": [
+				{
+					"Status test": true
+				},
+				{
+					"Status test": true
+				},
 				{
 					"Status test": true
 				}
@@ -1442,430 +2042,662 @@
 		{
 			"id": "e6c074e9-7613-44ac-8d8e-8e0938df9a16",
 			"name": "Team Update teamUUID wrong",
-			"url": "http://localhost:8080/formulaOne-1.0-SNAPSHOT/formula/team/update",
-			"time": 5,
+			"time": 3,
 			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
+				"code": 403,
+				"name": "Forbidden"
 			},
 			"tests": {
-				"Status test": true
+				"Status for guest": true
 			},
 			"testPassFailCounts": {
-				"Status test": {
+				"Status for admin": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for user": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for guest": {
 					"pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				5
+				3,
+				3,
+				3
 			],
 			"allTests": [
 				{
-					"Status test": true
+					"Status for admin": true
+				},
+				{
+					"Status for user": true
+				},
+				{
+					"Status for guest": true
 				}
 			]
 		},
 		{
 			"id": "e635fe35-f671-4876-8aa4-97fc36ce08ab",
 			"name": "Driver Update 200",
-			"url": "http://localhost:8080/formulaOne-1.0-SNAPSHOT/formula/driver/update",
-			"time": 6,
+			"time": 3,
 			"responseCode": {
-				"code": 200,
-				"name": "OK"
+				"code": 403,
+				"name": "Forbidden"
 			},
 			"tests": {
-				"Status test": true
+				"Status for guest": true
 			},
 			"testPassFailCounts": {
-				"Status test": {
+				"Status for admin": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for user": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for guest": {
 					"pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				6
+				4,
+				2,
+				3
 			],
 			"allTests": [
 				{
-					"Status test": true
+					"Status for admin": true
+				},
+				{
+					"Status for user": true
+				},
+				{
+					"Status for guest": true
 				}
 			]
 		},
 		{
 			"id": "34af485e-1d2b-4068-b8d7-60849514e5fb",
 			"name": "Driver Update  name empty",
-			"url": "http://localhost:8080/formulaOne-1.0-SNAPSHOT/formula/driver/update",
 			"time": 3,
 			"responseCode": {
 				"code": 400,
 				"name": "Bad Request"
 			},
 			"tests": {
-				"Status test": true
+				"Status for guest": true
 			},
 			"testPassFailCounts": {
-				"Status test": {
+				"Status for admin": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for user": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for guest": {
 					"pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
+				3,
+				2,
 				3
 			],
 			"allTests": [
 				{
-					"Status test": true
+					"Status for admin": true
+				},
+				{
+					"Status for user": true
+				},
+				{
+					"Status for guest": true
 				}
 			]
 		},
 		{
 			"id": "ba5e26e2-20bb-454e-89cf-8f1153c145a1",
 			"name": "Driver Update name large",
-			"url": "http://localhost:8080/formulaOne-1.0-SNAPSHOT/formula/driver/update",
 			"time": 4,
 			"responseCode": {
 				"code": 400,
 				"name": "Bad Request"
 			},
 			"tests": {
-				"Status test": true
+				"Status for guest": true
 			},
 			"testPassFailCounts": {
-				"Status test": {
+				"Status for admin": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for user": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for guest": {
 					"pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
+				3,
+				27,
 				4
 			],
 			"allTests": [
 				{
-					"Status test": true
+					"Status for admin": true
+				},
+				{
+					"Status for user": true
+				},
+				{
+					"Status for guest": true
 				}
 			]
 		},
 		{
 			"id": "1b206c7a-947d-4078-892e-6e0c7f2fbbe8",
 			"name": "Driver Update firstname empty",
-			"url": "http://localhost:8080/formulaOne-1.0-SNAPSHOT/formula/driver/update",
 			"time": 4,
 			"responseCode": {
 				"code": 400,
 				"name": "Bad Request"
 			},
 			"tests": {
-				"Status test": true
+				"Status for guest": true
 			},
 			"testPassFailCounts": {
-				"Status test": {
+				"Status for admin": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for user": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for guest": {
 					"pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
+				3,
+				4,
 				4
 			],
 			"allTests": [
 				{
-					"Status test": true
+					"Status for admin": true
+				},
+				{
+					"Status for user": true
+				},
+				{
+					"Status for guest": true
 				}
 			]
 		},
 		{
 			"id": "32ca2c7f-0b9e-493a-8b22-e49eb8d0eab3",
 			"name": "Driver Update firstname large",
-			"url": "http://localhost:8080/formulaOne-1.0-SNAPSHOT/formula/driver/update",
-			"time": 4,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"Status test": true
-			},
-			"testPassFailCounts": {
-				"Status test": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				4
-			],
-			"allTests": [
-				{
-					"Status test": true
-				}
-			]
-		},
-		{
-			"id": "c7e7f1ab-9d7f-4eef-8beb-8d31a6e9671d",
-			"name": "Driver Update firstDriver empty",
-			"url": "http://localhost:8080/formulaOne-1.0-SNAPSHOT/formula/driver/update",
-			"time": 4,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"Status test": true
-			},
-			"testPassFailCounts": {
-				"Status test": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				4
-			],
-			"allTests": [
-				{
-					"Status test": true
-				}
-			]
-		},
-		{
-			"id": "963eba3f-f1dd-4652-af25-817101cb2a36",
-			"name": "Driver Update firstDriver wrong",
-			"url": "http://localhost:8080/formulaOne-1.0-SNAPSHOT/formula/driver/update",
-			"time": 4,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"Status test": true
-			},
-			"testPassFailCounts": {
-				"Status test": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				4
-			],
-			"allTests": [
-				{
-					"Status test": true
-				}
-			]
-		},
-		{
-			"id": "d148ab1a-8239-49ce-9d0d-caf083e1e8c5",
-			"name": "Driver Update wins empty",
-			"url": "http://localhost:8080/formulaOne-1.0-SNAPSHOT/formula/driver/update",
-			"time": 4,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"Status test": true
-			},
-			"testPassFailCounts": {
-				"Status test": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				4
-			],
-			"allTests": [
-				{
-					"Status test": true
-				}
-			]
-		},
-		{
-			"id": "b329ce64-8ab0-409d-8c10-a48ba26580fd",
-			"name": "Driver Update wins large",
-			"url": "http://localhost:8080/formulaOne-1.0-SNAPSHOT/formula/driver/update",
-			"time": 4,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"Status test": true
-			},
-			"testPassFailCounts": {
-				"Status test": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				4
-			],
-			"allTests": [
-				{
-					"Status test": true
-				}
-			]
-		},
-		{
-			"id": "bcce507c-e8ad-463e-b45d-bf5344c455b4",
-			"name": "Driver Update teamUUID empty",
-			"url": "http://localhost:8080/formulaOne-1.0-SNAPSHOT/formula/driver/update",
-			"time": 5,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"Status test": true
-			},
-			"testPassFailCounts": {
-				"Status test": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				5
-			],
-			"allTests": [
-				{
-					"Status test": true
-				}
-			]
-		},
-		{
-			"id": "defa8b22-c40d-482d-8daa-47196a68ed99",
-			"name": "Driver Update teamUUID wrong",
-			"url": "http://localhost:8080/formulaOne-1.0-SNAPSHOT/formula/driver/update",
-			"time": 6,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"Status test": true
-			},
-			"testPassFailCounts": {
-				"Status test": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				6
-			],
-			"allTests": [
-				{
-					"Status test": true
-				}
-			]
-		},
-		{
-			"id": "0234e887-396d-4bee-aaaa-22d637450757",
-			"name": "Driver Update driverUUID empty",
-			"url": "http://localhost:8080/formulaOne-1.0-SNAPSHOT/formula/driver/update",
-			"time": 4,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"Status test": true
-			},
-			"testPassFailCounts": {
-				"Status test": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				4
-			],
-			"allTests": [
-				{
-					"Status test": true
-				}
-			]
-		},
-		{
-			"id": "1f30928d-1483-4f65-9da4-8fe62c8edff8",
-			"name": "Driver Update driverUUID wrong",
-			"url": "http://localhost:8080/formulaOne-1.0-SNAPSHOT/formula/driver/update",
-			"time": 4,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"Status test": true
-			},
-			"testPassFailCounts": {
-				"Status test": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				4
-			],
-			"allTests": [
-				{
-					"Status test": true
-				}
-			]
-		},
-		{
-			"id": "00270239-df62-4c7d-93cb-b047aba6389a",
-			"name": "Season Delete 200",
-			"url": "http://localhost:8080/formulaOne-1.0-SNAPSHOT/formula/season/delete?uuid=86b51fbf-7723-4a97-996b-a61efbf7e997",
-			"time": 4,
-			"responseCode": {
-				"code": 200,
-				"name": "OK"
-			},
-			"tests": {
-				"Status test": true
-			},
-			"testPassFailCounts": {
-				"Status test": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				4
-			],
-			"allTests": [
-				{
-					"Status test": true
-				}
-			]
-		},
-		{
-			"id": "fa187c6e-f276-4782-a539-abb7099ed81a",
-			"name": "Season Delete 400",
-			"url": "http://localhost:8080/formulaOne-1.0-SNAPSHOT/formula/season/delete?uuid=088557ad-294d-4389-b529-b2cdf0532fcr",
 			"time": 3,
 			"responseCode": {
 				"code": 400,
 				"name": "Bad Request"
 			},
 			"tests": {
-				"Status test": true
+				"Status for guest": true
 			},
 			"testPassFailCounts": {
-				"Status test": {
+				"Status for admin": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for user": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for guest": {
 					"pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
+				3,
+				3,
 				3
 			],
 			"allTests": [
+				{
+					"Status for admin": true
+				},
+				{
+					"Status for user": true
+				},
+				{
+					"Status for guest": true
+				}
+			]
+		},
+		{
+			"id": "c7e7f1ab-9d7f-4eef-8beb-8d31a6e9671d",
+			"name": "Driver Update firstDriver empty",
+			"time": 6,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {
+				"Status for guest": true
+			},
+			"testPassFailCounts": {
+				"Status for admin": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for user": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for guest": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				4,
+				4,
+				6
+			],
+			"allTests": [
+				{
+					"Status for admin": true
+				},
+				{
+					"Status for user": true
+				},
+				{
+					"Status for guest": true
+				}
+			]
+		},
+		{
+			"id": "963eba3f-f1dd-4652-af25-817101cb2a36",
+			"name": "Driver Update firstDriver wrong",
+			"time": 3,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {
+				"Status for guest": true
+			},
+			"testPassFailCounts": {
+				"Status for admin": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for user": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for guest": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				5,
+				3,
+				3
+			],
+			"allTests": [
+				{
+					"Status for admin": true
+				},
+				{
+					"Status for user": true
+				},
+				{
+					"Status for guest": true
+				}
+			]
+		},
+		{
+			"id": "d148ab1a-8239-49ce-9d0d-caf083e1e8c5",
+			"name": "Driver Update wins empty",
+			"time": 2,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {
+				"Status for guest": true
+			},
+			"testPassFailCounts": {
+				"Status for admin": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for user": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for guest": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				3,
+				2,
+				2
+			],
+			"allTests": [
+				{
+					"Status for admin": true
+				},
+				{
+					"Status for user": true
+				},
+				{
+					"Status for guest": true
+				}
+			]
+		},
+		{
+			"id": "b329ce64-8ab0-409d-8c10-a48ba26580fd",
+			"name": "Driver Update wins large",
+			"time": 2,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status for guest": true
+			},
+			"testPassFailCounts": {
+				"Status for admin": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for user": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for guest": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				4,
+				2,
+				2
+			],
+			"allTests": [
+				{
+					"Status for admin": true
+				},
+				{
+					"Status for user": true
+				},
+				{
+					"Status for guest": true
+				}
+			]
+		},
+		{
+			"id": "bcce507c-e8ad-463e-b45d-bf5344c455b4",
+			"name": "Driver Update teamUUID empty",
+			"time": 4,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status for guest": true
+			},
+			"testPassFailCounts": {
+				"Status for admin": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for user": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for guest": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				4,
+				3,
+				4
+			],
+			"allTests": [
+				{
+					"Status for admin": true
+				},
+				{
+					"Status for user": true
+				},
+				{
+					"Status for guest": true
+				}
+			]
+		},
+		{
+			"id": "defa8b22-c40d-482d-8daa-47196a68ed99",
+			"name": "Driver Update teamUUID wrong",
+			"time": 6,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {
+				"Status for guest": true
+			},
+			"testPassFailCounts": {
+				"Status for admin": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for user": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for guest": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				3,
+				4,
+				6
+			],
+			"allTests": [
+				{
+					"Status for admin": true
+				},
+				{
+					"Status for user": true
+				},
+				{
+					"Status for guest": true
+				}
+			]
+		},
+		{
+			"id": "0234e887-396d-4bee-aaaa-22d637450757",
+			"name": "Driver Update driverUUID empty",
+			"time": 4,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status for guest": true
+			},
+			"testPassFailCounts": {
+				"Status for admin": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for user": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for guest": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				4,
+				2,
+				4
+			],
+			"allTests": [
+				{
+					"Status for admin": true
+				},
+				{
+					"Status for user": true
+				},
+				{
+					"Status for guest": true
+				}
+			]
+		},
+		{
+			"id": "1f30928d-1483-4f65-9da4-8fe62c8edff8",
+			"name": "Driver Update driverUUID wrong",
+			"time": 4,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {
+				"Status for guest": true
+			},
+			"testPassFailCounts": {
+				"Status for admin": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for user": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for guest": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				4,
+				3,
+				4
+			],
+			"allTests": [
+				{
+					"Status for admin": true
+				},
+				{
+					"Status for user": true
+				},
+				{
+					"Status for guest": true
+				}
+			]
+		},
+		{
+			"id": "00270239-df62-4c7d-93cb-b047aba6389a",
+			"name": "Season Delete 200",
+			"time": 2,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {
+				"Status for guest": true
+			},
+			"testPassFailCounts": {
+				"Status for admin": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for user": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for guest": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				4,
+				2,
+				2
+			],
+			"allTests": [
+				{
+					"Status for admin": true
+				},
+				{
+					"Status for user": true
+				},
+				{
+					"Status for guest": true
+				}
+			]
+		},
+		{
+			"id": "fa187c6e-f276-4782-a539-abb7099ed81a",
+			"name": "Season Delete 400",
+			"time": 2,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status test": true
+			},
+			"testPassFailCounts": {
+				"Status test": {
+					"pass": 3,
+					"fail": 0
+				}
+			},
+			"times": [
+				2,
+				2,
+				2
+			],
+			"allTests": [
+				{
+					"Status test": true
+				},
+				{
+					"Status test": true
+				},
 				{
 					"Status test": true
 				}
@@ -1874,8 +2706,259 @@
 		{
 			"id": "55844453-b166-4a64-8c37-1cb8a879cd3c",
 			"name": "Team Delete 200",
-			"url": "http://localhost:8080/formulaOne-1.0-SNAPSHOT/formula/team/delete?uuid=f2095f89-4a09-40b7-80b7-31915f629d93",
-			"time": 5,
+			"time": 4,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {
+				"Status for guest": true
+			},
+			"testPassFailCounts": {
+				"Status for admin": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for user": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for guest": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				4,
+				3,
+				4
+			],
+			"allTests": [
+				{
+					"Status for admin": true
+				},
+				{
+					"Status for user": true
+				},
+				{
+					"Status for guest": true
+				}
+			]
+		},
+		{
+			"id": "a8c63279-f663-4c98-948e-e09ee8f50e37",
+			"name": "Team Delete 400",
+			"time": 2,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {
+				"Status for guest": true
+			},
+			"testPassFailCounts": {
+				"Status for admin": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for user": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for guest": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				2,
+				2,
+				2
+			],
+			"allTests": [
+				{
+					"Status for admin": true
+				},
+				{
+					"Status for user": true
+				},
+				{
+					"Status for guest": true
+				}
+			]
+		},
+		{
+			"id": "0334133b-6e97-417c-9f7f-b37f18f4692e",
+			"name": "Driver Delete 200",
+			"time": 2,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {
+				"Status for guest": true
+			},
+			"testPassFailCounts": {
+				"Status for admin": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for user": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for guest": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				6,
+				5,
+				2
+			],
+			"allTests": [
+				{
+					"Status for admin": true
+				},
+				{
+					"Status for user": true
+				},
+				{
+					"Status for guest": true
+				}
+			]
+		},
+		{
+			"id": "5ac0e4a3-e93d-4d9d-ac7a-51887a05b6a3",
+			"name": "Driver Delete 400",
+			"time": 2,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {
+				"Status for guest": true
+			},
+			"testPassFailCounts": {
+				"Status for admin": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for user": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for guest": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				2,
+				2,
+				2
+			],
+			"allTests": [
+				{
+					"Status for admin": true
+				},
+				{
+					"Status for user": true
+				},
+				{
+					"Status for guest": true
+				}
+			]
+		},
+		{
+			"id": "33f263ba-dd80-423d-b987-cab785e8a042",
+			"name": "Login",
+			"time": 14,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status for admin": true
+			},
+			"testPassFailCounts": {
+				"Status for user": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for guest": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for admin": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				16,
+				13,
+				14
+			],
+			"allTests": [
+				{
+					"Status for user": true
+				},
+				{
+					"Status for guest": true
+				},
+				{
+					"Status for admin": true
+				}
+			]
+		},
+		{
+			"id": "582bfacd-7994-4ccf-8ae2-e7225c37606d",
+			"name": "2FA",
+			"time": 2,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status for admin": true
+			},
+			"testPassFailCounts": {
+				"Status for user": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for guest": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for admin": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				10,
+				2,
+				2
+			],
+			"allTests": [
+				{
+					"Status for user": true
+				},
+				{
+					"Status for guest": true
+				},
+				{
+					"Status for admin": true
+				}
+			]
+		},
+		{
+			"id": "db25850d-735e-4ed6-bdbc-35aa0dd100ab",
+			"name": "Test",
+			"time": 2,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -1885,50 +2968,30 @@
 			},
 			"testPassFailCounts": {
 				"Status test": {
-					"pass": 1,
+					"pass": 3,
 					"fail": 0
 				}
 			},
 			"times": [
-				5
+				2,
+				2,
+				2
 			],
 			"allTests": [
+				{
+					"Status test": true
+				},
+				{
+					"Status test": true
+				},
 				{
 					"Status test": true
 				}
 			]
 		},
 		{
-			"id": "a8c63279-f663-4c98-948e-e09ee8f50e37",
-			"name": "Team Delete 400",
-			"url": "http://localhost:8080/formulaOne-1.0-SNAPSHOT/formula/team/delete?uuid=f2095f89-4a09-40b7-80b7-31915f629d94",
-			"time": 3,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"Status test": true
-			},
-			"testPassFailCounts": {
-				"Status test": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				3
-			],
-			"allTests": [
-				{
-					"Status test": true
-				}
-			]
-		},
-		{
-			"id": "0334133b-6e97-417c-9f7f-b37f18f4692e",
-			"name": "Driver Delete 200",
-			"url": "http://localhost:8080/formulaOne-1.0-SNAPSHOT/formula/driver/delete?uuid=4bf6862d-5ef4-4564-82e6-3ee7ed61fc94",
+			"id": "ecb2be2c-a52c-4675-8b45-989d47df0ec4",
+			"name": "Reset ALL",
 			"time": 7,
 			"responseCode": {
 				"code": 200,
@@ -1939,76 +3002,30 @@
 			},
 			"testPassFailCounts": {
 				"Status test": {
-					"pass": 1,
+					"pass": 3,
 					"fail": 0
 				}
 			},
 			"times": [
+				6,
+				7,
 				7
 			],
 			"allTests": [
 				{
 					"Status test": true
-				}
-			]
-		},
-		{
-			"id": "5ac0e4a3-e93d-4d9d-ac7a-51887a05b6a3",
-			"name": "Driver Delete 400",
-			"url": "http://localhost:8080/formulaOne-1.0-SNAPSHOT/formula/driver/delete?uuid=4bf6862d-5ef4-4564-82e6-3ee7ed61fc95",
-			"time": 5,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"Status test": true
-			},
-			"testPassFailCounts": {
-				"Status test": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				5
-			],
-			"allTests": [
+				},
 				{
 					"Status test": true
-				}
-			]
-		},
-		{
-			"id": "db25850d-735e-4ed6-bdbc-35aa0dd100ab",
-			"name": "Test",
-			"url": "http://localhost:8080/formulaOne-1.0-SNAPSHOT/formula/test/test",
-			"time": 5,
-			"responseCode": {
-				"code": 200,
-				"name": "OK"
-			},
-			"tests": {
-				"Status test": true
-			},
-			"testPassFailCounts": {
-				"Status test": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				5
-			],
-			"allTests": [
+				},
 				{
 					"Status test": true
 				}
 			]
 		}
 	],
-	"count": 1,
-	"totalTime": 418,
+	"count": 3,
+	"totalTime": 869,
 	"collection": {
 		"requests": [
 			{
@@ -2021,6 +3038,10 @@
 			},
 			{
 				"id": "b2eb241f-ad4b-459a-8894-9067745f9ac4",
+				"method": "GET"
+			},
+			{
+				"id": "df8d875c-b6b8-4df3-a49c-62be5b9702e0",
 				"method": "GET"
 			},
 			{
@@ -2304,7 +3325,19 @@
 				"method": "GET"
 			},
 			{
+				"id": "33f263ba-dd80-423d-b987-cab785e8a042",
+				"method": "POST"
+			},
+			{
+				"id": "582bfacd-7994-4ccf-8ae2-e7225c37606d",
+				"method": "POST"
+			},
+			{
 				"id": "db25850d-735e-4ed6-bdbc-35aa0dd100ab",
+				"method": "GET"
+			},
+			{
+				"id": "ecb2be2c-a52c-4675-8b45-989d47df0ec4",
 				"method": "GET"
 			}
 		]

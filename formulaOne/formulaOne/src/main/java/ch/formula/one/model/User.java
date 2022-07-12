@@ -13,6 +13,16 @@ public class User {
     private String password;
     private String userRole;
 
+    public User(String userUUID, String userName, String password, String userRole) {
+        this.userUUID = userUUID;
+        this.userName = userName;
+        this.password = password;
+        this.userRole = userRole;
+    }
+
+    public User() {
+    }
+
     /**
      * gets userUUID
      *

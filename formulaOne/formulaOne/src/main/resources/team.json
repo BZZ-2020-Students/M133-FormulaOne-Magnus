@@ -1,10 +1,1 @@
-[
-  {
-    "teamUUID": "f2095f89-4a09-40b7-80b7-31915f629d93",
-    "name": "Mercedes-AMG Petronas F1 Team",
-    "engine": "Mercedes-AMG F1 W13 E Performance",
-    "chassis": "Mercedes-AMG M13",
-    "teamPrincipal": "Toto Wolf",
-    "seasonUUID": "86b51fbf-7723-4a97-996b-a61efbf7e997"
-  }
-]
+[{"teamUUID":"f2095f89-4a09-40b7-80b7-31915f629d93","name":"Mercedes-AMG Petronas F1 Team","teamPrincipal":"Mercedes-AMG F1 W13 E Performance","engine":"Mercedes-AMG M13","chassis":"Toto Wolf","seasonUUID":"86b51fbf-7723-4a97-996b-a61efbf7e997"}]

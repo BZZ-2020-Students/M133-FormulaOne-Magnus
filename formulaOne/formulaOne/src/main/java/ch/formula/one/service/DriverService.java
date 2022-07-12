@@ -3,9 +3,11 @@ package ch.formula.one.service;
 import ch.formula.one.data.DataHandler;
 import ch.formula.one.model.Driver;
 import ch.formula.one.model.Season;
+import jakarta.annotation.security.RolesAllowed;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.*;
 import jakarta.ws.rs.*;
+import jakarta.ws.rs.core.Cookie;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 import java.util.List;
@@ -28,13 +30,22 @@ public class DriverService {
     @Path("list")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public Response listDrivers() {
-        List<Driver> driverList = DataHandler.readAllDrivers();
-        Response response = Response
-                .status(200)
-                .entity(driverList)
-                .build();
-        return response;
+    public Response listDrivers(
+            @CookieParam("userRole") Cookie cookie
+    ) {
+        if (cookie.getValue().equals("guest")) {
+            Response response = Response
+                    .status(403)
+                    .build();
+            return response;
+        }else {
+            List<Driver> driverList = DataHandler.readAllDrivers();
+            Response response = Response
+                    .status(200)
+                    .entity(driverList)
+                    .build();
+            return response;
+        }
     }
 
     /**
@@ -47,17 +58,25 @@ public class DriverService {
     @Path("read")
     @Produces(MediaType.APPLICATION_JSON)
     public Response readDriver(
-            @QueryParam("uuid") String driverUUID
+            @QueryParam("uuid") String driverUUID,
+            @CookieParam("userRole") Cookie cookie
     ) {
-        int httpStatus = 200;
-        Driver driver = DataHandler.readDriverByUUID(driverUUID);
-        if (driver == null) {
-            httpStatus = 410;
+        if (cookie.getValue().equals("guest")) {
+            Response response = Response
+                    .status(403)
+                    .build();
+            return response;
+        }else {
+            int httpStatus = 200;
+            Driver driver = DataHandler.readDriverByUUID(driverUUID);
+            if (driver == null) {
+                httpStatus = 410;
+            }
+            return Response
+                    .status(httpStatus)
+                    .entity(driver)
+                    .build();
         }
-        return Response
-                .status(httpStatus)
-                .entity(driver)
-                .build();
     }
 
     /**
@@ -86,32 +105,39 @@ public class DriverService {
             @FormParam("wins") Integer wins,
             @Pattern(regexp = "|[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}")
             @NotEmpty
-            @FormParam("teamUUID") String teamUUID
+            @FormParam("teamUUID") String teamUUID,
+            @CookieParam("userRole") Cookie cookie
 
     ) {
+        if (cookie.getValue().equals("guest")||cookie.getValue().equals("user")) {
+            Response response = Response
+                    .status(403)
+                    .build();
+            return response;
+        }else {
+            int httpStatus = 400;
+            String entity = "faield";
 
-        int httpStatus = 400;
-        String entity = "faield";
+            if (DataHandler.readTeamByUUID(teamUUID) != null) {
+                Driver driver = new Driver();
+                driver.setDriverUUID(UUID.randomUUID().toString());
+                driver.setName(name);
+                driver.setFirstname(firstname);
+                driver.setFirstDriver(firstDriver);
+                driver.setWins(wins);
+                driver.setTeamUUID(teamUUID);
 
-        if (DataHandler.readTeamByUUID(teamUUID) != null) {
-            Driver driver = new Driver();
-            driver.setDriverUUID(UUID.randomUUID().toString());
-            driver.setName(name);
-            driver.setFirstname(firstname);
-            driver.setFirstDriver(firstDriver);
-            driver.setWins(wins);
-            driver.setTeamUUID(teamUUID);
+                DataHandler.insertDriver(driver);
 
-            DataHandler.insertDriver(driver);
+                httpStatus = 200;
+                entity = "Driver successfully inserted";
+            }
 
-            httpStatus = 200;
-            entity = "Driver successfully inserted";
+            return Response
+                    .status(httpStatus)
+                    .entity(entity)
+                    .build();
         }
-
-        return Response
-                .status(httpStatus)
-                .entity(entity)
-                .build();
     }
 
     /**
@@ -125,22 +151,28 @@ public class DriverService {
     public Response deleteDriver(
             @Pattern(regexp = "|[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}")
             @NotEmpty
-            @QueryParam("uuid") String driverUUID
+            @QueryParam("uuid") String driverUUID,
+            @CookieParam("userRole") Cookie cookie
     ) {
-        DataHandler.deleteDriver(driverUUID);
+        if (cookie.getValue().equals("guest")||cookie.getValue().equals("user")) {
+            Response response = Response
+                    .status(403)
+                    .build();
+            return response;
+        }else {
+            int httpStatus = 400;
+            String entity = "faild";
+            if (DataHandler.readDriverByUUID(driverUUID) != null) {
+                DataHandler.deleteDriver(driverUUID);
+                httpStatus = 200;
+                entity = "Driver successfully deleted";
+            }
 
-        int httpStatus = 400;
-        String entity = "faild";
-        if(DataHandler.readDriverByUUID(driverUUID) != null){
-            DataHandler.deleteDriver(driverUUID);
-            httpStatus = 200;
-            entity = "Driver successfully deleted";
+            return Response
+                    .status(httpStatus)
+                    .entity(entity)
+                    .build();
         }
-
-        return Response
-                .status(httpStatus)
-                .entity(entity)
-                .build();
     }
 
     /**
@@ -155,12 +187,19 @@ public class DriverService {
             @Valid @BeanParam Driver d,
             @NotEmpty
             @Pattern(regexp = "|[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}")
-            @FormParam("teamUUID") String teamUUID
+            @FormParam("teamUUID") String teamUUID,
+            @CookieParam("userRole") Cookie cookie
     ) {
-        int httpStatus = 400;
-        String entity = "faild";
+        if (cookie.getValue().equals("guest")||cookie.getValue().equals("user")) {
+            Response response = Response
+                    .status(403)
+                    .build();
+            return response;
+        }else {
+            int httpStatus = 400;
+            String entity = "faild";
 
-            if (DataHandler.readTeamByUUID(teamUUID) != null){
+            if (DataHandler.readTeamByUUID(teamUUID) != null) {
                 Driver driver = DataHandler.readDriverByUUID(d.getDriverUUID());
                 if (driver != null) {
                     driver.setDriverUUID(d.getDriverUUID());
@@ -177,9 +216,10 @@ public class DriverService {
                 }
             }
 
-        return Response
-                .status(httpStatus)
-                .entity(entity)
-                .build();
+            return Response
+                    .status(httpStatus)
+                    .entity(entity)
+                    .build();
+        }
     }
 }
