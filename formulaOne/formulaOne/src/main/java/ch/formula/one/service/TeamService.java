@@ -36,7 +36,7 @@ public class TeamService {
     public Response listTeams(
             @CookieParam("userRole") Cookie cookie
     ) {
-        if (cookie.getValue().equals("guest")) {
+        if (!cookie.getValue().equals("admin")&&!cookie.getValue().equals("user")) {
             Response response = Response
                     .status(403)
                     .build();
@@ -63,7 +63,7 @@ public class TeamService {
             @QueryParam("uuid") String teamUUID,
             @CookieParam("userRole") Cookie cookie
     ) {
-        if (cookie.getValue().equals("guest")) {
+        if (!cookie.getValue().equals("admin")&&!cookie.getValue().equals("user")) {
             Response response = Response
                     .status(403)
                     .build();
@@ -113,7 +113,7 @@ public class TeamService {
             @CookieParam("userRole") Cookie cookie
 
     ) {
-        if (cookie.getValue().equals("guest")||cookie.getValue().equals("user")) {
+        if (!cookie.getValue().equals("admin")) {
             Response response = Response
                     .status(403)
                     .build();
@@ -159,7 +159,7 @@ public class TeamService {
             @QueryParam("uuid") String teamUUID,
             @CookieParam("userRole") Cookie cookie
     ) {
-        if (cookie.getValue().equals("guest") || cookie.getValue().equals("user")) {
+        if (!cookie.getValue().equals("admin")) {
             Response response = Response
                     .status(403)
                     .build();
@@ -196,7 +196,7 @@ public class TeamService {
             @FormParam("seasonUUID") String seasonUUID,
             @CookieParam("userRole") Cookie cookie
     ) {
-        if (cookie.getValue().equals("guest") || cookie.getValue().equals("user")) {
+        if (!cookie.getValue().equals("admin")) {
             Response response = Response
                     .status(403)
                     .build();

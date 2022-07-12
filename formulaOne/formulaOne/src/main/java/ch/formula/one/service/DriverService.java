@@ -33,7 +33,7 @@ public class DriverService {
     public Response listDrivers(
             @CookieParam("userRole") Cookie cookie
     ) {
-        if (cookie.getValue().equals("guest")) {
+        if (!cookie.getValue().equals("admin")&&!cookie.getValue().equals("user")) {
             Response response = Response
                     .status(403)
                     .build();
@@ -61,7 +61,7 @@ public class DriverService {
             @QueryParam("uuid") String driverUUID,
             @CookieParam("userRole") Cookie cookie
     ) {
-        if (cookie.getValue().equals("guest")) {
+        if (!cookie.getValue().equals("admin")&&!cookie.getValue().equals("user")) {
             Response response = Response
                     .status(403)
                     .build();
@@ -109,7 +109,7 @@ public class DriverService {
             @CookieParam("userRole") Cookie cookie
 
     ) {
-        if (cookie.getValue().equals("guest")||cookie.getValue().equals("user")) {
+        if (!cookie.getValue().equals("admin")) {
             Response response = Response
                     .status(403)
                     .build();
@@ -154,7 +154,7 @@ public class DriverService {
             @QueryParam("uuid") String driverUUID,
             @CookieParam("userRole") Cookie cookie
     ) {
-        if (cookie.getValue().equals("guest")||cookie.getValue().equals("user")) {
+        if (!cookie.getValue().equals("admin")) {
             Response response = Response
                     .status(403)
                     .build();
@@ -190,7 +190,7 @@ public class DriverService {
             @FormParam("teamUUID") String teamUUID,
             @CookieParam("userRole") Cookie cookie
     ) {
-        if (cookie.getValue().equals("guest")||cookie.getValue().equals("user")) {
+        if (!cookie.getValue().equals("admin")) {
             Response response = Response
                     .status(403)
                     .build();

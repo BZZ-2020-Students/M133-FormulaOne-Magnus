@@ -37,7 +37,7 @@ public class SeasonService {
     public Response listSeasons(
             @CookieParam("userRole") Cookie cookie
     ) {
-        if (cookie.getValue().equals("guest")) {
+        if (!cookie.getValue().equals("admin")&&!cookie.getValue().equals("user")) {
             Response response = Response
                     .status(403)
                     .build();
@@ -67,7 +67,7 @@ public class SeasonService {
             @QueryParam("uuid") String seasonUUID,
             @CookieParam("userRole") Cookie cookie
     ) {
-        if (cookie.getValue().equals("guest")) {
+        if (!cookie.getValue().equals("admin")&&!cookie.getValue().equals("user")) {
             Response response = Response
                     .status(403)
                     .build();
@@ -103,7 +103,7 @@ public class SeasonService {
             @FormParam("winner") String winner,
             @CookieParam("userRole") Cookie cookie
     ) {
-        if (cookie.getValue().equals("guest")||cookie.getValue().equals("user")) {
+        if (!cookie.getValue().equals("admin")) {
             Response response = Response
                     .status(403)
                     .build();
@@ -138,7 +138,7 @@ public class SeasonService {
             @QueryParam("uuid") String seasonUUID,
             @CookieParam("userRole") Cookie cookie
     ) {
-        if (cookie.getValue().equals("guest")||cookie.getValue().equals("user")) {
+        if (!cookie.getValue().equals("admin")) {
             Response response = Response
                     .status(403)
                     .build();
@@ -171,7 +171,7 @@ public class SeasonService {
             @Valid @BeanParam Season s,
             @CookieParam("userRole") Cookie cookie
     ) {
-        if (cookie.getValue().equals("guest")||cookie.getValue().equals("user")) {
+        if (!cookie.getValue().equals("admin")) {
             Response response = Response
                     .status(403)
                     .build();
