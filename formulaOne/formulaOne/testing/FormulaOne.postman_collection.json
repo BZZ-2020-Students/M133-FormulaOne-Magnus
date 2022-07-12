@@ -5081,34 +5081,21 @@
 					"name": "2FA",
 					"event": [
 						{
-							"listen": "prerequest",
+							"listen": "test",
 							"script": {
 								"exec": [
-									""
+									"pm.test(\"Status test\", function () {\r",
+									"    pm.response.to.have.status(403);\r",
+									"});"
 								],
 								"type": "text/javascript"
 							}
 						},
 						{
-							"listen": "test",
+							"listen": "prerequest",
 							"script": {
 								"exec": [
-									"pm.test(\"Status for \" + pm.collectionVariables.get(\"username\"), () => {\r",
-									"    var expected = 0\r",
-									"        switch (pm.collectionVariables.get(\"username\")) {\r",
-									"            case \"admin\":\r",
-									"            case \"user\":\r",
-									"                expected = 200;\r",
-									"                break;\r",
-									"            \r",
-									"            \r",
-									"            case \"guest\":\r",
-									"                expected = 403;\r",
-									"                break;\r",
-									"        }\r",
-									"        pm.response.to.have.status(expected);\r",
-									"    }\r",
-									")"
+									""
 								],
 								"type": "text/javascript"
 							}
@@ -5122,7 +5109,7 @@
 							"urlencoded": [
 								{
 									"key": "secret",
-									"value": "10",
+									"value": "",
 									"type": "text"
 								}
 							]

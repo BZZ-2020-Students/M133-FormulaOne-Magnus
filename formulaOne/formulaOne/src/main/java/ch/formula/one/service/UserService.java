@@ -85,6 +85,10 @@ public class UserService {
                 .build();
     }
 
+    /**
+     * logoff-service
+     * @return a default Cookie
+     */
     @PermitAll
     @Path("logoff")
     @GET
@@ -106,6 +110,13 @@ public class UserService {
                 .build();
     }
 
+    /**
+     *  two facture authorization
+     * @param secret
+     * @param cookie
+     * @param user
+     * @return
+     */
     @RolesAllowed({"admin", "user"})
     @Path("2fa")
     @POST
@@ -117,8 +128,6 @@ public class UserService {
     ) {
         int httpStatus = 200;
         String number = cookie.getValue();
-        secret = "10";
-        number = "10";
         System.out.println("uservalue22 " + user.getValue());
         if (number == null || !number.equals(secret) || user.getValue().equals("guest")) {
             httpStatus = 403;

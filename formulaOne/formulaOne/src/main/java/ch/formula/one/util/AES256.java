@@ -1,5 +1,7 @@
 package ch.formula.one.util;
 
+import ch.formula.one.service.Config;
+
 import javax.crypto.*;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.PBEKeySpec;
@@ -15,15 +17,21 @@ import java.util.Base64;
  * @author Lokesh Gupta(<a href="https://howtodoinjava.com/java/java-security/aes-256-encryption-decryption/">https://howtodoinjava.com/java/java-security/aes-256-encryption-decryption/</a>)   *
  */
 public class AES256 {
-    private static final String SECRET_KEY = "my_super_secret_key";
-    private static final String SALT = "ssshhhhhhhhhhh!!!!";
+    private static String SECRET_KEY;
+    private static String SALT;
 
+
+    private static void getKey(){
+        SECRET_KEY = Config.getProperty("SECRET_KEY");
+        SALT = Config.getProperty("SALT");
+    }
 
     private interface Executable {
         String execute(IvParameterSpec ivSpec, SecretKeyFactory factory, KeySpec spec, SecretKey tmp, SecretKeySpec secretKey) throws IllegalBlockSizeException, BadPaddingException, InvalidAlgorithmParameterException, InvalidKeyException, NoSuchPaddingException, NoSuchAlgorithmException;
     }
 
     private static String execute(Executable exec) {
+        getKey();
         try {
             byte[] iv = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
             IvParameterSpec ivspec = new IvParameterSpec(iv);
@@ -43,6 +51,7 @@ public class AES256 {
     }
 
     public static String encrypt(String strToEncrypt) {
+        getKey();
         return execute(
                 (ivSpec, factory, spec, tmp, secretKey) -> {
                     Cipher cipher;
@@ -54,6 +63,7 @@ public class AES256 {
     }
 
     public static String decrypt(String strToDecrypt) {
+        getKey();
         return execute(
                 (ivSpec, factory, spec, tmp, secretKey) -> {
                     Cipher cipher;

@@ -9,8 +9,17 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.IOException;
 import java.nio.file.Paths;
-
+/**
+ * CreateJSON resets the JSON files
+ *
+ * @author Magnus Götz
+ * @version 1.0
+ * @since 2022-07-11
+ */
 public class CreateJSON {
+    /**
+     * Reset all JSON files
+     */
     public static void reset() {
         Season[] seasons = {
                 new Season("86b51fbf-7723-4a97-996b-a61efbf7e997", "2022", "-"),
